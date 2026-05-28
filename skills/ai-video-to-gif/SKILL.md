@@ -23,7 +23,7 @@ requiredEnvVars:
 
 - 用户提出“这段视频怎么转 GIF”这类问题，需要快速拆解目标、判断重点并形成可执行结果
 - 市场营销、产品、technical、software需要围绕视频转 GIF 优化助手生成GIF 转换参数建议、FFmpeg 转换命令、GIF artifact 或质量检查清单
-- 用户已经准备了视频转 GIF 要求（粘贴本次要交给「视频转 GIF 优化助手」处理的转换要求，包括截取时间、目标尺寸、…）、视频文件（上传要转换成 GIF 的 mp4、mov 或 webm 视频文件；如果环境可访问视…）、视频链接（填写公开可访问的链接；如果链接需要登录、权限或 Cookie，请改为上传文件或粘贴…），希望整理成可执行的分析或优化结果
+- 用户已经准备了截取区间与循环方式（说明希望截取的开始时间、持续时长、是否循环、是否需要保留完整动作或突出关键步骤。）、GIF 使用场景（说明「视频转 GIF 优化助手」输出要服务的页面、文档、邮件、社媒、聊天或产品演示…）、视频链接（填写公开可访问的链接；如果链接需要登录、权限或 Cookie，请改为上传文件或粘贴…），希望整理成可执行的分析或优化结果
 - 用户需要把视频转 GIF 优化助手相关材料转成清晰结论、优先级和下一步动作
 
 ### 调用方式
@@ -41,18 +41,18 @@ python3 scripts/run.py --params '{}'
 **带常用参数调用**
 
 ```bash
-python3 scripts/run.py --params '{"materialText":"视频转 GIF 要求"}'
+python3 scripts/run.py --params '{"goal":"截取区间与循环方式"}'
 ```
 
 ### 参数说明
 
 | 参数 | 类型 | 必填 | 默认 | 说明 |
 | --- | --- | --- | --- | --- |
-| `materialText` | string | 否 | - | 粘贴本次要交给「视频转 GIF 优化助手」处理的转换要求，包括截取时间、目标尺寸、帧率、循环次数、用途和文件大小限制 |
-| `materialFile` | string | 否 | - | 上传要转换成 GIF 的 mp4、mov 或 webm 视频文件；如果环境可访问视频和 FFmpeg，可交付 GIF artifact |
-| `materialUrl` | string | 否 | - | 填写公开可访问的链接；如果链接需要登录、权限或 Cookie，请改为上传文件或粘贴内容；需要传可访问的完整 URL |
-| `audience` | string | 否 | - | 说明「视频转 GIF 优化助手」输出要服务的页面、文档、邮件、社媒、聊天或产品演示场景 |
 | `goal` | string | 否 | - | 说明希望截取的开始时间、持续时长、是否循环、是否需要保留完整动作或突出关键步骤 |
+| `audience` | string | 否 | - | 说明「视频转 GIF 优化助手」输出要服务的页面、文档、邮件、社媒、聊天或产品演示场景 |
+| `materialUrl` | string | 否 | - | 填写公开可访问的链接；如果链接需要登录、权限或 Cookie，请改为上传文件或粘贴内容；需要传可访问的完整 URL |
+| `materialFile` | string | 否 | - | 上传要转换成 GIF 的 mp4、mov 或 webm 视频文件；如果环境可访问视频和 FFmpeg，可交付 GIF artifact |
+| `materialText` | string | 否 | - | 粘贴本次要交给「视频转 GIF 优化助手」处理的转换要求，包括截取时间、目标尺寸、帧率、循环次数、用途和文件大小限制 |
 | `brandRequirements` | string | 否 | - | 补充目标宽度、帧率、文件大小上限、dither 偏好、HDR tonemap 要求或人工复核重点 |
 
 完整机器可读参数结构见 `references/form-schema.json`。
@@ -70,14 +70,14 @@ python3 scripts/run.py --params '{"materialText":"视频转 GIF 要求"}'
 下面的示例参数可直接传给 `scripts/run.py`，runner 会把它们发送给 AI Skills API。
 
 ```bash
-python3 scripts/run.py --params '{"materialText":"视频转 GIF 要求"}'
+python3 scripts/run.py --params '{"goal":"截取区间与循环方式"}'
 ```
 
 等价的 `--params` JSON：
 
 ```json
 {
-  "materialText": "视频转 GIF 要求"
+  "goal": "截取区间与循环方式"
 }
 ```
 
@@ -99,7 +99,7 @@ python3 scripts/run.py --params '{"materialText":"视频转 GIF 要求"}'
 ### 交付内容
 
 - GIF 转换参数建议、FFmpeg 转换命令、GIF artifact 或质量检查清单：围绕用户目标整理可直接阅读、复盘或交付的核心结果。
-- 输入材料解读：结合视频转 GIF 要求（粘贴本次要交给「视频转 GIF 优化助手」处理的转换要求，包括截取时间、目标尺寸、…）、视频文件（上传要转换成 GIF 的 mp4、mov 或 webm 视频文件；如果环境可访问视…）、视频链接（填写公开可访问的链接；如果链接需要登录、权限或 Cookie，请改为上传文件或粘贴…）提炼关键上下文和判断依据。
+- 输入材料解读：结合截取区间与循环方式（说明希望截取的开始时间、持续时长、是否循环、是否需要保留完整动作或突出关键步骤。）、GIF 使用场景（说明「视频转 GIF 优化助手」输出要服务的页面、文档、邮件、社媒、聊天或产品演示…）、视频链接（填写公开可访问的链接；如果链接需要登录、权限或 Cookie，请改为上传文件或粘贴…）提炼关键上下文和判断依据。
 - 下一步动作：给出优先级、执行建议或可继续加工的内容框架。
 
 ### 结果使用建议

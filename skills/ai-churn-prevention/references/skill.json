@@ -15,7 +15,6 @@
   ],
   "industry": [
     "software",
-    "business-services",
     "ecommerce"
   ],
   "hidden": false,
@@ -27,16 +26,38 @@
   "comingSoon": false,
   "providerType": "llm",
   "providerConfig": {
-    "asyncProvider": "skills2api-scheduler",
-    "resultContract": "ResultEnvelope",
+    "trend": {
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。",
+      "sourceIds": [
+        "https://www.skills.sh/coreyhaines31/marketingskills"
+      ],
+      "sourceNotes": "skills_sh_all_time: coreyhaines31/marketingskills/churn-prevention"
+    },
+    "catalog": {
+      "icon": "Sparkles"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "none",
+    "bulkSupply": {
+      "wave": "external-hot-open-source-2026-05-17",
+      "batchId": "external-hot-open-source-2026-05-17",
+      "candidateId": "churn-prevention",
+      "sourceShard": "external-open-source",
+      "coverageNotes": "用户流失诊断可作为运营和客户成功的材料分析工具。",
+      "primaryIndustry": "software",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "operation",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1"
+    },
     "compliance": {
       "riskTier": "R1",
+      "launchGate": "sample_required",
       "riskDomains": [
         "sales_gtm"
       ],
-      "riskRationale": "用户流失诊断可作为运营和客户成功的材料分析工具。",
       "reviewStatus": "auto_screened",
-      "humanReviewRequired": false,
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "riskRationale": "用户流失诊断可作为运营和客户成功的材料分析工具。",
       "allowedOutputs": [
         "流失归因",
         "挽回优先级",
@@ -46,42 +67,60 @@
         "不得输出未经核验的确定性专业结论",
         "不得代替用户执行第三方平台操作"
       ],
-      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
-      "launchGate": "sample_required"
+      "humanReviewRequired": false
     },
-    "trend": {
-      "sourceIds": [
-        "https://www.skills.sh/coreyhaines31/marketingskills"
-      ],
-      "sourceNotes": "skills_sh_all_time: coreyhaines31/marketingskills/churn-prevention",
-      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
-    },
-    "bulkSupply": {
-      "candidateId": "churn-prevention",
-      "sourceShard": "external-open-source",
-      "wave": "external-hot-open-source-2026-05-17",
-      "batchId": "external-hot-open-source-2026-05-17",
-      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
-      "generatorVersion": "manual-curated-2026-05-17",
-      "primaryProfession": "operation",
-      "primaryIndustry": "software",
-      "coverageNotes": "用户流失诊断可作为运营和客户成功的材料分析工具。"
-    },
+    "safetySha256": "17535ef87f6e4d697b8272d20035263888f9f02fd56911802f4294a3ae17f9ed",
+    "safetyStatus": "allowed",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "ai-churn-prevention",
+    "resultContract": "ResultEnvelope",
     "externalOpenSource": {
       "batchId": "external-hot-open-source-2026-05-17",
-      "candidateId": "churn-prevention",
-      "originalSkillId": "churn-prevention",
+      "license": "unknown_pending_verification",
+      "category": "sales_gtm",
       "sourceRef": "coreyhaines31/marketingskills",
       "sourceUrl": "https://www.skills.sh/coreyhaines31/marketingskills",
+      "importedAt": "2026-05-18T06:28:35.080Z",
+      "candidateId": "churn-prevention",
       "sourceSignal": "skills_sh_all_time",
-      "category": "sales_gtm",
-      "license": "unknown_pending_verification",
-      "importedAt": "2026-05-18T06:28:35.080Z"
+      "originalSkillId": "churn-prevention"
+    },
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "ai-churn-prevention",
+      "originalSlug": "ai-churn-prevention",
+      "agentId": "ai-churn-prevention",
+      "idStrategy": "openclaw-hermes"
     }
   },
-  "painPoints": [],
-  "withSkill": [],
-  "youCan": [],
+  "coreValue": "流失信号越早看见，越能挽回",
+  "scenario": "适用于已经准备好用户反馈、使用记录摘要、流失信号等材料的用户。",
+  "usage": "资料整理 / 结构摘要 / 缺口提醒 / 行动项",
+  "painPoints": [
+    "文档、表格或沟通记录信息量大，重点和责任人容易散落",
+    "数据或资料整理需要区分事实、缺口、重复项和风险",
+    "后续执行前需要明确行动项、负责人、优先级和待确认问题"
+  ],
+  "withSkill": [
+    "读取文档、表格、会议记录或客户资料",
+    "提炼结构摘要、关键缺口、重复冲突和风险点",
+    "输出行动项、整理结果、复核提醒和交接清单"
+  ],
+  "youCan": [
+    "提交用户反馈",
+    "获得结构摘要、清理建议、缺口提醒和行动项",
+    "下载或复制结果，用于后续人工复核和执行"
+  ],
+  "downloadCount": 1200,
+  "collectionCount": 11214,
+  "shareCount": 5518,
+  "reviewCount": 8,
   "invocationMode": "execute",
   "invocation": {
     "type": "execute",
@@ -90,84 +129,85 @@
   "formSchema": {
     "type": "object",
     "required": [],
-    "properties": {
-      "materialText": {
-        "type": "string",
-        "title": "页面、流程或实验材料",
-        "description": "粘贴页面文案、流程说明、实验想法、转化目标、用户反馈或阻力线索。",
-        "x-component": "Textarea",
-        "x-rows": 8
-      },
-      "materialFile": {
-        "type": "string",
-        "title": "转化资料文件",
-        "description": "上传页面截图、转化数据、用户反馈、实验规划或产品资料。",
-        "format": "binary",
-        "x-component": "FileUpload",
-        "x-max-size": 20971520,
-        "x-accept": ".xlsx,.xls,.csv,.tsv"
-      },
-      "materialUrl": {
-        "type": "string",
-        "title": "页面或流程链接",
-        "description": "填写公开可访问的落地页、注册页、付费墙、流程或参考链接。",
-        "format": "uri"
-      },
-      "audience": {
-        "type": "string",
-        "title": "目标用户",
-        "description": "说明用户阶段、细分人群、流量来源、设备或使用场景。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "goal": {
-        "type": "string",
-        "title": "转化目标",
-        "description": "说明要优化的注册、激活、升级、留存、付费或实验指标。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "brandRequirements": {
-        "type": "string",
-        "title": "实验与发布边界",
-        "description": "补充样本量、指标口径、品牌限制、技术约束、不可改动项或上线复核重点。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      }
-    },
     "x-layout": {
       "mode": "contextComposer",
-      "primaryField": "materialText",
+      "rows": 5,
+      "placeholder": "粘贴页面文案、流程说明、实验想法或转化目标",
       "primaryTabs": [
         {
           "id": "paste",
-          "label": "粘贴转化材料",
+          "icon": "FileText",
           "field": "materialText",
-          "icon": "FileText"
+          "label": "粘贴转化材料"
         },
         {
           "id": "upload",
-          "label": "上传资料",
+          "icon": "Upload",
           "field": "materialFile",
-          "icon": "Upload"
+          "label": "上传资料"
         },
         {
           "id": "link",
-          "label": "填页面链接",
+          "icon": "Link",
           "field": "materialUrl",
-          "icon": "Link"
+          "label": "填页面链接"
         }
       ],
+      "primaryField": "materialText",
+      "advancedLabel": "补充实验范围",
       "primaryControlFields": [],
       "advancedControlFields": [
         "audience",
         "goal",
         "brandRequirements"
-      ],
-      "advancedLabel": "补充实验范围",
-      "rows": 5,
-      "placeholder": "粘贴页面文案、流程说明、实验想法或转化目标"
+      ]
     },
+    "properties": {
+      "goal": {
+        "type": "string",
+        "title": "转化目标",
+        "x-rows": 3,
+        "description": "说明要优化的注册、激活、升级、留存、付费或实验指标。",
+        "x-component": "Textarea"
+      },
+      "audience": {
+        "type": "string",
+        "title": "目标用户",
+        "x-rows": 3,
+        "description": "说明用户阶段、细分人群、流量来源、设备或使用场景。",
+        "x-component": "Textarea"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "页面或流程链接",
+        "format": "uri",
+        "description": "填写公开可访问的落地页、注册页、付费墙、流程或参考链接。"
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "转化资料文件",
+        "format": "binary",
+        "x-accept": ".xlsx,.xls,.csv,.tsv",
+        "x-max-size": 20971520,
+        "description": "上传页面截图、转化数据、用户反馈、实验规划或产品资料。",
+        "x-component": "FileUpload"
+      },
+      "materialText": {
+        "type": "string",
+        "title": "页面、流程或实验材料",
+        "x-rows": 8,
+        "description": "粘贴页面文案、流程说明、实验想法、转化目标、用户反馈或阻力线索。",
+        "x-component": "Textarea"
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "实验与发布边界",
+        "x-rows": 3,
+        "description": "补充样本量、指标口径、品牌限制、技术约束、不可改动项或上线复核重点。",
+        "x-component": "Textarea"
+      }
+    },
+    "x-profile-context": true,
     "x-required-any-of": [
       {
         "fields": [
@@ -177,8 +217,6 @@
         ],
         "message": "请填写转化材料、上传资料或提供页面链接"
       }
-    ],
-    "x-profile-context": true,
-    "x-submit-label": "整理行动清单"
+    ]
   }
 }

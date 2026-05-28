@@ -1,0 +1,122 @@
+{
+  "id": "ai-douyin-realtime-hot-rise",
+  "slug": "ai-douyin-realtime-hot-rise",
+  "question": "拍什么会有流量?",
+  "skillName": "抖音上升热点选题助手",
+  "tags": [
+    "抖音",
+    "热点",
+    "趋势",
+    "内容创作",
+    "流量"
+  ],
+  "profession": [
+    "内容创作者",
+    "运营",
+    "电商",
+    "营销"
+  ],
+  "industry": [
+    "新媒体",
+    "电商",
+    "娱乐",
+    "通用"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "api",
+  "providerConfig": {
+    "catalog": {
+      "icon": "TrendingUp",
+      "rating": 4.9,
+      "displayOrder": 3,
+      "subProfession": [
+        "content-creator",
+        "analyst"
+      ]
+    },
+    "endpoint": "/api/v1/douyin/billboard/fetch_hot_rise_list",
+    "apiSource": "tikhub",
+    "fixedParams": {
+      "page": 1,
+      "page_size": 50
+    },
+    "release": {
+      "originalId": "douyin-realtime-hot-rise",
+      "originalSlug": "douyin-realtime-hot-rise",
+      "agentId": "ai-douyin-realtime-hot-rise",
+      "idStrategy": "openclaw-hermes"
+    }
+  },
+  "coreValue": "正在上升的热点，你才有空间，助力内容选题。",
+  "scenario": "适用于美妆、服饰、美食等赛道的抖音带货达人与品牌自播团队。",
+  "usage": "热点追踪 / 爆款选题 / 流量分析",
+  "painPoints": [
+    "不知道拍什么，选题枯竭",
+    "抖音官方展示的热点已经是红海",
+    "大量热点跟我做的方向又不匹配"
+  ],
+  "withSkill": [
+    "面向热点方向，定向选题",
+    "正在上升的热点，你才有空间",
+    "细分方向分析上升热点，与你相关"
+  ],
+  "youCan": [
+    "试用免费的\"预测功能\"，验证热点准不准",
+    "输入你的赛道，获取相关热点推荐",
+    "把节省下来的找选题时间，用来多睡一会儿"
+  ],
+  "downloadCount": 16800,
+  "collectionCount": 8948,
+  "shareCount": 4618,
+  "reviewCount": 12,
+  "invocationMode": "execute",
+  "invocation": {
+    "type": "execute",
+    "executePath": "/api/execute"
+  },
+  "formSchema": {
+    "type": "object",
+    "properties": {
+      "tag": {
+        "type": "string",
+        "title": "热点分类",
+        "description": "筛选特定分类的热点（从分类接口获取）",
+        "x-component": "CategorySelect",
+        "x-component-props": {
+          "allowClear": true,
+          "placeholder": "全部分类"
+        }
+      },
+      "order": {
+        "enum": [
+          "rank",
+          "rank_diff"
+        ],
+        "type": "string",
+        "title": "排序方式",
+        "default": "rank",
+        "enumNames": [
+          "热度排序",
+          "变化排序"
+        ],
+        "description": "选择热点排序方式"
+      },
+      "keyword": {
+        "type": "string",
+        "title": "搜索词",
+        "description": "搜索特定关键词的热点",
+        "x-component-props": {
+          "maxLength": 100,
+          "allowClear": true,
+          "placeholder": "输入关键词搜索"
+        }
+      }
+    }
+  }
+}

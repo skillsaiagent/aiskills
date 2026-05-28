@@ -27,16 +27,38 @@
   "comingSoon": false,
   "providerType": "llm",
   "providerConfig": {
-    "asyncProvider": "skills2api-scheduler",
-    "resultContract": "ResultEnvelope",
+    "trend": {
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。",
+      "sourceIds": [
+        "https://www.skills.sh/jimliu/baoyu-skills"
+      ],
+      "sourceNotes": "skills_sh_trending: jimliu/baoyu-skills/baoyu-image-gen"
+    },
+    "catalog": {
+      "icon": "ImageUp"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "medium",
+    "bulkSupply": {
+      "wave": "external-hot-open-source-2026-05-17",
+      "batchId": "external-hot-open-source-2026-05-17",
+      "candidateId": "baoyu-image-gen",
+      "sourceShard": "external-open-source",
+      "coverageNotes": "skills.sh all-time/trending 信号显示 baoyu-image-gen 有用户需求；平台展示为 design_media 业务助手目录，输出可复核诊断、建议或生产准备包。",
+      "primaryIndustry": "software",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "designer",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1"
+    },
     "compliance": {
       "riskTier": "R1",
+      "launchGate": "sample_required",
       "riskDomains": [
         "media_generation"
       ],
-      "riskRationale": "skills.sh all-time/trending 信号显示 baoyu-image-gen 有用户需求；平台展示为 design_media 业务助手目录，输出可复核诊断、建议或生产准备包。",
       "reviewStatus": "auto_screened",
-      "humanReviewRequired": false,
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "riskRationale": "skills.sh all-time/trending 信号显示 baoyu-image-gen 有用户需求；平台展示为 design_media 业务助手目录，输出可复核诊断、建议或生产准备包。",
       "allowedOutputs": [
         "视觉/创意诊断",
         "提示词或分镜方案",
@@ -46,42 +68,60 @@
         "不得输出未经核验的确定性专业结论",
         "不得代替用户执行第三方平台操作"
       ],
-      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
-      "launchGate": "sample_required"
+      "humanReviewRequired": false
     },
-    "trend": {
-      "sourceIds": [
-        "https://www.skills.sh/jimliu/baoyu-skills"
-      ],
-      "sourceNotes": "skills_sh_trending: jimliu/baoyu-skills/baoyu-image-gen",
-      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
-    },
-    "bulkSupply": {
-      "candidateId": "baoyu-image-gen",
-      "sourceShard": "external-open-source",
-      "wave": "external-hot-open-source-2026-05-17",
-      "batchId": "external-hot-open-source-2026-05-17",
-      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
-      "generatorVersion": "manual-curated-2026-05-17",
-      "primaryProfession": "designer",
-      "primaryIndustry": "software",
-      "coverageNotes": "skills.sh all-time/trending 信号显示 baoyu-image-gen 有用户需求；平台展示为 design_media 业务助手目录，输出可复核诊断、建议或生产准备包。"
-    },
+    "safetySha256": "c6bb63f18d50e99ee40d0f616e9a6d9a1a8dc45ee8d068e2c35b2987b46d27ce",
+    "safetyStatus": "review_required",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "ai-baoyu-image-gen",
+    "resultContract": "ResultEnvelope",
     "externalOpenSource": {
       "batchId": "external-hot-open-source-2026-05-17",
-      "candidateId": "baoyu-image-gen",
-      "originalSkillId": "baoyu-image-gen",
+      "license": "unknown_pending_verification",
+      "category": "media_generation",
       "sourceRef": "jimliu/baoyu-skills",
       "sourceUrl": "https://www.skills.sh/jimliu/baoyu-skills",
+      "importedAt": "2026-05-17T09:36:02.490Z",
+      "candidateId": "baoyu-image-gen",
       "sourceSignal": "skills_sh_trending",
-      "category": "media_generation",
-      "license": "unknown_pending_verification",
-      "importedAt": "2026-05-17T09:36:02.490Z"
+      "originalSkillId": "baoyu-image-gen"
+    },
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "ai-baoyu-image-gen",
+      "originalSlug": "ai-baoyu-image-gen",
+      "agentId": "ai-baoyu-image-gen",
+      "idStrategy": "openclaw-hermes"
     }
   },
-  "painPoints": [],
-  "withSkill": [],
-  "youCan": [],
+  "coreValue": "画面要服务内容目标",
+  "scenario": "适用于已经准备好创意 brief 或截图/参考图、目标平台与风格、品牌约束等材料的用户。",
+  "usage": "内容诊断 / 改写建议 / 可复制稿件 / 发布清单",
+  "painPoints": [
+    "已有素材难以快速变成清晰、可发布的内容",
+    "内容建议需要兼顾受众、平台、品牌和转化目标",
+    "发布前需要检查事实、表达风险和行动引导"
+  ],
+  "withSkill": [
+    "读取主题、草稿、渠道要求或参考素材",
+    "识别结构、表达、证据和转化问题",
+    "输出可复制改稿、发布建议和检查清单"
+  ],
+  "youCan": [
+    "提交创意 brief 或截图/参考图",
+    "获得内容诊断、改写建议和可复制稿件",
+    "下载或复制结果，用于后续人工复核和执行"
+  ],
+  "downloadCount": 1200,
+  "collectionCount": 17587,
+  "shareCount": 5784,
+  "reviewCount": 8,
   "invocationMode": "execute",
   "invocation": {
     "type": "execute",
@@ -90,84 +130,85 @@
   "formSchema": {
     "type": "object",
     "required": [],
-    "properties": {
-      "materialText": {
-        "type": "string",
-        "title": "视觉 brief 或截图说明",
-        "description": "粘贴视觉 brief、截图说明、品牌规范、页面问题、平台规格或修改目标。",
-        "x-component": "Textarea",
-        "x-rows": 8
-      },
-      "materialFile": {
-        "type": "string",
-        "title": "视觉素材文件",
-        "description": "上传截图、图片、演示稿、品牌规范、产品图或视觉参考文件。",
-        "format": "binary",
-        "x-component": "FileUpload",
-        "x-max-size": 20971520,
-        "x-accept": ".png,.jpg,.jpeg,.webp,.gif,.pdf,.pptx,.docx,.txt"
-      },
-      "materialUrl": {
-        "type": "string",
-        "title": "页面或素材链接",
-        "description": "填写公开可访问的页面、素材、设计稿预览或参考链接；受限内容请改为上传。",
-        "format": "uri"
-      },
-      "audience": {
-        "type": "string",
-        "title": "使用场景",
-        "description": "说明视觉素材面向的平台、受众、设备、活动或评审场景。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "goal": {
-        "type": "string",
-        "title": "审查目标",
-        "description": "说明要检查的版面、可读性、品牌一致性、转化目标或交付标准。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "brandRequirements": {
-        "type": "string",
-        "title": "品牌与规格",
-        "description": "补充品牌规范、尺寸比例、平台限制、不可改动元素、无障碍要求或人工复核重点。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      }
-    },
     "x-layout": {
       "mode": "contextComposer",
-      "primaryField": "materialText",
+      "rows": 5,
+      "placeholder": "粘贴视觉 brief、截图说明、品牌规范或修改目标",
       "primaryTabs": [
         {
           "id": "paste",
-          "label": "写视觉 brief",
+          "icon": "FileText",
           "field": "materialText",
-          "icon": "FileText"
+          "label": "写视觉 brief"
         },
         {
           "id": "upload",
-          "label": "上传素材",
+          "icon": "Upload",
           "field": "materialFile",
-          "icon": "Upload"
+          "label": "上传素材"
         },
         {
           "id": "link",
-          "label": "填页面链接",
+          "icon": "Link",
           "field": "materialUrl",
-          "icon": "Link"
+          "label": "填页面链接"
         }
       ],
+      "primaryField": "materialText",
+      "advancedLabel": "补充视觉约束",
       "primaryControlFields": [],
       "advancedControlFields": [
         "audience",
         "goal",
         "brandRequirements"
-      ],
-      "advancedLabel": "补充视觉约束",
-      "rows": 5,
-      "placeholder": "粘贴视觉 brief、截图说明、品牌规范或修改目标"
+      ]
     },
+    "properties": {
+      "goal": {
+        "type": "string",
+        "title": "审查目标",
+        "x-rows": 3,
+        "description": "说明要检查的版面、可读性、品牌一致性、转化目标或交付标准。",
+        "x-component": "Textarea"
+      },
+      "audience": {
+        "type": "string",
+        "title": "使用场景",
+        "x-rows": 3,
+        "description": "说明视觉素材面向的平台、受众、设备、活动或评审场景。",
+        "x-component": "Textarea"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "页面或素材链接",
+        "format": "uri",
+        "description": "填写公开可访问的页面、素材、设计稿预览或参考链接；受限内容请改为上传。"
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "视觉素材文件",
+        "format": "binary",
+        "x-accept": ".png,.jpg,.jpeg,.webp,.gif,.pdf,.pptx,.docx,.txt",
+        "x-max-size": 20971520,
+        "description": "上传截图、图片、演示稿、品牌规范、产品图或视觉参考文件。",
+        "x-component": "FileUpload"
+      },
+      "materialText": {
+        "type": "string",
+        "title": "视觉 brief 或截图说明",
+        "x-rows": 8,
+        "description": "粘贴视觉 brief、截图说明、品牌规范、页面问题、平台规格或修改目标。",
+        "x-component": "Textarea"
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "品牌与规格",
+        "x-rows": 3,
+        "description": "补充品牌规范、尺寸比例、平台限制、不可改动元素、无障碍要求或人工复核重点。",
+        "x-component": "Textarea"
+      }
+    },
+    "x-profile-context": true,
     "x-required-any-of": [
       {
         "fields": [
@@ -177,8 +218,6 @@
         ],
         "message": "请填写视觉 brief、上传素材或提供页面/素材链接"
       }
-    ],
-    "x-profile-context": true,
-    "x-submit-label": "生成视觉方案"
+    ]
   }
 }

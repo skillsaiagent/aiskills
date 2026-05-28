@@ -27,16 +27,38 @@
   "comingSoon": false,
   "providerType": "llm",
   "providerConfig": {
-    "asyncProvider": "skills2api-scheduler",
-    "resultContract": "ResultEnvelope",
+    "trend": {
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。",
+      "sourceIds": [
+        "https://www.skills.sh/coreyhaines31/marketingskills"
+      ],
+      "sourceNotes": "skills_sh_all_time: coreyhaines31/marketingskills/seo-audit"
+    },
+    "catalog": {
+      "icon": "LayoutTemplate"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "medium",
+    "bulkSupply": {
+      "wave": "external-hot-open-source-2026-05-17",
+      "batchId": "external-hot-open-source-2026-05-17",
+      "candidateId": "seo-audit",
+      "sourceShard": "external-open-source",
+      "coverageNotes": "热榜营销类高频 skill，可改造成页面和内容 SEO/GEO 审核工具。",
+      "primaryIndustry": "software",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "marketing",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1"
+    },
     "compliance": {
       "riskTier": "R1",
+      "launchGate": "sample_required",
       "riskDomains": [
         "content_marketing"
       ],
-      "riskRationale": "热榜营销类高频 skill，可改造成页面和内容 SEO/GEO 审核工具。",
       "reviewStatus": "auto_screened",
-      "humanReviewRequired": false,
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "riskRationale": "热榜营销类高频 skill，可改造成页面和内容 SEO/GEO 审核工具。",
       "allowedOutputs": [
         "SEO 诊断",
         "优先级建议",
@@ -46,42 +68,60 @@
         "不得输出未经核验的确定性专业结论",
         "不得代替用户执行第三方平台操作"
       ],
-      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
-      "launchGate": "sample_required"
+      "humanReviewRequired": false
     },
-    "trend": {
-      "sourceIds": [
-        "https://www.skills.sh/coreyhaines31/marketingskills"
-      ],
-      "sourceNotes": "skills_sh_all_time: coreyhaines31/marketingskills/seo-audit",
-      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
-    },
-    "bulkSupply": {
-      "candidateId": "seo-audit",
-      "sourceShard": "external-open-source",
-      "wave": "external-hot-open-source-2026-05-17",
-      "batchId": "external-hot-open-source-2026-05-17",
-      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
-      "generatorVersion": "manual-curated-2026-05-17",
-      "primaryProfession": "marketing",
-      "primaryIndustry": "software",
-      "coverageNotes": "热榜营销类高频 skill，可改造成页面和内容 SEO/GEO 审核工具。"
-    },
+    "safetySha256": "7f26f811b572cee2482dfdf04a8cf789b9f2ac02dc9914f84bdcb1bed73727d2",
+    "safetyStatus": "review_required",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "ai-seo-audit",
+    "resultContract": "ResultEnvelope",
     "externalOpenSource": {
       "batchId": "external-hot-open-source-2026-05-17",
-      "candidateId": "seo-audit",
-      "originalSkillId": "seo-audit",
+      "license": "unknown_pending_verification",
+      "category": "content_marketing",
       "sourceRef": "coreyhaines31/marketingskills",
       "sourceUrl": "https://www.skills.sh/coreyhaines31/marketingskills",
+      "importedAt": "2026-05-18T06:28:35.063Z",
+      "candidateId": "seo-audit",
       "sourceSignal": "skills_sh_all_time",
-      "category": "content_marketing",
-      "license": "unknown_pending_verification",
-      "importedAt": "2026-05-18T06:28:35.063Z"
+      "originalSkillId": "seo-audit"
+    },
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "ai-seo-audit",
+      "originalSlug": "ai-seo-audit",
+      "agentId": "ai-seo-audit",
+      "idStrategy": "openclaw-hermes"
     }
   },
-  "painPoints": [],
-  "withSkill": [],
-  "youCan": [],
+  "coreValue": "问题分清轻重，优化才有顺序",
+  "scenario": "适用于已经准备好公开页面 URL、目标关键词、页面正文等材料的用户。",
+  "usage": "指标解读 / 页面诊断 / 优先级建议 / 修复清单",
+  "painPoints": [
+    "性能指标、页面问题和业务影响难以快速对应",
+    "修复建议需要区分高影响动作、验证方式和依赖条件",
+    "上线前需要保留复测清单、风险说明和人工确认项"
+  ],
+  "withSkill": [
+    "整理页面 URL、性能报告、指标截图或复现场景",
+    "识别影响体验、搜索和转化的关键问题",
+    "输出优先级建议、修复清单和复测步骤"
+  ],
+  "youCan": [
+    "提交公开页面 URL",
+    "获得网站质量诊断、修复建议和复测清单",
+    "下载或复制结果，用于后续人工复核和执行"
+  ],
+  "downloadCount": 1500,
+  "collectionCount": 11793,
+  "shareCount": 4188,
+  "reviewCount": 8,
   "invocationMode": "execute",
   "invocation": {
     "type": "execute",
@@ -90,84 +130,85 @@
   "formSchema": {
     "type": "object",
     "required": [],
-    "properties": {
-      "materialText": {
-        "type": "string",
-        "title": "页面、关键词或内容资料",
-        "description": "粘贴页面内容、关键词、站点结构、搜索目标、竞品摘要或优化问题。",
-        "x-component": "Textarea",
-        "x-rows": 8
-      },
-      "materialFile": {
-        "type": "string",
-        "title": "SEO 资料文件",
-        "description": "上传内容稿、关键词表、站点结构、审计报告或 SEO 规划资料。",
-        "format": "binary",
-        "x-component": "FileUpload",
-        "x-max-size": 20971520,
-        "x-accept": ".xlsx,.xls,.csv,.tsv"
-      },
-      "materialUrl": {
-        "type": "string",
-        "title": "页面或站点链接",
-        "description": "填写公开可访问的页面、站点、SERP、竞品或参考链接。",
-        "format": "uri"
-      },
-      "audience": {
-        "type": "string",
-        "title": "目标受众",
-        "description": "说明搜索用户、目标市场、行业、购买阶段或内容受众。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "goal": {
-        "type": "string",
-        "title": "优化目标",
-        "description": "说明要提升的关键词、搜索意图、可见性、引用机会或转化目标。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "brandRequirements": {
-        "type": "string",
-        "title": "搜索与发布边界",
-        "description": "补充目标地区、语言、品牌限制、不可改动事实、合规要求或人工复核重点。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      }
-    },
     "x-layout": {
       "mode": "contextComposer",
-      "primaryField": "materialText",
+      "rows": 5,
+      "placeholder": "粘贴页面内容、关键词、站点结构或搜索目标",
       "primaryTabs": [
         {
           "id": "paste",
-          "label": "粘贴页面内容",
+          "icon": "FileText",
           "field": "materialText",
-          "icon": "FileText"
+          "label": "粘贴页面内容"
         },
         {
           "id": "upload",
-          "label": "上传 SEO 资料",
+          "icon": "Upload",
           "field": "materialFile",
-          "icon": "Upload"
+          "label": "上传 SEO 资料"
         },
         {
           "id": "link",
-          "label": "填页面链接",
+          "icon": "Link",
           "field": "materialUrl",
-          "icon": "Link"
+          "label": "填页面链接"
         }
       ],
+      "primaryField": "materialText",
+      "advancedLabel": "补充搜索范围",
       "primaryControlFields": [],
       "advancedControlFields": [
         "audience",
         "goal",
         "brandRequirements"
-      ],
-      "advancedLabel": "补充搜索范围",
-      "rows": 5,
-      "placeholder": "粘贴页面内容、关键词、站点结构或搜索目标"
+      ]
     },
+    "properties": {
+      "goal": {
+        "type": "string",
+        "title": "优化目标",
+        "x-rows": 3,
+        "description": "说明要提升的关键词、搜索意图、可见性、引用机会或转化目标。",
+        "x-component": "Textarea"
+      },
+      "audience": {
+        "type": "string",
+        "title": "目标受众",
+        "x-rows": 3,
+        "description": "说明搜索用户、目标市场、行业、购买阶段或内容受众。",
+        "x-component": "Textarea"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "页面或站点链接",
+        "format": "uri",
+        "description": "填写公开可访问的页面、站点、SERP、竞品或参考链接。"
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "SEO 资料文件",
+        "format": "binary",
+        "x-accept": ".xlsx,.xls,.csv,.tsv",
+        "x-max-size": 20971520,
+        "description": "上传内容稿、关键词表、站点结构、审计报告或 SEO 规划资料。",
+        "x-component": "FileUpload"
+      },
+      "materialText": {
+        "type": "string",
+        "title": "页面、关键词或内容资料",
+        "x-rows": 8,
+        "description": "粘贴页面内容、关键词、站点结构、搜索目标、竞品摘要或优化问题。",
+        "x-component": "Textarea"
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "搜索与发布边界",
+        "x-rows": 3,
+        "description": "补充目标地区、语言、品牌限制、不可改动事实、合规要求或人工复核重点。",
+        "x-component": "Textarea"
+      }
+    },
+    "x-profile-context": true,
     "x-required-any-of": [
       {
         "fields": [
@@ -177,8 +218,6 @@
         ],
         "message": "请填写页面/关键词资料、上传 SEO 文件或提供页面链接"
       }
-    ],
-    "x-profile-context": true,
-    "x-submit-label": "诊断搜索机会"
+    ]
   }
 }

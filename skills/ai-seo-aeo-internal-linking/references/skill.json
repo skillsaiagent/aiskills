@@ -27,16 +27,38 @@
   "comingSoon": false,
   "providerType": "llm",
   "providerConfig": {
-    "asyncProvider": "skills2api-scheduler",
-    "resultContract": "ResultEnvelope",
+    "trend": {
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。",
+      "sourceIds": [
+        "https://skillsmp.com/skills/sickn33-antigravity-awesome-skills-plugins-antigravity-awesome-skills-claude-skills-seo-aeo-internal-linking-skill-md"
+      ],
+      "sourceNotes": "recent_hot_search_signal: sickn33/antigravity-awesome-skills/seo-aeo-internal-linking"
+    },
+    "catalog": {
+      "icon": "Search"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "none",
+    "bulkSupply": {
+      "wave": "skillsmp-market-2026-05-17",
+      "batchId": "skillsmp-market-2026-05-17",
+      "candidateId": "seo-aeo-internal-linking",
+      "sourceShard": "external-open-source",
+      "coverageNotes": "SkillsMP market signal (37471 stars): Maps internal link opportunities between pages with anchor text, placement instructions, orphan page detection, and cannibalization checks. Activate when the user wants to build an",
+      "primaryIndustry": "software",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "marketing",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1"
+    },
     "compliance": {
       "riskTier": "R1",
+      "launchGate": "sample_required",
       "riskDomains": [
         "content_marketing"
       ],
-      "riskRationale": "SkillsMP market signal (37471 stars): Maps internal link opportunities between pages with anchor text, placement instructions, orphan page detection, and cannibalization checks. Activate when the user wants to build an",
       "reviewStatus": "auto_screened",
-      "humanReviewRequired": false,
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "riskRationale": "SkillsMP market signal (37471 stars): Maps internal link opportunities between pages with anchor text, placement instructions, orphan page detection, and cannibalization checks. Activate when the user wants to build an",
       "allowedOutputs": [
         "内容诊断",
         "优化建议",
@@ -46,42 +68,60 @@
         "不得输出未经核验的确定性专业结论",
         "不得代替用户执行第三方平台操作"
       ],
-      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
-      "launchGate": "sample_required"
+      "humanReviewRequired": false
     },
-    "trend": {
-      "sourceIds": [
-        "https://skillsmp.com/skills/sickn33-antigravity-awesome-skills-plugins-antigravity-awesome-skills-claude-skills-seo-aeo-internal-linking-skill-md"
-      ],
-      "sourceNotes": "recent_hot_search_signal: sickn33/antigravity-awesome-skills/seo-aeo-internal-linking",
-      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
-    },
-    "bulkSupply": {
-      "candidateId": "seo-aeo-internal-linking",
-      "sourceShard": "external-open-source",
-      "wave": "skillsmp-market-2026-05-17",
-      "batchId": "skillsmp-market-2026-05-17",
-      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
-      "generatorVersion": "manual-curated-2026-05-17",
-      "primaryProfession": "marketing",
-      "primaryIndustry": "software",
-      "coverageNotes": "SkillsMP market signal (37471 stars): Maps internal link opportunities between pages with anchor text, placement instructions, orphan page detection, and cannibalization checks. Activate when the user wants to build an"
-    },
+    "safetySha256": "0947e50096e6fb19d82b9b76aa442a9f8ec3b37bdf1d5d4edcafbf0b80f775fe",
+    "safetyStatus": "allowed",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "ai-seo-aeo-internal-linking",
+    "resultContract": "ResultEnvelope",
     "externalOpenSource": {
       "batchId": "skillsmp-market-2026-05-17",
-      "candidateId": "seo-aeo-internal-linking",
-      "originalSkillId": "seo-aeo-internal-linking",
+      "license": "unknown_pending_verification",
+      "category": "content_marketing",
       "sourceRef": "sickn33/antigravity-awesome-skills",
       "sourceUrl": "https://skillsmp.com/skills/sickn33-antigravity-awesome-skills-plugins-antigravity-awesome-skills-claude-skills-seo-aeo-internal-linking-skill-md",
+      "importedAt": "2026-05-17T14:52:38.279Z",
+      "candidateId": "seo-aeo-internal-linking",
       "sourceSignal": "recent_hot_search_signal",
-      "category": "content_marketing",
-      "license": "unknown_pending_verification",
-      "importedAt": "2026-05-17T14:52:38.279Z"
+      "originalSkillId": "seo-aeo-internal-linking"
+    },
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "ai-seo-aeo-internal-linking",
+      "originalSlug": "ai-seo-aeo-internal-linking",
+      "agentId": "ai-seo-aeo-internal-linking",
+      "idStrategy": "openclaw-hermes"
     }
   },
-  "painPoints": [],
-  "withSkill": [],
-  "youCan": [],
+  "coreValue": "链接结构清楚，权重才会流动",
+  "scenario": "适用于已经准备好目标业务或页面、内容/链接/关键词、受众与目标等材料的用户。",
+  "usage": "搜索诊断 / 内容优化 / 关键词建议 / 执行清单",
+  "painPoints": [
+    "内容和站点信息分散，难以判断搜索优化重点",
+    "关键词、结构化数据和内链建议需要可执行优先级",
+    "发布前需要人工复核事实、来源和平台规则变化"
+  ],
+  "withSkill": [
+    "分析用户提交的页面、关键词或站点材料",
+    "识别搜索可见性、结构和转化路径问题",
+    "输出优化建议、执行清单和复核提醒"
+  ],
+  "youCan": [
+    "提交目标业务或页面",
+    "获得搜索诊断、内容建议和执行清单",
+    "下载或复制结果，用于后续人工复核和执行"
+  ],
+  "downloadCount": 1200,
+  "collectionCount": 9451,
+  "shareCount": 5079,
+  "reviewCount": 8,
   "invocationMode": "execute",
   "invocation": {
     "type": "execute",
@@ -90,84 +130,85 @@
   "formSchema": {
     "type": "object",
     "required": [],
-    "properties": {
-      "materialText": {
-        "type": "string",
-        "title": "页面、关键词或内容资料",
-        "description": "粘贴页面内容、关键词、站点结构、搜索目标、竞品摘要或优化问题。",
-        "x-component": "Textarea",
-        "x-rows": 8
-      },
-      "materialFile": {
-        "type": "string",
-        "title": "SEO 资料文件",
-        "description": "上传内容稿、关键词表、站点结构、审计报告或 SEO 规划资料。",
-        "format": "binary",
-        "x-component": "FileUpload",
-        "x-max-size": 20971520,
-        "x-accept": ".xlsx,.xls,.csv,.tsv"
-      },
-      "materialUrl": {
-        "type": "string",
-        "title": "页面或站点链接",
-        "description": "填写公开可访问的页面、站点、SERP、竞品或参考链接。",
-        "format": "uri"
-      },
-      "audience": {
-        "type": "string",
-        "title": "目标受众",
-        "description": "说明搜索用户、目标市场、行业、购买阶段或内容受众。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "goal": {
-        "type": "string",
-        "title": "优化目标",
-        "description": "说明要提升的关键词、搜索意图、可见性、引用机会或转化目标。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "brandRequirements": {
-        "type": "string",
-        "title": "搜索与发布边界",
-        "description": "补充目标地区、语言、品牌限制、不可改动事实、合规要求或人工复核重点。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      }
-    },
     "x-layout": {
       "mode": "contextComposer",
-      "primaryField": "materialText",
+      "rows": 5,
+      "placeholder": "粘贴页面内容、关键词、站点结构或搜索目标",
       "primaryTabs": [
         {
           "id": "paste",
-          "label": "粘贴页面内容",
+          "icon": "FileText",
           "field": "materialText",
-          "icon": "FileText"
+          "label": "粘贴页面内容"
         },
         {
           "id": "upload",
-          "label": "上传 SEO 资料",
+          "icon": "Upload",
           "field": "materialFile",
-          "icon": "Upload"
+          "label": "上传 SEO 资料"
         },
         {
           "id": "link",
-          "label": "填页面链接",
+          "icon": "Link",
           "field": "materialUrl",
-          "icon": "Link"
+          "label": "填页面链接"
         }
       ],
+      "primaryField": "materialText",
+      "advancedLabel": "补充搜索范围",
       "primaryControlFields": [],
       "advancedControlFields": [
         "audience",
         "goal",
         "brandRequirements"
-      ],
-      "advancedLabel": "补充搜索范围",
-      "rows": 5,
-      "placeholder": "粘贴页面内容、关键词、站点结构或搜索目标"
+      ]
     },
+    "properties": {
+      "goal": {
+        "type": "string",
+        "title": "优化目标",
+        "x-rows": 3,
+        "description": "说明要提升的关键词、搜索意图、可见性、引用机会或转化目标。",
+        "x-component": "Textarea"
+      },
+      "audience": {
+        "type": "string",
+        "title": "目标受众",
+        "x-rows": 3,
+        "description": "说明搜索用户、目标市场、行业、购买阶段或内容受众。",
+        "x-component": "Textarea"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "页面或站点链接",
+        "format": "uri",
+        "description": "填写公开可访问的页面、站点、SERP、竞品或参考链接。"
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "SEO 资料文件",
+        "format": "binary",
+        "x-accept": ".xlsx,.xls,.csv,.tsv",
+        "x-max-size": 20971520,
+        "description": "上传内容稿、关键词表、站点结构、审计报告或 SEO 规划资料。",
+        "x-component": "FileUpload"
+      },
+      "materialText": {
+        "type": "string",
+        "title": "页面、关键词或内容资料",
+        "x-rows": 8,
+        "description": "粘贴页面内容、关键词、站点结构、搜索目标、竞品摘要或优化问题。",
+        "x-component": "Textarea"
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "搜索与发布边界",
+        "x-rows": 3,
+        "description": "补充目标地区、语言、品牌限制、不可改动事实、合规要求或人工复核重点。",
+        "x-component": "Textarea"
+      }
+    },
+    "x-profile-context": true,
     "x-required-any-of": [
       {
         "fields": [
@@ -177,8 +218,6 @@
         ],
         "message": "请填写页面/关键词资料、上传 SEO 文件或提供页面链接"
       }
-    ],
-    "x-profile-context": true,
-    "x-submit-label": "诊断搜索机会"
+    ]
   }
 }

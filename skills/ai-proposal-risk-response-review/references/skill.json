@@ -1,0 +1,203 @@
+{
+  "id": "ai-proposal-risk-response-review",
+  "slug": "ai-proposal-risk-response-review",
+  "question": "这里有什么风险?",
+  "skillName": "风险审阅助手",
+  "tags": [
+    "销售赋能",
+    "客户研究",
+    "跟进计划",
+    "GTM"
+  ],
+  "profession": [
+    "seller",
+    "marketing",
+    "operation",
+    "product"
+  ],
+  "industry": [
+    "software",
+    "finance",
+    "education",
+    "retail"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "llm",
+  "providerConfig": {
+    "catalog": {
+      "icon": "Scale"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "none",
+    "safetySha256": "868436ca701f203453df7dd7ea12584c76f1b705465b8a971c16b2f8b0ae10f4",
+    "safetyStatus": "allowed",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "proposal-risk-response-review",
+    "resultContract": "ResultEnvelope",
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "proposal-risk-response-review",
+      "originalSlug": "proposal-risk-response-review",
+      "agentId": "ai-proposal-risk-response-review",
+      "idStrategy": "openclaw-hermes"
+    }
+  },
+  "coreValue": "先标风险，再交专业复核",
+  "scenario": "适用于销售、市场和创业团队整理客户研究、会议纪要、GTM 策略和售前方案风险。",
+  "usage": "客户作战卡 / 跟进计划 / GTM 简报 / 风险回应",
+  "painPoints": [
+    "客户信息、会议记录和方案材料分散，难以形成下一步动作",
+    "销售跟进缺少买方信号、异议、责任人和时间线",
+    "GTM 或售前材料需要更清楚的定位、风险和验证路径"
+  ],
+  "withSkill": [
+    "提炼客户背景、买方角色、异议和机会点",
+    "输出跟进邮件、行动计划、风险问题和发现式提问",
+    "把复杂材料压缩成团队可执行的一页纸"
+  ],
+  "youCan": [
+    "粘贴客户资料、会议纪要、方案文本或产品背景",
+    "补充目标客户、成交阶段和沟通限制",
+    "把输出用于销售跟进、GTM 评审、售前复盘或 CRM 更新"
+  ],
+  "downloadCount": 1000,
+  "collectionCount": 3698,
+  "shareCount": 3198,
+  "reviewCount": 12,
+  "invocationMode": "execute",
+  "invocation": {
+    "type": "execute",
+    "executePath": "/api/execute"
+  },
+  "formSchema": {
+    "type": "object",
+    "required": [],
+    "x-layout": {
+      "mode": "contextComposer",
+      "rows": 6,
+      "placeholder": "粘贴投标响应或售前方案文本，最好包含需求回答、承诺、证据和交付边界",
+      "primaryTabs": [
+        {
+          "id": "paste",
+          "icon": "FileWarning",
+          "field": "proposalText",
+          "label": "贴方案文本"
+        },
+        {
+          "id": "upload",
+          "icon": "Upload",
+          "field": "proposalFile",
+          "label": "传方案文件"
+        }
+      ],
+      "primaryField": "proposalText",
+      "advancedLabel": "补充投标背景",
+      "primaryControlFields": [
+        "reviewDepth"
+      ],
+      "advancedControlFields": [
+        "rfpContext",
+        "productContext",
+        "riskFocus"
+      ]
+    },
+    "properties": {
+      "riskFocus": {
+        "type": "string",
+        "title": "重点关注风险",
+        "x-rows": 3,
+        "description": "例如过度承诺、需求遗漏、合规、交付边界、竞品比较或价格表述。",
+        "x-component": "Textarea"
+      },
+      "rfpContext": {
+        "type": "string",
+        "title": "RFP/客户需求背景",
+        "x-rows": 5,
+        "description": "补充客户需求、评分规则、必须响应项、采购约束或澄清问题。",
+        "x-component": "Textarea"
+      },
+      "reviewDepth": {
+        "enum": [
+          "快速风险摘要",
+          "标准审阅",
+          "深度响应改写"
+        ],
+        "type": "string",
+        "title": "审阅深度",
+        "default": "标准审阅",
+        "x-options": [
+          {
+            "icon": "ClipboardList",
+            "color": "blue",
+            "group": "审阅深度",
+            "label": "快速风险摘要",
+            "value": "快速风险摘要",
+            "description": "快速风险摘要级别的审阅深度"
+          },
+          {
+            "icon": "Target",
+            "color": "blue",
+            "group": "审阅深度",
+            "label": "标准审阅",
+            "value": "标准审阅",
+            "description": "标准审阅级别的审阅深度"
+          },
+          {
+            "icon": "ListChecks",
+            "color": "blue",
+            "group": "审阅深度",
+            "label": "深度响应改写",
+            "value": "深度响应改写",
+            "description": "深度响应改写级别的审阅深度"
+          }
+        ],
+        "description": "审阅深度"
+      },
+      "proposalFile": {
+        "type": "string",
+        "title": "上传方案文件",
+        "format": "binary",
+        "x-accept": ".docx,.pdf,.md,.txt",
+        "x-max-size": 20971520,
+        "description": "支持 docx、pdf、md、txt 等方案或投标文件。",
+        "x-component": "FileUpload"
+      },
+      "proposalText": {
+        "type": "string",
+        "title": "方案或投标文本",
+        "x-rows": 12,
+        "description": "粘贴投标响应、售前方案、RFP 回答、SOW 草稿或关键章节。",
+        "x-component": "Textarea"
+      },
+      "productContext": {
+        "type": "string",
+        "title": "我方能力与限制",
+        "x-rows": 5,
+        "description": "说明产品能力、交付范围、案例、资质、价格、依赖条件和不能承诺的边界。",
+        "x-component": "Textarea"
+      }
+    },
+    "x-profile-context": true,
+    "x-required-any-of": [
+      {
+        "fields": [
+          "proposalText",
+          "proposalFile"
+        ],
+        "message": "请粘贴方案文本或上传方案文件"
+      }
+    ]
+  }
+}

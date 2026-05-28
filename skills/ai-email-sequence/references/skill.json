@@ -27,16 +27,38 @@
   "comingSoon": false,
   "providerType": "llm",
   "providerConfig": {
-    "asyncProvider": "skills2api-scheduler",
-    "resultContract": "ResultEnvelope",
+    "trend": {
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。",
+      "sourceIds": [
+        "https://www.skills.sh/coreyhaines31/marketingskills"
+      ],
+      "sourceNotes": "skills_sh_all_time: coreyhaines31/marketingskills/emails"
+    },
+    "catalog": {
+      "icon": "ListChecks"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "none",
+    "bulkSupply": {
+      "wave": "external-hot-open-source-2026-05-17",
+      "batchId": "external-hot-open-source-2026-05-17",
+      "candidateId": "email-sequence",
+      "sourceShard": "external-open-source",
+      "coverageNotes": "邮件序列适合转成可复制、可审阅的增长物料。",
+      "primaryIndustry": "software",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "marketing",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1"
+    },
     "compliance": {
       "riskTier": "R1",
+      "launchGate": "sample_required",
       "riskDomains": [
         "copy_cro"
       ],
-      "riskRationale": "邮件序列适合转成可复制、可审阅的增长物料。",
       "reviewStatus": "auto_screened",
-      "humanReviewRequired": false,
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "riskRationale": "邮件序列适合转成可复制、可审阅的增长物料。",
       "allowedOutputs": [
         "邮件节奏诊断",
         "主题行建议",
@@ -46,42 +68,60 @@
         "不得输出未经核验的确定性专业结论",
         "不得代替用户执行第三方平台操作"
       ],
-      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
-      "launchGate": "sample_required"
+      "humanReviewRequired": false
     },
-    "trend": {
-      "sourceIds": [
-        "https://www.skills.sh/coreyhaines31/marketingskills"
-      ],
-      "sourceNotes": "skills_sh_all_time: coreyhaines31/marketingskills/emails",
-      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
-    },
-    "bulkSupply": {
-      "candidateId": "email-sequence",
-      "sourceShard": "external-open-source",
-      "wave": "external-hot-open-source-2026-05-17",
-      "batchId": "external-hot-open-source-2026-05-17",
-      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
-      "generatorVersion": "manual-curated-2026-05-17",
-      "primaryProfession": "marketing",
-      "primaryIndustry": "software",
-      "coverageNotes": "邮件序列适合转成可复制、可审阅的增长物料。"
-    },
+    "safetySha256": "9afceaa024f963a555bf62d4a16727afc53b92052253754101fda771a2f34226",
+    "safetyStatus": "allowed",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "ai-email-sequence",
+    "resultContract": "ResultEnvelope",
     "externalOpenSource": {
       "batchId": "external-hot-open-source-2026-05-17",
-      "candidateId": "email-sequence",
-      "originalSkillId": "emails",
+      "license": "unknown_pending_verification",
+      "category": "copy_cro",
       "sourceRef": "coreyhaines31/marketingskills",
       "sourceUrl": "https://www.skills.sh/coreyhaines31/marketingskills",
+      "importedAt": "2026-05-18T06:28:35.076Z",
+      "candidateId": "email-sequence",
       "sourceSignal": "skills_sh_all_time",
-      "category": "copy_cro",
-      "license": "unknown_pending_verification",
-      "importedAt": "2026-05-18T06:28:35.076Z"
+      "originalSkillId": "emails"
+    },
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "ai-email-sequence",
+      "originalSlug": "ai-email-sequence",
+      "agentId": "ai-email-sequence",
+      "idStrategy": "openclaw-hermes"
     }
   },
-  "painPoints": [],
-  "withSkill": [],
-  "youCan": [],
+  "coreValue": "先有假设，再谈增长",
+  "scenario": "适用于已经准备好邮件草稿、客户阶段、触达目标等材料的用户。",
+  "usage": "内容诊断 / 改写建议 / 可复制稿件 / 发布清单",
+  "painPoints": [
+    "已有素材难以快速变成清晰、可发布的内容",
+    "内容建议需要兼顾受众、平台、品牌和转化目标",
+    "发布前需要检查事实、表达风险和行动引导"
+  ],
+  "withSkill": [
+    "读取主题、草稿、渠道要求或参考素材",
+    "识别结构、表达、证据和转化问题",
+    "输出可复制改稿、发布建议和检查清单"
+  ],
+  "youCan": [
+    "提交邮件草稿",
+    "获得内容诊断、改写建议和可复制稿件",
+    "下载或复制结果，用于后续人工复核和执行"
+  ],
+  "downloadCount": 1200,
+  "collectionCount": 6279,
+  "shareCount": 5779,
+  "reviewCount": 8,
   "invocationMode": "execute",
   "invocation": {
     "type": "execute",
@@ -90,84 +130,85 @@
   "formSchema": {
     "type": "object",
     "required": [],
-    "properties": {
-      "materialText": {
-        "type": "string",
-        "title": "主题、草稿或参考素材",
-        "description": "粘贴主题、草稿、渠道要求、参考素材、卖点信息或发布目标。",
-        "x-component": "Textarea",
-        "x-rows": 8
-      },
-      "materialFile": {
-        "type": "string",
-        "title": "内容资料文件",
-        "description": "上传草稿、品牌资料、渠道要求、参考素材或内容规划文件。",
-        "format": "binary",
-        "x-component": "FileUpload",
-        "x-max-size": 20971520,
-        "x-accept": ".xlsx,.xls,.csv,.tsv"
-      },
-      "materialUrl": {
-        "type": "string",
-        "title": "参考内容链接",
-        "description": "填写公开可访问的文章、页面、竞品内容或参考链接；受限内容请改为上传或粘贴。",
-        "format": "uri"
-      },
-      "audience": {
-        "type": "string",
-        "title": "目标受众",
-        "description": "说明内容面向的人群、角色、购买阶段或使用场景。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "goal": {
-        "type": "string",
-        "title": "内容目标",
-        "description": "说明希望达成的发布目标、转化目标、改写方向或评估标准。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "brandRequirements": {
-        "type": "string",
-        "title": "品牌与渠道边界",
-        "description": "补充品牌语气、渠道规则、格式要求、不可改动事实、合规限制或发布前复核重点。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      }
-    },
     "x-layout": {
       "mode": "contextComposer",
-      "primaryField": "materialText",
+      "rows": 5,
+      "placeholder": "粘贴主题、草稿、渠道要求或参考素材",
       "primaryTabs": [
         {
           "id": "paste",
-          "label": "粘贴草稿",
+          "icon": "FileText",
           "field": "materialText",
-          "icon": "FileText"
+          "label": "粘贴草稿"
         },
         {
           "id": "upload",
-          "label": "上传素材",
+          "icon": "Upload",
           "field": "materialFile",
-          "icon": "Upload"
+          "label": "上传素材"
         },
         {
           "id": "link",
-          "label": "填参考链接",
+          "icon": "Link",
           "field": "materialUrl",
-          "icon": "Link"
+          "label": "填参考链接"
         }
       ],
+      "primaryField": "materialText",
+      "advancedLabel": "补充发布要求",
       "primaryControlFields": [],
       "advancedControlFields": [
         "audience",
         "goal",
         "brandRequirements"
-      ],
-      "advancedLabel": "补充发布要求",
-      "rows": 5,
-      "placeholder": "粘贴主题、草稿、渠道要求或参考素材"
+      ]
     },
+    "properties": {
+      "goal": {
+        "type": "string",
+        "title": "内容目标",
+        "x-rows": 3,
+        "description": "说明希望达成的发布目标、转化目标、改写方向或评估标准。",
+        "x-component": "Textarea"
+      },
+      "audience": {
+        "type": "string",
+        "title": "目标受众",
+        "x-rows": 3,
+        "description": "说明内容面向的人群、角色、购买阶段或使用场景。",
+        "x-component": "Textarea"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "参考内容链接",
+        "format": "uri",
+        "description": "填写公开可访问的文章、页面、竞品内容或参考链接；受限内容请改为上传或粘贴。"
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "内容资料文件",
+        "format": "binary",
+        "x-accept": ".xlsx,.xls,.csv,.tsv",
+        "x-max-size": 20971520,
+        "description": "上传草稿、品牌资料、渠道要求、参考素材或内容规划文件。",
+        "x-component": "FileUpload"
+      },
+      "materialText": {
+        "type": "string",
+        "title": "主题、草稿或参考素材",
+        "x-rows": 8,
+        "description": "粘贴主题、草稿、渠道要求、参考素材、卖点信息或发布目标。",
+        "x-component": "Textarea"
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "品牌与渠道边界",
+        "x-rows": 3,
+        "description": "补充品牌语气、渠道规则、格式要求、不可改动事实、合规限制或发布前复核重点。",
+        "x-component": "Textarea"
+      }
+    },
+    "x-profile-context": true,
     "x-required-any-of": [
       {
         "fields": [
@@ -177,8 +218,6 @@
         ],
         "message": "请填写主题/草稿、上传内容资料或提供参考链接"
       }
-    ],
-    "x-profile-context": true,
-    "x-submit-label": "优化内容稿件"
+    ]
   }
 }

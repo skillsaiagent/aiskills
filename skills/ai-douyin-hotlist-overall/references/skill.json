@@ -1,0 +1,84 @@
+{
+  "id": "ai-douyin-hotlist-overall",
+  "slug": "ai-douyin-hotlist-overall",
+  "question": "现在最热门的是什么？",
+  "skillName": "抖音全网实时热点",
+  "tags": [
+    "抖音",
+    "热搜",
+    "热榜",
+    "实时",
+    "热点",
+    "趋势"
+  ],
+  "profession": [
+    "内容创作者",
+    "运营",
+    "电商",
+    "营销"
+  ],
+  "industry": [
+    "新媒体",
+    "电商",
+    "娱乐",
+    "通用"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "api",
+  "providerConfig": {
+    "catalog": {
+      "icon": "Flame",
+      "rating": 4.9,
+      "displayOrder": 2,
+      "subProfession": [
+        "content-creator",
+        "analyst"
+      ]
+    },
+    "endpoint": "https://www.douyin.com/aweme/v1/web/hot/search/list/",
+    "apiSource": "douyin-official",
+    "release": {
+      "originalId": "douyin-hotlist-overall",
+      "originalSlug": "douyin-hotlist-overall",
+      "agentId": "ai-douyin-hotlist-overall",
+      "idStrategy": "openclaw-hermes"
+    }
+  },
+  "coreValue": "先有热点方向，再有视频内容生产",
+  "scenario": "适用于需要快速了解抖音全平台热搜话题、把握内容方向的创作者和运营团队。",
+  "usage": "热搜总榜 / 实时上升热点 / 全网热度",
+  "painPoints": [
+    "全网最热的是什么",
+    "内容选题方向没思路",
+    "刷视频信息密度低"
+  ],
+  "withSkill": [
+    "感知全网实时热点",
+    "或许你就有思路了",
+    "只刷热门视频"
+  ],
+  "youCan": [
+    "无需输入，一键获取最新热搜总榜",
+    "查看实时上升热点，发现潜在爆款",
+    "结合热点选题推荐技能做深度分析"
+  ],
+  "downloadCount": 4115,
+  "collectionCount": 8902,
+  "shareCount": 5627,
+  "reviewCount": 12,
+  "invocationMode": "execute",
+  "invocation": {
+    "type": "execute",
+    "executePath": "/api/execute"
+  },
+  "formSchema": {
+    "type": "object",
+    "properties": {}
+  }
+}

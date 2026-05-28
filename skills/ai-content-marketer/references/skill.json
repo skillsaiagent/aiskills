@@ -27,16 +27,38 @@
   "comingSoon": false,
   "providerType": "llm",
   "providerConfig": {
-    "asyncProvider": "skills2api-scheduler",
-    "resultContract": "ResultEnvelope",
+    "trend": {
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。",
+      "sourceIds": [
+        "https://skillsmp.com/skills/sickn33-antigravity-awesome-skills-plugins-antigravity-awesome-skills-claude-skills-content-marketer-skill-md"
+      ],
+      "sourceNotes": "recent_hot_search_signal: sickn33/antigravity-awesome-skills/content-marketer"
+    },
+    "catalog": {
+      "icon": "LayoutTemplate"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "none",
+    "bulkSupply": {
+      "wave": "skillsmp-market-2026-05-17",
+      "batchId": "skillsmp-market-2026-05-17",
+      "candidateId": "content-marketer",
+      "sourceShard": "external-open-source",
+      "coverageNotes": "SkillsMP market signal (37471 stars): Elite content marketing strategist specializing in AI-powered content creation, omnichannel distribution, SEO optimization, and data-driven performance marketing.",
+      "primaryIndustry": "software",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "marketing",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1"
+    },
     "compliance": {
       "riskTier": "R1",
+      "launchGate": "sample_required",
       "riskDomains": [
         "content_marketing"
       ],
-      "riskRationale": "SkillsMP market signal (37471 stars): Elite content marketing strategist specializing in AI-powered content creation, omnichannel distribution, SEO optimization, and data-driven performance marketing.",
       "reviewStatus": "auto_screened",
-      "humanReviewRequired": false,
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "riskRationale": "SkillsMP market signal (37471 stars): Elite content marketing strategist specializing in AI-powered content creation, omnichannel distribution, SEO optimization, and data-driven performance marketing.",
       "allowedOutputs": [
         "内容诊断",
         "优化建议",
@@ -46,42 +68,60 @@
         "不得输出未经核验的确定性专业结论",
         "不得代替用户执行第三方平台操作"
       ],
-      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
-      "launchGate": "sample_required"
+      "humanReviewRequired": false
     },
-    "trend": {
-      "sourceIds": [
-        "https://skillsmp.com/skills/sickn33-antigravity-awesome-skills-plugins-antigravity-awesome-skills-claude-skills-content-marketer-skill-md"
-      ],
-      "sourceNotes": "recent_hot_search_signal: sickn33/antigravity-awesome-skills/content-marketer",
-      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
-    },
-    "bulkSupply": {
-      "candidateId": "content-marketer",
-      "sourceShard": "external-open-source",
-      "wave": "skillsmp-market-2026-05-17",
-      "batchId": "skillsmp-market-2026-05-17",
-      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
-      "generatorVersion": "manual-curated-2026-05-17",
-      "primaryProfession": "marketing",
-      "primaryIndustry": "software",
-      "coverageNotes": "SkillsMP market signal (37471 stars): Elite content marketing strategist specializing in AI-powered content creation, omnichannel distribution, SEO optimization, and data-driven performance marketing."
-    },
+    "safetySha256": "007f453de095e3f7f11bff389973ab34753b23af052a9b69e7bff6c2be4b61a5",
+    "safetyStatus": "allowed",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "ai-content-marketer",
+    "resultContract": "ResultEnvelope",
     "externalOpenSource": {
       "batchId": "skillsmp-market-2026-05-17",
-      "candidateId": "content-marketer",
-      "originalSkillId": "content-marketer",
+      "license": "unknown_pending_verification",
+      "category": "content_marketing",
       "sourceRef": "sickn33/antigravity-awesome-skills",
       "sourceUrl": "https://skillsmp.com/skills/sickn33-antigravity-awesome-skills-plugins-antigravity-awesome-skills-claude-skills-content-marketer-skill-md",
+      "importedAt": "2026-05-17T13:42:03.382Z",
+      "candidateId": "content-marketer",
       "sourceSignal": "recent_hot_search_signal",
-      "category": "content_marketing",
-      "license": "unknown_pending_verification",
-      "importedAt": "2026-05-17T13:42:03.382Z"
+      "originalSkillId": "content-marketer"
+    },
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "ai-content-marketer",
+      "originalSlug": "ai-content-marketer",
+      "agentId": "ai-content-marketer",
+      "idStrategy": "openclaw-hermes"
     }
   },
-  "painPoints": [],
-  "withSkill": [],
-  "youCan": [],
+  "coreValue": "内容要服务获客和转化",
+  "scenario": "适用于已经准备好目标业务或页面、内容/链接/关键词、受众与目标等材料的用户。",
+  "usage": "指标解读 / 页面诊断 / 优先级建议 / 修复清单",
+  "painPoints": [
+    "性能指标、页面问题和业务影响难以快速对应",
+    "修复建议需要区分高影响动作、验证方式和依赖条件",
+    "上线前需要保留复测清单、风险说明和人工确认项"
+  ],
+  "withSkill": [
+    "整理页面 URL、性能报告、指标截图或复现场景",
+    "识别影响体验、搜索和转化的关键问题",
+    "输出优先级建议、修复清单和复测步骤"
+  ],
+  "youCan": [
+    "提交目标业务或页面",
+    "获得网站质量诊断、修复建议和复测清单",
+    "下载或复制结果，用于后续人工复核和执行"
+  ],
+  "downloadCount": 1500,
+  "collectionCount": 13883,
+  "shareCount": 4087,
+  "reviewCount": 8,
   "invocationMode": "execute",
   "invocation": {
     "type": "execute",
@@ -90,84 +130,85 @@
   "formSchema": {
     "type": "object",
     "required": [],
-    "properties": {
-      "materialText": {
-        "type": "string",
-        "title": "主题、草稿或参考素材",
-        "description": "粘贴主题、草稿、渠道要求、参考素材、卖点信息或发布目标。",
-        "x-component": "Textarea",
-        "x-rows": 8
-      },
-      "materialFile": {
-        "type": "string",
-        "title": "内容资料文件",
-        "description": "上传草稿、品牌资料、渠道要求、参考素材或内容规划文件。",
-        "format": "binary",
-        "x-component": "FileUpload",
-        "x-max-size": 20971520,
-        "x-accept": ".xlsx,.xls,.csv,.tsv"
-      },
-      "materialUrl": {
-        "type": "string",
-        "title": "参考内容链接",
-        "description": "填写公开可访问的文章、页面、竞品内容或参考链接；受限内容请改为上传或粘贴。",
-        "format": "uri"
-      },
-      "audience": {
-        "type": "string",
-        "title": "目标受众",
-        "description": "说明内容面向的人群、角色、购买阶段或使用场景。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "goal": {
-        "type": "string",
-        "title": "内容目标",
-        "description": "说明希望达成的发布目标、转化目标、改写方向或评估标准。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "brandRequirements": {
-        "type": "string",
-        "title": "品牌与渠道边界",
-        "description": "补充品牌语气、渠道规则、格式要求、不可改动事实、合规限制或发布前复核重点。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      }
-    },
     "x-layout": {
       "mode": "contextComposer",
-      "primaryField": "materialText",
+      "rows": 5,
+      "placeholder": "粘贴主题、草稿、渠道要求或参考素材",
       "primaryTabs": [
         {
           "id": "paste",
-          "label": "粘贴草稿",
+          "icon": "FileText",
           "field": "materialText",
-          "icon": "FileText"
+          "label": "粘贴草稿"
         },
         {
           "id": "upload",
-          "label": "上传素材",
+          "icon": "Upload",
           "field": "materialFile",
-          "icon": "Upload"
+          "label": "上传素材"
         },
         {
           "id": "link",
-          "label": "填参考链接",
+          "icon": "Link",
           "field": "materialUrl",
-          "icon": "Link"
+          "label": "填参考链接"
         }
       ],
+      "primaryField": "materialText",
+      "advancedLabel": "补充发布要求",
       "primaryControlFields": [],
       "advancedControlFields": [
         "audience",
         "goal",
         "brandRequirements"
-      ],
-      "advancedLabel": "补充发布要求",
-      "rows": 5,
-      "placeholder": "粘贴主题、草稿、渠道要求或参考素材"
+      ]
     },
+    "properties": {
+      "goal": {
+        "type": "string",
+        "title": "内容目标",
+        "x-rows": 3,
+        "description": "说明希望达成的发布目标、转化目标、改写方向或评估标准。",
+        "x-component": "Textarea"
+      },
+      "audience": {
+        "type": "string",
+        "title": "目标受众",
+        "x-rows": 3,
+        "description": "说明内容面向的人群、角色、购买阶段或使用场景。",
+        "x-component": "Textarea"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "参考内容链接",
+        "format": "uri",
+        "description": "填写公开可访问的文章、页面、竞品内容或参考链接；受限内容请改为上传或粘贴。"
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "内容资料文件",
+        "format": "binary",
+        "x-accept": ".xlsx,.xls,.csv,.tsv",
+        "x-max-size": 20971520,
+        "description": "上传草稿、品牌资料、渠道要求、参考素材或内容规划文件。",
+        "x-component": "FileUpload"
+      },
+      "materialText": {
+        "type": "string",
+        "title": "主题、草稿或参考素材",
+        "x-rows": 8,
+        "description": "粘贴主题、草稿、渠道要求、参考素材、卖点信息或发布目标。",
+        "x-component": "Textarea"
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "品牌与渠道边界",
+        "x-rows": 3,
+        "description": "补充品牌语气、渠道规则、格式要求、不可改动事实、合规限制或发布前复核重点。",
+        "x-component": "Textarea"
+      }
+    },
+    "x-profile-context": true,
     "x-required-any-of": [
       {
         "fields": [
@@ -177,8 +218,6 @@
         ],
         "message": "请填写主题/草稿、上传内容资料或提供参考链接"
       }
-    ],
-    "x-profile-context": true,
-    "x-submit-label": "诊断搜索机会"
+    ]
   }
 }

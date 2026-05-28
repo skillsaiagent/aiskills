@@ -1,0 +1,86 @@
+{
+  "id": "ai-software-dev-cost-dashboard",
+  "slug": "ai-software-dev-cost-dashboard",
+  "question": "软件开发成本不可控?",
+  "skillName": "软件成本评估看板",
+  "tags": [
+    "成本评估",
+    "项目管理",
+    "立项",
+    "报价",
+    "人天"
+  ],
+  "profession": [
+    "管理",
+    "技术"
+  ],
+  "industry": [
+    "软件",
+    "通用"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "third_party",
+  "providerConfig": {
+    "catalog": {
+      "icon": "Calculator",
+      "rating": 4.9,
+      "shareCount": 96,
+      "reviewCount": 128,
+      "displayOrder": 16,
+      "subProfession": [
+        "pm",
+        "architect",
+        "product-manager"
+      ],
+      "collectionCount": 1580
+    },
+    "thirdParty": {
+      "url": "https://soft.ai-skills.ai",
+      "label": "打开成本看板",
+      "billingLabel": "外部看板 · 以目标页面为准",
+      "providerName": "AI Skills Software Cost Dashboard",
+      "relationship": "third_party"
+    },
+    "release": {
+      "originalId": "software-dev-cost-dashboard",
+      "originalSlug": "software-dev-cost-dashboard",
+      "agentId": "ai-software-dev-cost-dashboard",
+      "idStrategy": "openclaw-hermes"
+    }
+  },
+  "coreValue": "快速评估软件项目成本与工期，支撑立项与报价。",
+  "scenario": "适用于项目经理、架构师、产品经理及需要做软件项目成本评估的团队。",
+  "usage": "成本评估 / 立项 / 报价参考",
+  "painPoints": [
+    "立项时难以估算人天与成本",
+    "报价缺乏依据",
+    "跨项目成本难以对比"
+  ],
+  "withSkill": [
+    "市场化参考成本评估办法",
+    "基于看板数据做立项与报价参考",
+    "灵活根据实际情况评估成本对比"
+  ],
+  "youCan": [
+    "点击按钮直接打开第三方成本评估看板",
+    "在看板中完成评估与导出"
+  ],
+  "downloadCount": 5297,
+  "collectionCount": 4177,
+  "shareCount": 2076,
+  "reviewCount": 12,
+  "externalLink": "https://soft.ai-skills.ai",
+  "externalLinkLabel": "打开成本看板",
+  "invocationMode": "external-link",
+  "invocation": {
+    "type": "external-link",
+    "externalLink": "https://soft.ai-skills.ai",
+    "externalLinkLabel": "打开成本看板"
+  }
+}

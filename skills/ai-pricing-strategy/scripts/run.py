@@ -8,7 +8,7 @@ import time
 import urllib.error
 import urllib.request
 
-SKILL_ID = "ai-pricing-strategy"
+SKILL_ID = "pricing-strategy"
 EXECUTE_PATH = "/api/execute"
 DEFAULT_BASE_URL = "https://ai-skills.ai"
 RECHARGE_URL = "https://ai-skills.ai/user/billing"

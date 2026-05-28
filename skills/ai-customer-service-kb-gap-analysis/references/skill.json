@@ -1,0 +1,203 @@
+{
+  "id": "ai-customer-service-kb-gap-analysis",
+  "slug": "ai-customer-service-kb-gap-analysis",
+  "question": "这件事该怎么做?",
+  "skillName": "业务诊断助手",
+  "tags": [
+    "文档处理",
+    "资料审阅",
+    "摘要",
+    "报告"
+  ],
+  "profession": [
+    "operation",
+    "product",
+    "marketing",
+    "technical"
+  ],
+  "industry": [
+    "education",
+    "software",
+    "finance",
+    "media"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "llm",
+  "providerConfig": {
+    "catalog": {
+      "icon": "MessageCircle"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "none",
+    "safetySha256": "7ee0c799e993d40253e5efa7eafa49ccd52c87127e80aedbb1c5d950679c1450",
+    "safetyStatus": "allowed",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "customer-service-kb-gap-analysis",
+    "resultContract": "ResultEnvelope",
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "customer-service-kb-gap-analysis",
+      "originalSlug": "customer-service-kb-gap-analysis",
+      "agentId": "ai-customer-service-kb-gap-analysis",
+      "idStrategy": "openclaw-hermes"
+    }
+  },
+  "coreValue": "先看清问题，再决定下一步",
+  "scenario": "适用于把文档、表格、演示稿或会议材料整理成摘要、风险点、待办和可复核报告。",
+  "usage": "文档摘要 / 结构化提取 / 风险问题 / 行动清单",
+  "painPoints": [
+    "资料篇幅长、格式杂，人工快速抓重点很吃力",
+    "关键信息、风险、待办和证据分散在不同段落或文件里",
+    "团队需要一份能复核、能转发、能继续协作的结构化报告"
+  ],
+  "withSkill": [
+    "提取重点、风险、决策、待办和补充问题",
+    "把散乱材料整理成表格、摘要和复核清单",
+    "输出适合团队沟通和下一步处理的 Markdown 报告"
+  ],
+  "youCan": [
+    "上传文档、表格、演示稿或粘贴正文",
+    "说明处理目标、读者和输出格式",
+    "把结果用于会议复盘、资料审阅、汇报或专业复核"
+  ],
+  "downloadCount": 1000,
+  "collectionCount": 12558,
+  "shareCount": 1609,
+  "reviewCount": 12,
+  "invocationMode": "execute",
+  "invocation": {
+    "type": "execute",
+    "executePath": "/api/execute"
+  },
+  "formSchema": {
+    "type": "object",
+    "required": [],
+    "x-layout": {
+      "mode": "contextComposer",
+      "rows": 6,
+      "placeholder": "粘贴客服工单或聊天样本，最好包含用户问题、客服回复、处理结果和升级情况",
+      "primaryTabs": [
+        {
+          "id": "paste",
+          "icon": "Headphones",
+          "field": "ticketSamples",
+          "label": "贴客服样本"
+        },
+        {
+          "id": "upload",
+          "icon": "Upload",
+          "field": "ticketSamplesFile",
+          "label": "传客服文件"
+        }
+      ],
+      "primaryField": "ticketSamples",
+      "advancedLabel": "补充服务背景",
+      "primaryControlFields": [
+        "reviewDepth"
+      ],
+      "advancedControlFields": [
+        "productContext",
+        "currentKbContext",
+        "analysisGoal"
+      ]
+    },
+    "properties": {
+      "reviewDepth": {
+        "enum": [
+          "快速缺口",
+          "标准诊断",
+          "深度知识库计划"
+        ],
+        "type": "string",
+        "title": "诊断深度",
+        "default": "标准诊断",
+        "x-options": [
+          {
+            "icon": "ClipboardList",
+            "color": "blue",
+            "group": "诊断深度",
+            "label": "快速缺口",
+            "value": "快速缺口",
+            "description": "快速缺口级别的诊断深度"
+          },
+          {
+            "icon": "ListChecks",
+            "color": "blue",
+            "group": "诊断深度",
+            "label": "标准诊断",
+            "value": "标准诊断",
+            "description": "兼顾评分、问题和修改建议"
+          },
+          {
+            "icon": "BookOpen",
+            "color": "blue",
+            "group": "诊断深度",
+            "label": "深度知识库计划",
+            "value": "深度知识库计划",
+            "description": "深度知识库计划级别的诊断深度"
+          }
+        ],
+        "description": "诊断深度"
+      },
+      "analysisGoal": {
+        "type": "string",
+        "title": "诊断目标",
+        "x-rows": 3,
+        "description": "例如减少重复咨询、补齐上线 FAQ、优化升级路径或统一客服口径。",
+        "x-component": "Textarea"
+      },
+      "ticketSamples": {
+        "type": "string",
+        "title": "客服样本",
+        "x-rows": 12,
+        "description": "粘贴工单、聊天记录、用户问题、FAQ 片段或知识库摘录；请先去除不必要的个人信息。",
+        "x-component": "Textarea"
+      },
+      "productContext": {
+        "type": "string",
+        "title": "产品与服务背景",
+        "x-rows": 4,
+        "description": "补充产品功能、用户类型、服务政策、常见限制和业务背景。",
+        "x-component": "Textarea"
+      },
+      "currentKbContext": {
+        "type": "string",
+        "title": "现有知识库背景",
+        "x-rows": 4,
+        "description": "填写已有栏目、文章标题、宏话术、客服流程或已知缺口。",
+        "x-component": "Textarea"
+      },
+      "ticketSamplesFile": {
+        "type": "string",
+        "title": "上传客服材料",
+        "format": "binary",
+        "x-accept": ".xlsx,.xls,.csv,.tsv",
+        "x-max-size": 20971520,
+        "description": "支持 docx、pdf、md、txt、csv 等工单样本或知识库文件。",
+        "x-component": "FileUpload"
+      }
+    },
+    "x-profile-context": true,
+    "x-required-any-of": [
+      {
+        "fields": [
+          "ticketSamples",
+          "ticketSamplesFile"
+        ],
+        "message": "请粘贴客服样本或上传客服材料"
+      }
+    ]
+  }
+}

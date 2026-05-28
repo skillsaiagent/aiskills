@@ -9,14 +9,12 @@
     "证据摘要"
   ],
   "profession": [
-    "researcher",
     "marketing",
     "operation"
   ],
   "industry": [
     "software",
-    "education",
-    "business-services"
+    "education"
   ],
   "hidden": false,
   "auth": {
@@ -27,16 +25,38 @@
   "comingSoon": false,
   "providerType": "llm",
   "providerConfig": {
-    "asyncProvider": "skills2api-scheduler",
-    "resultContract": "ResultEnvelope",
+    "trend": {
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。",
+      "sourceIds": [
+        "https://www.skills.sh/squirrelscan/skills"
+      ],
+      "sourceNotes": "skills_sh_trending: squirrelscan/skills/audit-website"
+    },
+    "catalog": {
+      "icon": "ListChecks"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "medium",
+    "bulkSupply": {
+      "wave": "external-hot-open-source-2026-05-17",
+      "batchId": "external-hot-open-source-2026-05-17",
+      "candidateId": "audit-website",
+      "sourceShard": "external-open-source",
+      "coverageNotes": "skills.sh all-time/trending 信号显示 audit-website 有用户需求；平台展示为 research_analysis 业务助手目录，输出可复核诊断、建议或生产准备包。",
+      "primaryIndustry": "software",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "marketing",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1"
+    },
     "compliance": {
       "riskTier": "R1",
+      "launchGate": "sample_required",
       "riskDomains": [
         "web_research"
       ],
-      "riskRationale": "skills.sh all-time/trending 信号显示 audit-website 有用户需求；平台展示为 research_analysis 业务助手目录，输出可复核诊断、建议或生产准备包。",
       "reviewStatus": "auto_screened",
-      "humanReviewRequired": false,
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "riskRationale": "skills.sh all-time/trending 信号显示 audit-website 有用户需求；平台展示为 research_analysis 业务助手目录，输出可复核诊断、建议或生产准备包。",
       "allowedOutputs": [
         "研究摘要",
         "关键发现",
@@ -46,42 +66,60 @@
         "不得输出未经核验的确定性专业结论",
         "不得代替用户执行第三方平台操作"
       ],
-      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
-      "launchGate": "sample_required"
+      "humanReviewRequired": false
     },
-    "trend": {
-      "sourceIds": [
-        "https://www.skills.sh/squirrelscan/skills"
-      ],
-      "sourceNotes": "skills_sh_trending: squirrelscan/skills/audit-website",
-      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
-    },
-    "bulkSupply": {
-      "candidateId": "audit-website",
-      "sourceShard": "external-open-source",
-      "wave": "external-hot-open-source-2026-05-17",
-      "batchId": "external-hot-open-source-2026-05-17",
-      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
-      "generatorVersion": "manual-curated-2026-05-17",
-      "primaryProfession": "marketing",
-      "primaryIndustry": "software",
-      "coverageNotes": "skills.sh all-time/trending 信号显示 audit-website 有用户需求；平台展示为 research_analysis 业务助手目录，输出可复核诊断、建议或生产准备包。"
-    },
+    "safetySha256": "a8a8f31286df75169f76b1b1ada0bb1101f94a89aef4aa3aa7c2a09172d80d9f",
+    "safetyStatus": "review_required",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "ai-audit-website",
+    "resultContract": "ResultEnvelope",
     "externalOpenSource": {
       "batchId": "external-hot-open-source-2026-05-17",
-      "candidateId": "audit-website",
-      "originalSkillId": "audit-website",
+      "license": "unknown_pending_verification",
+      "category": "web_research",
       "sourceRef": "squirrelscan/skills",
       "sourceUrl": "https://www.skills.sh/squirrelscan/skills",
+      "importedAt": "2026-05-17T09:35:06.367Z",
+      "candidateId": "audit-website",
       "sourceSignal": "skills_sh_trending",
-      "category": "web_research",
-      "license": "unknown_pending_verification",
-      "importedAt": "2026-05-17T09:35:06.367Z"
+      "originalSkillId": "audit-website"
+    },
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "ai-audit-website",
+      "originalSlug": "ai-audit-website",
+      "agentId": "ai-audit-website",
+      "idStrategy": "openclaw-hermes"
     }
   },
-  "painPoints": [],
-  "withSkill": [],
-  "youCan": [],
+  "coreValue": "先找关键问题，再排优化顺序",
+  "scenario": "适用于已经准备好研究主题、公开资料或竞品线索、需要回答的问题等材料的用户。",
+  "usage": "公开资料核验 / 来源对比 / 研究摘要 / 决策简报",
+  "painPoints": [
+    "公开资料来源分散，难以判断可信度和结论边界",
+    "研究问题需要同时保留证据、反例和不确定性",
+    "输出前需要区分事实、推断、风险和后续待查问题"
+  ],
+  "withSkill": [
+    "梳理研究问题、候选来源和比较维度",
+    "对比来源可信度、证据强弱和结论风险",
+    "输出研究摘要、证据清单、风险提醒和决策简报"
+  ],
+  "youCan": [
+    "提交研究主题",
+    "获得来源对比、证据摘要和结论风险",
+    "下载或复制结果，用于后续人工复核和执行"
+  ],
+  "downloadCount": 1200,
+  "collectionCount": 5923,
+  "shareCount": 1632,
+  "reviewCount": 8,
   "invocationMode": "execute",
   "invocation": {
     "type": "execute",
@@ -90,84 +128,85 @@
   "formSchema": {
     "type": "object",
     "required": [],
-    "properties": {
-      "materialText": {
-        "type": "string",
-        "title": "页面 URL、报告或问题描述",
-        "description": "粘贴页面 URL、性能报告摘要、Core Web Vitals 指标、复现场景或网站质量问题。",
-        "x-component": "Textarea",
-        "x-rows": 8
-      },
-      "materialFile": {
-        "type": "string",
-        "title": "性能报告文件",
-        "description": "上传 Lighthouse 报告、性能截图、指标表、页面说明或技术排查资料。",
-        "format": "binary",
-        "x-component": "FileUpload",
-        "x-max-size": 20971520,
-        "x-accept": ".xlsx,.xls,.csv,.tsv"
-      },
-      "materialUrl": {
-        "type": "string",
-        "title": "待诊断页面链接",
-        "description": "填写公开可访问的待诊断页面、站点、报告或参考链接。",
-        "format": "uri"
-      },
-      "audience": {
-        "type": "string",
-        "title": "影响对象",
-        "description": "说明受影响的用户、设备、页面类型、地区或业务场景。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "goal": {
-        "type": "string",
-        "title": "诊断目标",
-        "description": "说明要定位的性能、可用性、搜索、转化或上线检查目标。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "brandRequirements": {
-        "type": "string",
-        "title": "技术与验证边界",
-        "description": "补充设备网络、浏览器、时间范围、技术栈限制、不可改动项或复测要求。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      }
-    },
     "x-layout": {
       "mode": "contextComposer",
-      "primaryField": "materialText",
+      "rows": 5,
+      "placeholder": "粘贴页面 URL、性能报告、Core Web Vitals 指标或复现场景",
       "primaryTabs": [
         {
           "id": "paste",
-          "label": "粘贴报告",
+          "icon": "FileText",
           "field": "materialText",
-          "icon": "FileText"
+          "label": "粘贴报告"
         },
         {
           "id": "upload",
-          "label": "上传报告",
+          "icon": "Upload",
           "field": "materialFile",
-          "icon": "Upload"
+          "label": "上传报告"
         },
         {
           "id": "link",
-          "label": "填页面链接",
+          "icon": "Link",
           "field": "materialUrl",
-          "icon": "Link"
+          "label": "填页面链接"
         }
       ],
+      "primaryField": "materialText",
+      "advancedLabel": "补充诊断范围",
       "primaryControlFields": [],
       "advancedControlFields": [
         "audience",
         "goal",
         "brandRequirements"
-      ],
-      "advancedLabel": "补充诊断范围",
-      "rows": 5,
-      "placeholder": "粘贴页面 URL、性能报告、Core Web Vitals 指标或复现场景"
+      ]
     },
+    "properties": {
+      "goal": {
+        "type": "string",
+        "title": "诊断目标",
+        "x-rows": 3,
+        "description": "说明要定位的性能、可用性、搜索、转化或上线检查目标。",
+        "x-component": "Textarea"
+      },
+      "audience": {
+        "type": "string",
+        "title": "影响对象",
+        "x-rows": 3,
+        "description": "说明受影响的用户、设备、页面类型、地区或业务场景。",
+        "x-component": "Textarea"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "待诊断页面链接",
+        "format": "uri",
+        "description": "填写公开可访问的待诊断页面、站点、报告或参考链接。"
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "性能报告文件",
+        "format": "binary",
+        "x-accept": ".xlsx,.xls,.csv,.tsv",
+        "x-max-size": 20971520,
+        "description": "上传 Lighthouse 报告、性能截图、指标表、页面说明或技术排查资料。",
+        "x-component": "FileUpload"
+      },
+      "materialText": {
+        "type": "string",
+        "title": "页面 URL、报告或问题描述",
+        "x-rows": 8,
+        "description": "粘贴页面 URL、性能报告摘要、Core Web Vitals 指标、复现场景或网站质量问题。",
+        "x-component": "Textarea"
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "技术与验证边界",
+        "x-rows": 3,
+        "description": "补充设备网络、浏览器、时间范围、技术栈限制、不可改动项或复测要求。",
+        "x-component": "Textarea"
+      }
+    },
+    "x-profile-context": true,
     "x-required-any-of": [
       {
         "fields": [
@@ -177,8 +216,6 @@
         ],
         "message": "请填写页面/性能资料、上传报告或提供页面链接"
       }
-    ],
-    "x-profile-context": true,
-    "x-submit-label": "整理资料要点"
+    ]
   }
 }

@@ -15,7 +15,6 @@
   ],
   "industry": [
     "software",
-    "business-services",
     "ecommerce"
   ],
   "hidden": false,
@@ -27,16 +26,38 @@
   "comingSoon": false,
   "providerType": "llm",
   "providerConfig": {
-    "asyncProvider": "skills2api-scheduler",
-    "resultContract": "ResultEnvelope",
+    "trend": {
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。",
+      "sourceIds": [
+        "https://www.skills.sh/jimliu/baoyu-skills"
+      ],
+      "sourceNotes": "skills_sh_trending: jimliu/baoyu-skills/baoyu-wechat-summary"
+    },
+    "catalog": {
+      "icon": "BookOpen"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "medium",
+    "bulkSupply": {
+      "wave": "external-hot-open-source-2026-05-17",
+      "batchId": "external-hot-open-source-2026-05-17",
+      "candidateId": "baoyu-wechat-summary",
+      "sourceShard": "external-open-source",
+      "coverageNotes": "skills.sh trending 信号显示 baoyu-wechat-summary 有用户需求；平台展示为 docs_office 业务助手目录，输出可复核诊断、建议或生产准备包。",
+      "primaryIndustry": "software",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "operation",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1"
+    },
     "compliance": {
       "riskTier": "R1",
+      "launchGate": "sample_required",
       "riskDomains": [
         "document_processing"
       ],
-      "riskRationale": "skills.sh trending 信号显示 baoyu-wechat-summary 有用户需求；平台展示为 docs_office 业务助手目录，输出可复核诊断、建议或生产准备包。",
       "reviewStatus": "auto_screened",
-      "humanReviewRequired": false,
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "riskRationale": "skills.sh trending 信号显示 baoyu-wechat-summary 有用户需求；平台展示为 docs_office 业务助手目录，输出可复核诊断、建议或生产准备包。",
       "allowedOutputs": [
         "结构化摘要",
         "问题/风险清单",
@@ -46,42 +67,60 @@
         "不得输出未经核验的确定性专业结论",
         "不得代替用户执行第三方平台操作"
       ],
-      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
-      "launchGate": "sample_required"
+      "humanReviewRequired": false
     },
-    "trend": {
-      "sourceIds": [
-        "https://www.skills.sh/jimliu/baoyu-skills"
-      ],
-      "sourceNotes": "skills_sh_trending: jimliu/baoyu-skills/baoyu-wechat-summary",
-      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
-    },
-    "bulkSupply": {
-      "candidateId": "baoyu-wechat-summary",
-      "sourceShard": "external-open-source",
-      "wave": "external-hot-open-source-2026-05-17",
-      "batchId": "external-hot-open-source-2026-05-17",
-      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
-      "generatorVersion": "manual-curated-2026-05-17",
-      "primaryProfession": "operation",
-      "primaryIndustry": "software",
-      "coverageNotes": "skills.sh trending 信号显示 baoyu-wechat-summary 有用户需求；平台展示为 docs_office 业务助手目录，输出可复核诊断、建议或生产准备包。"
-    },
+    "safetySha256": "720059dbb259531351df9593173bd7a20389753c86bb77e3f90ab7d6b878e260",
+    "safetyStatus": "review_required",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "ai-baoyu-wechat-summary",
+    "resultContract": "ResultEnvelope",
     "externalOpenSource": {
       "batchId": "external-hot-open-source-2026-05-17",
-      "candidateId": "baoyu-wechat-summary",
-      "originalSkillId": "baoyu-wechat-summary",
+      "license": "unknown_pending_verification",
+      "category": "document_processing",
       "sourceRef": "jimliu/baoyu-skills",
       "sourceUrl": "https://www.skills.sh/jimliu/baoyu-skills",
+      "importedAt": "2026-05-17T09:38:32.231Z",
+      "candidateId": "baoyu-wechat-summary",
       "sourceSignal": "skills_sh_trending",
-      "category": "document_processing",
-      "license": "unknown_pending_verification",
-      "importedAt": "2026-05-17T09:38:32.231Z"
+      "originalSkillId": "baoyu-wechat-summary"
+    },
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "ai-baoyu-wechat-summary",
+      "originalSlug": "ai-baoyu-wechat-summary",
+      "agentId": "ai-baoyu-wechat-summary",
+      "idStrategy": "openclaw-hermes"
     }
   },
-  "painPoints": [],
-  "withSkill": [],
-  "youCan": [],
+  "coreValue": "先抓主线，再提金句",
+  "scenario": "适用于已经准备好文档、表格、会议记录或大纲、关注问题、输出格式要求等材料的用户。",
+  "usage": "资料整理 / 结构摘要 / 缺口提醒 / 行动项",
+  "painPoints": [
+    "文档、表格或沟通记录信息量大，重点和责任人容易散落",
+    "数据或资料整理需要区分事实、缺口、重复项和风险",
+    "后续执行前需要明确行动项、负责人、优先级和待确认问题"
+  ],
+  "withSkill": [
+    "读取文档、表格、会议记录或客户资料",
+    "提炼结构摘要、关键缺口、重复冲突和风险点",
+    "输出行动项、整理结果、复核提醒和交接清单"
+  ],
+  "youCan": [
+    "提交文档、表格、会议记录或大纲",
+    "获得结构摘要、清理建议、缺口提醒和行动项",
+    "下载或复制结果，用于后续人工复核和执行"
+  ],
+  "downloadCount": 1200,
+  "collectionCount": 9387,
+  "shareCount": 1799,
+  "reviewCount": 8,
   "invocationMode": "execute",
   "invocation": {
     "type": "execute",
@@ -90,84 +129,85 @@
   "formSchema": {
     "type": "object",
     "required": [],
-    "properties": {
-      "materialText": {
-        "type": "string",
-        "title": "文档、表格或记录",
-        "description": "粘贴文档、表格、会议记录、客户反馈、评论文本或待整理资料。",
-        "x-component": "Textarea",
-        "x-rows": 8
-      },
-      "materialFile": {
-        "type": "string",
-        "title": "资料文件",
-        "description": "上传文档、表格、会议纪要、客户资料或评论数据文件。",
-        "format": "binary",
-        "x-component": "FileUpload",
-        "x-max-size": 20971520,
-        "x-accept": ".png,.jpg,.jpeg,.webp,.gif,.pdf,.pptx,.docx,.txt"
-      },
-      "materialUrl": {
-        "type": "string",
-        "title": "资料链接",
-        "description": "填写公开可访问的文档、表格、页面或资料链接；受限内容请改为上传或粘贴。",
-        "format": "uri"
-      },
-      "audience": {
-        "type": "string",
-        "title": "使用对象",
-        "description": "说明整理结果要服务的人群、团队、角色或业务场景。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "goal": {
-        "type": "string",
-        "title": "整理目标",
-        "description": "说明希望得到的结构摘要、清理规则、行动项、缺口提醒或交付用途。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "brandRequirements": {
-        "type": "string",
-        "title": "口径与边界",
-        "description": "补充字段口径、时间范围、格式要求、不可改动事实、敏感信息处理或人工复核重点。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      }
-    },
     "x-layout": {
       "mode": "contextComposer",
-      "primaryField": "materialText",
+      "rows": 5,
+      "placeholder": "粘贴文档、表格、会议记录或待整理资料",
       "primaryTabs": [
         {
           "id": "paste",
-          "label": "粘贴记录",
+          "icon": "FileText",
           "field": "materialText",
-          "icon": "FileText"
+          "label": "粘贴记录"
         },
         {
           "id": "upload",
-          "label": "上传资料",
+          "icon": "Upload",
           "field": "materialFile",
-          "icon": "Upload"
+          "label": "上传资料"
         },
         {
           "id": "link",
-          "label": "填资料链接",
+          "icon": "Link",
           "field": "materialUrl",
-          "icon": "Link"
+          "label": "填资料链接"
         }
       ],
+      "primaryField": "materialText",
+      "advancedLabel": "补充整理要求",
       "primaryControlFields": [],
       "advancedControlFields": [
         "audience",
         "goal",
         "brandRequirements"
-      ],
-      "advancedLabel": "补充整理要求",
-      "rows": 5,
-      "placeholder": "粘贴文档、表格、会议记录或待整理资料"
+      ]
     },
+    "properties": {
+      "goal": {
+        "type": "string",
+        "title": "整理目标",
+        "x-rows": 3,
+        "description": "说明希望得到的结构摘要、清理规则、行动项、缺口提醒或交付用途。",
+        "x-component": "Textarea"
+      },
+      "audience": {
+        "type": "string",
+        "title": "使用对象",
+        "x-rows": 3,
+        "description": "说明整理结果要服务的人群、团队、角色或业务场景。",
+        "x-component": "Textarea"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "资料链接",
+        "format": "uri",
+        "description": "填写公开可访问的文档、表格、页面或资料链接；受限内容请改为上传或粘贴。"
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "资料文件",
+        "format": "binary",
+        "x-accept": ".png,.jpg,.jpeg,.webp,.gif,.pdf,.pptx,.docx,.txt",
+        "x-max-size": 20971520,
+        "description": "上传文档、表格、会议纪要、客户资料或评论数据文件。",
+        "x-component": "FileUpload"
+      },
+      "materialText": {
+        "type": "string",
+        "title": "文档、表格或记录",
+        "x-rows": 8,
+        "description": "粘贴文档、表格、会议记录、客户反馈、评论文本或待整理资料。",
+        "x-component": "Textarea"
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "口径与边界",
+        "x-rows": 3,
+        "description": "补充字段口径、时间范围、格式要求、不可改动事实、敏感信息处理或人工复核重点。",
+        "x-component": "Textarea"
+      }
+    },
+    "x-profile-context": true,
     "x-required-any-of": [
       {
         "fields": [
@@ -177,8 +217,6 @@
         ],
         "message": "请填写记录内容、上传资料文件或提供资料链接"
       }
-    ],
-    "x-profile-context": true,
-    "x-submit-label": "整理行动清单"
+    ]
   }
 }

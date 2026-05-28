@@ -1,0 +1,216 @@
+{
+  "id": "ai-public-company-due-diligence-summary",
+  "slug": "ai-public-company-due-diligence-summary",
+  "question": "这件事该怎么做?",
+  "skillName": "业务诊断助手",
+  "tags": [
+    "金融资料",
+    "风险提示",
+    "证据审阅",
+    "专业复核"
+  ],
+  "profession": [
+    "operation",
+    "marketing",
+    "technical",
+    "product"
+  ],
+  "industry": [
+    "finance",
+    "software",
+    "education"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "llm",
+  "providerConfig": {
+    "catalog": {
+      "icon": "Sparkles"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "none",
+    "safetySha256": "b32dc2339d1a8bc747ab294cc7d8635529292cb3e7c8d879b1953368fcc64678",
+    "safetyStatus": "allowed",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "public-company-due-diligence-summary",
+    "resultContract": "ResultEnvelope",
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "public-company-due-diligence-summary",
+      "originalSlug": "public-company-due-diligence-summary",
+      "agentId": "ai-public-company-due-diligence-summary",
+      "idStrategy": "openclaw-hermes"
+    }
+  },
+  "coreValue": "先看清问题，再决定下一步",
+  "scenario": "适用于金融、投研、保险和合规相关材料的初步摘要、问题清单和人工复核准备。",
+  "usage": "资料摘要 / 风险提示 / 证据缺口 / 复核问题",
+  "painPoints": [
+    "金融资料术语多、风险表达敏感，人工初筛容易遗漏证据缺口",
+    "营销、条款或财报材料需要先整理问题，再交给专业人员判断",
+    "团队需要清楚区分事实、推断和必须复核的专业结论"
+  ],
+  "withSkill": [
+    "摘要关键事实、风险表达和证据缺口",
+    "生成给法务、合规、投研或业务负责人的追问清单",
+    "保留人工专业复核边界，避免把初筛当最终结论"
+  ],
+  "youCan": [
+    "上传条款、研报、公告、财报或营销文案",
+    "说明业务场景、目标读者和风险关注点",
+    "把输出用于专业复核前的材料整理和问题准备"
+  ],
+  "downloadCount": 1000,
+  "collectionCount": 14297,
+  "shareCount": 5981,
+  "reviewCount": 12,
+  "invocationMode": "execute",
+  "invocation": {
+    "type": "execute",
+    "executePath": "/api/execute"
+  },
+  "formSchema": {
+    "type": "object",
+    "required": [],
+    "x-layout": {
+      "mode": "contextComposer",
+      "rows": 5,
+      "placeholder": "粘贴上市公司公开资料，建议包含公司、用途、时间范围和重点关注",
+      "primaryTabs": [
+        {
+          "id": "paste",
+          "icon": "FileText",
+          "field": "companyDisclosureText",
+          "label": "公司公开资料摘录"
+        },
+        {
+          "id": "upload",
+          "icon": "Upload",
+          "field": "disclosureFile",
+          "label": "上传披露资料"
+        },
+        {
+          "id": "link",
+          "icon": "Link",
+          "field": "companyDisclosureLink",
+          "label": "公开披露链接"
+        }
+      ],
+      "primaryField": "companyDisclosureText",
+      "advancedLabel": "补充场景",
+      "primaryControlFields": [
+        "diligenceSummaryFocus"
+      ],
+      "advancedControlFields": [
+        "diligenceContext",
+        "watchItemNotes"
+      ]
+    },
+    "properties": {
+      "disclosureFile": {
+        "type": "string",
+        "title": "上传披露资料",
+        "format": "binary",
+        "x-accept": ".docx,.pdf,.md,.txt,.xlsx,.csv,.png,.jpg,.jpeg",
+        "x-max-size": 20971520,
+        "description": "上传公告、年报、招股书、新闻清单、尽调表或数据摘录。",
+        "x-component": "FileUpload"
+      },
+      "watchItemNotes": {
+        "type": "string",
+        "title": "关注事项与排除范围",
+        "x-rows": 3,
+        "description": "补充重点关注、已知风险、不得下结论范围和需人工核验事项。",
+        "x-component": "Textarea"
+      },
+      "diligenceContext": {
+        "type": "string",
+        "title": "尽调目的与市场背景",
+        "x-rows": 3,
+        "description": "说明公司、行业、市场、合作/投资/采购目的和时间范围。",
+        "x-component": "Textarea"
+      },
+      "companyDisclosureLink": {
+        "type": "string",
+        "title": "公开披露链接",
+        "format": "uri",
+        "description": "填写公开可访问的交易所公告、公司官网、监管披露或新闻链接。"
+      },
+      "companyDisclosureText": {
+        "type": "string",
+        "title": "公司公开资料摘录",
+        "x-rows": 10,
+        "description": "粘贴公告、年报摘要、新闻、诉讼、股权、业务或风险披露。",
+        "x-component": "Textarea"
+      },
+      "diligenceSummaryFocus": {
+        "enum": [
+          "业务概况",
+          "风险事件",
+          "治理结构",
+          "待核实清单"
+        ],
+        "type": "string",
+        "title": "摘要重点",
+        "default": "业务概况",
+        "x-options": [
+          {
+            "icon": "Target",
+            "color": "blue",
+            "group": "摘要重点",
+            "label": "业务概况",
+            "value": "业务概况",
+            "description": "重点处理业务概况"
+          },
+          {
+            "icon": "ListChecks",
+            "color": "green",
+            "group": "摘要重点",
+            "label": "风险事件",
+            "value": "风险事件",
+            "description": "重点处理风险事件"
+          },
+          {
+            "icon": "Award",
+            "color": "blue",
+            "group": "摘要重点",
+            "label": "治理结构",
+            "value": "治理结构",
+            "description": "重点处理治理结构"
+          },
+          {
+            "icon": "ClipboardList",
+            "color": "green",
+            "group": "摘要重点",
+            "label": "待核实清单",
+            "value": "待核实清单",
+            "description": "重点处理待核实清单"
+          }
+        ],
+        "description": "选择本次上市公司公开尽调摘要最需要优先处理的方向。"
+      }
+    },
+    "x-profile-context": true,
+    "x-required-any-of": [
+      {
+        "fields": [
+          "companyDisclosureText",
+          "disclosureFile",
+          "companyDisclosureLink"
+        ],
+        "message": "请填写公司公开资料摘录、上传资料，或提供可访问链接"
+      }
+    ]
+  }
+}

@@ -15,8 +15,7 @@
   ],
   "industry": [
     "software",
-    "ecommerce",
-    "business-services"
+    "ecommerce"
   ],
   "hidden": false,
   "auth": {
@@ -27,16 +26,38 @@
   "comingSoon": false,
   "providerType": "llm",
   "providerConfig": {
-    "asyncProvider": "skills2api-scheduler",
-    "resultContract": "ResultEnvelope",
+    "trend": {
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。",
+      "sourceIds": [
+        "https://www.skills.sh/coreyhaines31/marketingskills"
+      ],
+      "sourceNotes": "skills_sh_trending: coreyhaines31/marketingskills/onboarding"
+    },
+    "catalog": {
+      "icon": "ListChecks"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "none",
+    "bulkSupply": {
+      "wave": "external-hot-open-source-2026-05-17",
+      "batchId": "external-hot-open-source-2026-05-17",
+      "candidateId": "onboarding",
+      "sourceShard": "external-open-source",
+      "coverageNotes": "skills.sh trending 信号显示 onboarding 有用户需求；平台展示为 growth_cro_sales 业务助手目录，输出可复核诊断、建议或生产准备包。",
+      "primaryIndustry": "software",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "marketing",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1"
+    },
     "compliance": {
       "riskTier": "R1",
+      "launchGate": "sample_required",
       "riskDomains": [
         "sales_gtm"
       ],
-      "riskRationale": "skills.sh trending 信号显示 onboarding 有用户需求；平台展示为 growth_cro_sales 业务助手目录，输出可复核诊断、建议或生产准备包。",
       "reviewStatus": "auto_screened",
-      "humanReviewRequired": false,
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "riskRationale": "skills.sh trending 信号显示 onboarding 有用户需求；平台展示为 growth_cro_sales 业务助手目录，输出可复核诊断、建议或生产准备包。",
       "allowedOutputs": [
         "转化问题优先级",
         "可复制改稿",
@@ -46,42 +67,60 @@
         "不得输出未经核验的确定性专业结论",
         "不得代替用户执行第三方平台操作"
       ],
-      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
-      "launchGate": "sample_required"
+      "humanReviewRequired": false
     },
-    "trend": {
-      "sourceIds": [
-        "https://www.skills.sh/coreyhaines31/marketingskills"
-      ],
-      "sourceNotes": "skills_sh_trending: coreyhaines31/marketingskills/onboarding",
-      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
-    },
-    "bulkSupply": {
-      "candidateId": "onboarding",
-      "sourceShard": "external-open-source",
-      "wave": "external-hot-open-source-2026-05-17",
-      "batchId": "external-hot-open-source-2026-05-17",
-      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
-      "generatorVersion": "manual-curated-2026-05-17",
-      "primaryProfession": "marketing",
-      "primaryIndustry": "software",
-      "coverageNotes": "skills.sh trending 信号显示 onboarding 有用户需求；平台展示为 growth_cro_sales 业务助手目录，输出可复核诊断、建议或生产准备包。"
-    },
+    "safetySha256": "a9049ecc2c725eed74171d4ae01083dbc41d350142a1ca21df17f4a64b6ffb20",
+    "safetyStatus": "allowed",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "ai-onboarding",
+    "resultContract": "ResultEnvelope",
     "externalOpenSource": {
       "batchId": "external-hot-open-source-2026-05-17",
-      "candidateId": "onboarding",
-      "originalSkillId": "onboarding",
+      "license": "unknown_pending_verification",
+      "category": "sales_gtm",
       "sourceRef": "coreyhaines31/marketingskills",
       "sourceUrl": "https://www.skills.sh/coreyhaines31/marketingskills",
+      "importedAt": "2026-05-17T09:37:56.964Z",
+      "candidateId": "onboarding",
       "sourceSignal": "skills_sh_trending",
-      "category": "sales_gtm",
-      "license": "unknown_pending_verification",
-      "importedAt": "2026-05-17T09:37:56.964Z"
+      "originalSkillId": "onboarding"
+    },
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "ai-onboarding",
+      "originalSlug": "ai-onboarding",
+      "agentId": "ai-onboarding",
+      "idStrategy": "openclaw-hermes"
     }
   },
-  "painPoints": [],
-  "withSkill": [],
-  "youCan": [],
+  "coreValue": "第一次体验决定后面是否留下",
+  "scenario": "适用于已经准备好产品/服务信息、待优化页面或文案、转化目标与目标用户等材料的用户。",
+  "usage": "实验设计 / 转化诊断 / 假设梳理 / 执行清单",
+  "painPoints": [
+    "实验假设不清楚，难以判断该测什么",
+    "转化问题缺少优先级和验证口径",
+    "优化建议需要对应指标、样本量和执行约束"
+  ],
+  "withSkill": [
+    "梳理当前目标、用户场景和转化瓶颈",
+    "生成可验证的实验假设、指标和执行步骤",
+    "输出风险提醒和上线前检查清单"
+  ],
+  "youCan": [
+    "提交产品/服务信息",
+    "获得实验方案、指标建议和优先级判断",
+    "下载或复制结果，用于后续人工复核和执行"
+  ],
+  "downloadCount": 1200,
+  "collectionCount": 11231,
+  "shareCount": 3628,
+  "reviewCount": 8,
   "invocationMode": "execute",
   "invocation": {
     "type": "execute",
@@ -90,84 +129,85 @@
   "formSchema": {
     "type": "object",
     "required": [],
-    "properties": {
-      "materialText": {
-        "type": "string",
-        "title": "页面、流程或实验材料",
-        "description": "粘贴页面文案、流程说明、实验想法、转化目标、用户反馈或阻力线索。",
-        "x-component": "Textarea",
-        "x-rows": 8
-      },
-      "materialFile": {
-        "type": "string",
-        "title": "转化资料文件",
-        "description": "上传页面截图、转化数据、用户反馈、实验规划或产品资料。",
-        "format": "binary",
-        "x-component": "FileUpload",
-        "x-max-size": 20971520,
-        "x-accept": ".xlsx,.xls,.csv,.tsv"
-      },
-      "materialUrl": {
-        "type": "string",
-        "title": "页面或流程链接",
-        "description": "填写公开可访问的落地页、注册页、付费墙、流程或参考链接。",
-        "format": "uri"
-      },
-      "audience": {
-        "type": "string",
-        "title": "目标用户",
-        "description": "说明用户阶段、细分人群、流量来源、设备或使用场景。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "goal": {
-        "type": "string",
-        "title": "转化目标",
-        "description": "说明要优化的注册、激活、升级、留存、付费或实验指标。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "brandRequirements": {
-        "type": "string",
-        "title": "实验与发布边界",
-        "description": "补充样本量、指标口径、品牌限制、技术约束、不可改动项或上线复核重点。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      }
-    },
     "x-layout": {
       "mode": "contextComposer",
-      "primaryField": "materialText",
+      "rows": 5,
+      "placeholder": "粘贴页面文案、流程说明、实验想法或转化目标",
       "primaryTabs": [
         {
           "id": "paste",
-          "label": "粘贴转化材料",
+          "icon": "FileText",
           "field": "materialText",
-          "icon": "FileText"
+          "label": "粘贴转化材料"
         },
         {
           "id": "upload",
-          "label": "上传资料",
+          "icon": "Upload",
           "field": "materialFile",
-          "icon": "Upload"
+          "label": "上传资料"
         },
         {
           "id": "link",
-          "label": "填页面链接",
+          "icon": "Link",
           "field": "materialUrl",
-          "icon": "Link"
+          "label": "填页面链接"
         }
       ],
+      "primaryField": "materialText",
+      "advancedLabel": "补充实验范围",
       "primaryControlFields": [],
       "advancedControlFields": [
         "audience",
         "goal",
         "brandRequirements"
-      ],
-      "advancedLabel": "补充实验范围",
-      "rows": 5,
-      "placeholder": "粘贴页面文案、流程说明、实验想法或转化目标"
+      ]
     },
+    "properties": {
+      "goal": {
+        "type": "string",
+        "title": "转化目标",
+        "x-rows": 3,
+        "description": "说明要优化的注册、激活、升级、留存、付费或实验指标。",
+        "x-component": "Textarea"
+      },
+      "audience": {
+        "type": "string",
+        "title": "目标用户",
+        "x-rows": 3,
+        "description": "说明用户阶段、细分人群、流量来源、设备或使用场景。",
+        "x-component": "Textarea"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "页面或流程链接",
+        "format": "uri",
+        "description": "填写公开可访问的落地页、注册页、付费墙、流程或参考链接。"
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "转化资料文件",
+        "format": "binary",
+        "x-accept": ".xlsx,.xls,.csv,.tsv",
+        "x-max-size": 20971520,
+        "description": "上传页面截图、转化数据、用户反馈、实验规划或产品资料。",
+        "x-component": "FileUpload"
+      },
+      "materialText": {
+        "type": "string",
+        "title": "页面、流程或实验材料",
+        "x-rows": 8,
+        "description": "粘贴页面文案、流程说明、实验想法、转化目标、用户反馈或阻力线索。",
+        "x-component": "Textarea"
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "实验与发布边界",
+        "x-rows": 3,
+        "description": "补充样本量、指标口径、品牌限制、技术约束、不可改动项或上线复核重点。",
+        "x-component": "Textarea"
+      }
+    },
+    "x-profile-context": true,
     "x-required-any-of": [
       {
         "fields": [
@@ -177,8 +217,6 @@
         ],
         "message": "请填写转化材料、上传资料或提供页面链接"
       }
-    ],
-    "x-profile-context": true,
-    "x-submit-label": "设计增长实验"
+    ]
   }
 }

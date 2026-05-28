@@ -1,6 +1,6 @@
 ---
 name: ai-audit-website
-description: "网站诊断助手适合researcher、市场营销、运营、software在用户提出“网站哪里拖后腿”这类问题，需要快速拆解目标、判断重点并形成可执行结果时使用，帮助基于输入材料生成研究摘要、关键发现、引用/验证清单。"
+description: "网站诊断助手适合市场营销、运营、software、教育培训在用户提出“网站哪里拖后腿”这类问题，需要快速拆解目标、判断重点并形成可执行结果时使用，帮助基于输入材料生成研究摘要、关键发现、引用/验证清单。"
 requiredEnvVars:
   - name: AISKILLS_API_KEY
     description: "从 AI Skills 官网 https://ai-skills.ai 获取API Key，用于运行时技能调用。"
@@ -14,7 +14,7 @@ requiredEnvVars:
 
 ### 概述
 
-网站诊断助手用于回答「网站哪里拖后腿」、研究分析、来源核验、证据摘要，适合researcher、市场营销、运营、software在明确业务目标、内容材料或分析对象后调用。
+网站诊断助手用于回答「网站哪里拖后腿」、研究分析、来源核验、证据摘要，适合市场营销、运营、software、教育培训在明确业务目标、内容材料或分析对象后调用。
 它会结合页面 URL、报告或问题描述、粘贴页面 URL、性能报告摘要、Core Web Vitals 指…等输入，整理关键上下文，并输出研究摘要、关键发现、引用/验证清单，便于继续执行、复盘或交付。
 能力定位补充：skills.sh all-time/trending 信号显示 audit-website 有用户需求；平台展示为 research_analysis 业务助手目录，输出可复核诊断、建议或生产准备包。
 
@@ -23,8 +23,8 @@ requiredEnvVars:
 **适用场景**
 
 - 用户提出“网站哪里拖后腿”这类问题，需要快速拆解目标、判断重点并形成可执行结果
-- researcher、市场营销、运营、software需要围绕网站诊断助手生成研究摘要、关键发现、引用/验证清单
-- 用户已经准备了页面 URL、报告或问题描述（粘贴页面 URL、性能报告摘要、Core Web Vitals 指标、复现场景或网…）、性能报告文件（上传 Lighthouse 报告、性能截图、指标表、页面说明或技术排查资料。）、待诊断页面链接（填写公开可访问的待诊断页面、站点、报告或参考链接。），希望整理成可执行的分析或优化结果
+- 市场营销、运营、software、教育培训需要围绕网站诊断助手生成研究摘要、关键发现、引用/验证清单
+- 用户已经准备了诊断目标（说明要定位的性能、可用性、搜索、转化或上线检查目标。）、影响对象（说明受影响的用户、设备、页面类型、地区或业务场景。）、待诊断页面链接（填写公开可访问的待诊断页面、站点、报告或参考链接。），希望整理成可执行的分析或优化结果
 - 用户需要把网站诊断助手相关材料转成清晰结论、优先级和下一步动作
 
 ### 调用方式
@@ -42,18 +42,18 @@ python3 scripts/run.py --params '{}'
 **带常用参数调用**
 
 ```bash
-python3 scripts/run.py --params '{"materialText":"页面 URL、报告或问题描述"}'
+python3 scripts/run.py --params '{"goal":"诊断目标"}'
 ```
 
 ### 参数说明
 
 | 参数 | 类型 | 必填 | 默认 | 说明 |
 | --- | --- | --- | --- | --- |
-| `materialText` | string | 否 | - | 粘贴页面 URL、性能报告摘要、Core Web Vitals 指标、复现场景或网站质量问题 |
-| `materialFile` | string | 否 | - | 上传 Lighthouse 报告、性能截图、指标表、页面说明或技术排查资料 |
-| `materialUrl` | string | 否 | - | 填写公开可访问的待诊断页面、站点、报告或参考链接；需要传可访问的完整 URL |
-| `audience` | string | 否 | - | 说明受影响的用户、设备、页面类型、地区或业务场景 |
 | `goal` | string | 否 | - | 说明要定位的性能、可用性、搜索、转化或上线检查目标 |
+| `audience` | string | 否 | - | 说明受影响的用户、设备、页面类型、地区或业务场景 |
+| `materialUrl` | string | 否 | - | 填写公开可访问的待诊断页面、站点、报告或参考链接；需要传可访问的完整 URL |
+| `materialFile` | string | 否 | - | 上传 Lighthouse 报告、性能截图、指标表、页面说明或技术排查资料 |
+| `materialText` | string | 否 | - | 粘贴页面 URL、性能报告摘要、Core Web Vitals 指标、复现场景或网站质量问题 |
 | `brandRequirements` | string | 否 | - | 补充设备网络、浏览器、时间范围、技术栈限制、不可改动项或复测要求 |
 
 完整机器可读参数结构见 `references/form-schema.json`。
@@ -71,14 +71,14 @@ python3 scripts/run.py --params '{"materialText":"页面 URL、报告或问题�
 下面的示例参数可直接传给 `scripts/run.py`，runner 会把它们发送给 AI Skills API。
 
 ```bash
-python3 scripts/run.py --params '{"materialText":"页面 URL、报告或问题描述"}'
+python3 scripts/run.py --params '{"goal":"诊断目标"}'
 ```
 
 等价的 `--params` JSON：
 
 ```json
 {
-  "materialText": "页面 URL、报告或问题描述"
+  "goal": "诊断目标"
 }
 ```
 
@@ -100,7 +100,7 @@ python3 scripts/run.py --params '{"materialText":"页面 URL、报告或问题�
 ### 交付内容
 
 - 研究摘要、关键发现、引用/验证清单：围绕用户目标整理可直接阅读、复盘或交付的核心结果。
-- 输入材料解读：结合页面 URL、报告或问题描述（粘贴页面 URL、性能报告摘要、Core Web Vitals 指标、复现场景或网…）、性能报告文件（上传 Lighthouse 报告、性能截图、指标表、页面说明或技术排查资料。）、待诊断页面链接（填写公开可访问的待诊断页面、站点、报告或参考链接。）提炼关键上下文和判断依据。
+- 输入材料解读：结合诊断目标（说明要定位的性能、可用性、搜索、转化或上线检查目标。）、影响对象（说明受影响的用户、设备、页面类型、地区或业务场景。）、待诊断页面链接（填写公开可访问的待诊断页面、站点、报告或参考链接。）提炼关键上下文和判断依据。
 - 下一步动作：给出优先级、执行建议或可继续加工的内容框架。
 
 ### 结果使用建议

@@ -9,14 +9,12 @@
     "证据摘要"
   ],
   "profession": [
-    "researcher",
     "marketing",
     "operation"
   ],
   "industry": [
     "software",
-    "education",
-    "business-services"
+    "education"
   ],
   "hidden": false,
   "auth": {
@@ -27,16 +25,38 @@
   "comingSoon": false,
   "providerType": "llm",
   "providerConfig": {
-    "asyncProvider": "skills2api-scheduler",
-    "resultContract": "ResultEnvelope",
+    "trend": {
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。",
+      "sourceIds": [
+        "https://skillsmp.com/skills/wentorai-research-plugins-skills-domains-education-educational-research-methods-skill-md"
+      ],
+      "sourceNotes": "recent_hot_search_signal: wentorai/research-plugins/educational-research-methods"
+    },
+    "catalog": {
+      "icon": "Sparkles"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "none",
+    "bulkSupply": {
+      "wave": "skillsmp-market-2026-05-17",
+      "batchId": "skillsmp-market-2026-05-17",
+      "candidateId": "educational-research-methods",
+      "sourceShard": "external-open-source",
+      "coverageNotes": "SkillsMP market signal (217 stars): Quantitative and qualitative research methods for education studies",
+      "primaryIndustry": "education",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "teacher",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1"
+    },
     "compliance": {
       "riskTier": "R1",
+      "launchGate": "sample_required",
       "riskDomains": [
         "education"
       ],
-      "riskRationale": "SkillsMP market signal (217 stars): Quantitative and qualitative research methods for education studies",
       "reviewStatus": "auto_screened",
-      "humanReviewRequired": false,
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "riskRationale": "SkillsMP market signal (217 stars): Quantitative and qualitative research methods for education studies",
       "allowedOutputs": [
         "教学或招聘诊断",
         "改进建议",
@@ -46,42 +66,60 @@
         "不得输出未经核验的确定性专业结论",
         "不得代替用户执行第三方平台操作"
       ],
-      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
-      "launchGate": "sample_required"
+      "humanReviewRequired": false
     },
-    "trend": {
-      "sourceIds": [
-        "https://skillsmp.com/skills/wentorai-research-plugins-skills-domains-education-educational-research-methods-skill-md"
-      ],
-      "sourceNotes": "recent_hot_search_signal: wentorai/research-plugins/educational-research-methods",
-      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
-    },
-    "bulkSupply": {
-      "candidateId": "educational-research-methods",
-      "sourceShard": "external-open-source",
-      "wave": "skillsmp-market-2026-05-17",
-      "batchId": "skillsmp-market-2026-05-17",
-      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
-      "generatorVersion": "manual-curated-2026-05-17",
-      "primaryProfession": "teacher",
-      "primaryIndustry": "education",
-      "coverageNotes": "SkillsMP market signal (217 stars): Quantitative and qualitative research methods for education studies"
-    },
+    "safetySha256": "87f06763a21d1297eb70b36f7c36ece0125a832a2081a143629fc098f50c322c",
+    "safetyStatus": "allowed",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "ai-educational-research-methods",
+    "resultContract": "ResultEnvelope",
     "externalOpenSource": {
       "batchId": "skillsmp-market-2026-05-17",
-      "candidateId": "educational-research-methods",
-      "originalSkillId": "educational-research-methods",
+      "license": "unknown_pending_verification",
+      "category": "education",
       "sourceRef": "wentorai/research-plugins",
       "sourceUrl": "https://skillsmp.com/skills/wentorai-research-plugins-skills-domains-education-educational-research-methods-skill-md",
+      "importedAt": "2026-05-17T14:16:48.974Z",
+      "candidateId": "educational-research-methods",
       "sourceSignal": "recent_hot_search_signal",
-      "category": "education",
-      "license": "unknown_pending_verification",
-      "importedAt": "2026-05-17T14:16:48.974Z"
+      "originalSkillId": "educational-research-methods"
+    },
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "ai-educational-research-methods",
+      "originalSlug": "ai-educational-research-methods",
+      "agentId": "ai-educational-research-methods",
+      "idStrategy": "openclaw-hermes"
     }
   },
-  "painPoints": [],
-  "withSkill": [],
-  "youCan": [],
+  "coreValue": "方法对了，结论才站得住",
+  "scenario": "适用于已经准备好课程/岗位/学习材料、目标人群、评估标准等材料的用户。",
+  "usage": "公开资料核验 / 来源对比 / 研究摘要 / 决策简报",
+  "painPoints": [
+    "公开资料来源分散，难以判断可信度和结论边界",
+    "研究问题需要同时保留证据、反例和不确定性",
+    "输出前需要区分事实、推断、风险和后续待查问题"
+  ],
+  "withSkill": [
+    "梳理研究问题、候选来源和比较维度",
+    "对比来源可信度、证据强弱和结论风险",
+    "输出研究摘要、证据清单、风险提醒和决策简报"
+  ],
+  "youCan": [
+    "提交课程/岗位/学习材料",
+    "获得来源对比、证据摘要和结论风险",
+    "下载或复制结果，用于后续人工复核和执行"
+  ],
+  "downloadCount": 1200,
+  "collectionCount": 15092,
+  "shareCount": 3086,
+  "reviewCount": 8,
   "invocationMode": "execute",
   "invocation": {
     "type": "execute",
@@ -90,84 +128,85 @@
   "formSchema": {
     "type": "object",
     "required": [],
-    "properties": {
-      "materialText": {
-        "type": "string",
-        "title": "研究问题或资料摘录",
-        "description": "粘贴要核验的问题、候选来源、网页摘录、文献线索或比较观点。",
-        "x-component": "Textarea",
-        "x-rows": 8
-      },
-      "materialFile": {
-        "type": "string",
-        "title": "研究资料文件",
-        "description": "上传研究资料、网页摘录、文献笔记、表格或报告，适合资料较长或需要保留原文时使用。",
-        "format": "binary",
-        "x-component": "FileUpload",
-        "x-max-size": 20971520,
-        "x-accept": ".xlsx,.xls,.csv,.tsv"
-      },
-      "materialUrl": {
-        "type": "string",
-        "title": "公开网页链接",
-        "description": "填写公开可访问的网页、报告或资料链接；受限内容请改为上传文件或粘贴摘录。",
-        "format": "uri"
-      },
-      "audience": {
-        "type": "string",
-        "title": "研究受众",
-        "description": "说明研究结论要服务的读者、角色、市场、课程或使用场景。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "goal": {
-        "type": "string",
-        "title": "研究目标",
-        "description": "说明本次要回答的问题、比较维度、判断标准或交付用途。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "brandRequirements": {
-        "type": "string",
-        "title": "来源与边界",
-        "description": "补充来源范围、时间范围、可信度要求、不可使用来源、结论风险或人工复核重点。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      }
-    },
     "x-layout": {
       "mode": "contextComposer",
-      "primaryField": "materialText",
+      "rows": 5,
+      "placeholder": "粘贴要核验的问题、候选来源、网页摘录或比较观点",
       "primaryTabs": [
         {
           "id": "paste",
-          "label": "提研究问题",
+          "icon": "FileText",
           "field": "materialText",
-          "icon": "FileText"
+          "label": "提研究问题"
         },
         {
           "id": "upload",
-          "label": "上传资料",
+          "icon": "Upload",
           "field": "materialFile",
-          "icon": "Upload"
+          "label": "上传资料"
         },
         {
           "id": "link",
-          "label": "填网页链接",
+          "icon": "Link",
           "field": "materialUrl",
-          "icon": "Link"
+          "label": "填网页链接"
         }
       ],
+      "primaryField": "materialText",
+      "advancedLabel": "补充研究范围",
       "primaryControlFields": [],
       "advancedControlFields": [
         "audience",
         "goal",
         "brandRequirements"
-      ],
-      "advancedLabel": "补充研究范围",
-      "rows": 5,
-      "placeholder": "粘贴要核验的问题、候选来源、网页摘录或比较观点"
+      ]
     },
+    "properties": {
+      "goal": {
+        "type": "string",
+        "title": "研究目标",
+        "x-rows": 3,
+        "description": "说明本次要回答的问题、比较维度、判断标准或交付用途。",
+        "x-component": "Textarea"
+      },
+      "audience": {
+        "type": "string",
+        "title": "研究受众",
+        "x-rows": 3,
+        "description": "说明研究结论要服务的读者、角色、市场、课程或使用场景。",
+        "x-component": "Textarea"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "公开网页链接",
+        "format": "uri",
+        "description": "填写公开可访问的网页、报告或资料链接；受限内容请改为上传文件或粘贴摘录。"
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "研究资料文件",
+        "format": "binary",
+        "x-accept": ".xlsx,.xls,.csv,.tsv",
+        "x-max-size": 20971520,
+        "description": "上传研究资料、网页摘录、文献笔记、表格或报告，适合资料较长或需要保留原文时使用。",
+        "x-component": "FileUpload"
+      },
+      "materialText": {
+        "type": "string",
+        "title": "研究问题或资料摘录",
+        "x-rows": 8,
+        "description": "粘贴要核验的问题、候选来源、网页摘录、文献线索或比较观点。",
+        "x-component": "Textarea"
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "来源与边界",
+        "x-rows": 3,
+        "description": "补充来源范围、时间范围、可信度要求、不可使用来源、结论风险或人工复核重点。",
+        "x-component": "Textarea"
+      }
+    },
+    "x-profile-context": true,
     "x-required-any-of": [
       {
         "fields": [
@@ -177,8 +216,6 @@
         ],
         "message": "请填写研究问题、上传研究资料或提供公开网页链接"
       }
-    ],
-    "x-profile-context": true,
-    "x-submit-label": "整理资料要点"
+    ]
   }
 }

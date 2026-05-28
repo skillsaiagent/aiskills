@@ -15,7 +15,6 @@
   ],
   "industry": [
     "software",
-    "business-services",
     "ecommerce"
   ],
   "hidden": false,
@@ -27,16 +26,38 @@
   "comingSoon": false,
   "providerType": "llm",
   "providerConfig": {
-    "asyncProvider": "skills2api-scheduler",
-    "resultContract": "ResultEnvelope",
+    "trend": {
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。",
+      "sourceIds": [
+        "https://skillsmp.com/skills/futurewithvibe-openclaw-python-skills-local-places-skill-md"
+      ],
+      "sourceNotes": "recent_hot_search_signal: futurewithvibe/openclaw-python/local-places"
+    },
+    "catalog": {
+      "icon": "Sparkles"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "none",
+    "bulkSupply": {
+      "wave": "skillsmp-market-2026-05-17",
+      "batchId": "skillsmp-market-2026-05-17",
+      "candidateId": "local-places",
+      "sourceShard": "external-open-source",
+      "coverageNotes": "SkillsMP market signal (0 stars): Local business and location search",
+      "primaryIndustry": "local_services",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "owner",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1"
+    },
     "compliance": {
       "riskTier": "R1",
+      "launchGate": "sample_required",
       "riskDomains": [
         "local_services"
       ],
-      "riskRationale": "SkillsMP market signal (0 stars): Local business and location search",
       "reviewStatus": "auto_screened",
-      "humanReviewRequired": false,
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "riskRationale": "SkillsMP market signal (0 stars): Local business and location search",
       "allowedOutputs": [
         "经营诊断",
         "本地营销建议",
@@ -46,42 +67,60 @@
         "不得输出未经核验的确定性专业结论",
         "不得代替用户执行第三方平台操作"
       ],
-      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
-      "launchGate": "sample_required"
+      "humanReviewRequired": false
     },
-    "trend": {
-      "sourceIds": [
-        "https://skillsmp.com/skills/futurewithvibe-openclaw-python-skills-local-places-skill-md"
-      ],
-      "sourceNotes": "recent_hot_search_signal: futurewithvibe/openclaw-python/local-places",
-      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
-    },
-    "bulkSupply": {
-      "candidateId": "local-places",
-      "sourceShard": "external-open-source",
-      "wave": "skillsmp-market-2026-05-17",
-      "batchId": "skillsmp-market-2026-05-17",
-      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
-      "generatorVersion": "manual-curated-2026-05-17",
-      "primaryProfession": "owner",
-      "primaryIndustry": "local_services",
-      "coverageNotes": "SkillsMP market signal (0 stars): Local business and location search"
-    },
+    "safetySha256": "433f242d27037b479faac7cb7373fb9c954ddca343cfa61cc72331c029893cf5",
+    "safetyStatus": "allowed",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "ai-local-places",
+    "resultContract": "ResultEnvelope",
     "externalOpenSource": {
       "batchId": "skillsmp-market-2026-05-17",
-      "candidateId": "local-places",
-      "originalSkillId": "local-places",
+      "license": "unknown_pending_verification",
+      "category": "local_services",
       "sourceRef": "futurewithvibe/openclaw-python",
       "sourceUrl": "https://skillsmp.com/skills/futurewithvibe-openclaw-python-skills-local-places-skill-md",
+      "importedAt": "2026-05-17T14:25:12.411Z",
+      "candidateId": "local-places",
       "sourceSignal": "recent_hot_search_signal",
-      "category": "local_services",
-      "license": "unknown_pending_verification",
-      "importedAt": "2026-05-17T14:25:12.411Z"
+      "originalSkillId": "local-places"
+    },
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "ai-local-places",
+      "originalSlug": "ai-local-places",
+      "agentId": "ai-local-places",
+      "idStrategy": "openclaw-hermes"
     }
   },
-  "painPoints": [],
-  "withSkill": [],
-  "youCan": [],
+  "coreValue": "地点推荐要匹配场景",
+  "scenario": "适用于已经准备好门店/服务信息、评论或菜单材料、业务目标等材料的用户。",
+  "usage": "资料整理 / 结构摘要 / 缺口提醒 / 行动项",
+  "painPoints": [
+    "文档、表格或沟通记录信息量大，重点和责任人容易散落",
+    "数据或资料整理需要区分事实、缺口、重复项和风险",
+    "后续执行前需要明确行动项、负责人、优先级和待确认问题"
+  ],
+  "withSkill": [
+    "读取文档、表格、会议记录或客户资料",
+    "提炼结构摘要、关键缺口、重复冲突和风险点",
+    "输出行动项、整理结果、复核提醒和交接清单"
+  ],
+  "youCan": [
+    "提交门店/服务信息",
+    "获得结构摘要、清理建议、缺口提醒和行动项",
+    "下载或复制结果，用于后续人工复核和执行"
+  ],
+  "downloadCount": 1500,
+  "collectionCount": 9481,
+  "shareCount": 1399,
+  "reviewCount": 8,
   "invocationMode": "execute",
   "invocation": {
     "type": "execute",
@@ -90,84 +129,85 @@
   "formSchema": {
     "type": "object",
     "required": [],
-    "properties": {
-      "materialText": {
-        "type": "string",
-        "title": "地点需求或候选清单",
-        "description": "粘贴地点需求、候选清单、预算、出行范围、偏好条件或评价摘录。",
-        "x-component": "Textarea",
-        "x-rows": 8
-      },
-      "materialFile": {
-        "type": "string",
-        "title": "地点资料文件",
-        "description": "上传地点清单、评价表、活动需求、预算表或调研资料。",
-        "format": "binary",
-        "x-component": "FileUpload",
-        "x-max-size": 20971520,
-        "x-accept": ".xlsx,.xls,.csv,.tsv"
-      },
-      "materialUrl": {
-        "type": "string",
-        "title": "地点或地图链接",
-        "description": "填写公开可访问的地图、门店、地点、评价或候选页面链接。",
-        "format": "uri"
-      },
-      "audience": {
-        "type": "string",
-        "title": "出行或使用对象",
-        "description": "说明人数、角色、偏好、场景、交通方式或活动类型。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "goal": {
-        "type": "string",
-        "title": "筛选目标",
-        "description": "说明要完成的推荐、比较、路线、预算、风险核验或最终决策。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "brandRequirements": {
-        "type": "string",
-        "title": "时间与限制",
-        "description": "补充时间范围、预算上限、距离限制、营业要求、避雷条件或人工核验重点。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      }
-    },
     "x-layout": {
       "mode": "contextComposer",
-      "primaryField": "materialText",
+      "rows": 5,
+      "placeholder": "粘贴地点需求、筛选条件、预算和出行范围",
       "primaryTabs": [
         {
           "id": "paste",
-          "label": "写地点需求",
+          "icon": "FileText",
           "field": "materialText",
-          "icon": "FileText"
+          "label": "写地点需求"
         },
         {
           "id": "upload",
-          "label": "上传清单",
+          "icon": "Upload",
           "field": "materialFile",
-          "icon": "Upload"
+          "label": "上传清单"
         },
         {
           "id": "link",
-          "label": "填地点链接",
+          "icon": "Link",
           "field": "materialUrl",
-          "icon": "Link"
+          "label": "填地点链接"
         }
       ],
+      "primaryField": "materialText",
+      "advancedLabel": "补充筛选条件",
       "primaryControlFields": [],
       "advancedControlFields": [
         "audience",
         "goal",
         "brandRequirements"
-      ],
-      "advancedLabel": "补充筛选条件",
-      "rows": 5,
-      "placeholder": "粘贴地点需求、筛选条件、预算和出行范围"
+      ]
     },
+    "properties": {
+      "goal": {
+        "type": "string",
+        "title": "筛选目标",
+        "x-rows": 3,
+        "description": "说明要完成的推荐、比较、路线、预算、风险核验或最终决策。",
+        "x-component": "Textarea"
+      },
+      "audience": {
+        "type": "string",
+        "title": "出行或使用对象",
+        "x-rows": 3,
+        "description": "说明人数、角色、偏好、场景、交通方式或活动类型。",
+        "x-component": "Textarea"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "地点或地图链接",
+        "format": "uri",
+        "description": "填写公开可访问的地图、门店、地点、评价或候选页面链接。"
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "地点资料文件",
+        "format": "binary",
+        "x-accept": ".xlsx,.xls,.csv,.tsv",
+        "x-max-size": 20971520,
+        "description": "上传地点清单、评价表、活动需求、预算表或调研资料。",
+        "x-component": "FileUpload"
+      },
+      "materialText": {
+        "type": "string",
+        "title": "地点需求或候选清单",
+        "x-rows": 8,
+        "description": "粘贴地点需求、候选清单、预算、出行范围、偏好条件或评价摘录。",
+        "x-component": "Textarea"
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "时间与限制",
+        "x-rows": 3,
+        "description": "补充时间范围、预算上限、距离限制、营业要求、避雷条件或人工核验重点。",
+        "x-component": "Textarea"
+      }
+    },
+    "x-profile-context": true,
     "x-required-any-of": [
       {
         "fields": [
@@ -177,8 +217,6 @@
         ],
         "message": "请填写地点需求、上传地点资料或提供地点链接"
       }
-    ],
-    "x-profile-context": true,
-    "x-submit-label": "整理行动清单"
+    ]
   }
 }

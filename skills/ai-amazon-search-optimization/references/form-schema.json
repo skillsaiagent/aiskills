@@ -1,84 +1,85 @@
 {
   "type": "object",
   "required": [],
-  "properties": {
-    "materialText": {
-      "type": "string",
-      "title": "页面、关键词或内容资料",
-      "description": "粘贴页面内容、关键词、站点结构、搜索目标、竞品摘要或优化问题。",
-      "x-component": "Textarea",
-      "x-rows": 8
-    },
-    "materialFile": {
-      "type": "string",
-      "title": "SEO 资料文件",
-      "description": "上传内容稿、关键词表、站点结构、审计报告或 SEO 规划资料。",
-      "format": "binary",
-      "x-component": "FileUpload",
-      "x-max-size": 20971520,
-      "x-accept": ".xlsx,.xls,.csv,.tsv,.pdf,.docx,.txt"
-    },
-    "materialUrl": {
-      "type": "string",
-      "title": "页面或站点链接",
-      "description": "填写公开可访问的页面、站点、SERP、竞品或参考链接。",
-      "format": "uri"
-    },
-    "audience": {
-      "type": "string",
-      "title": "目标受众",
-      "description": "说明搜索用户、目标市场、行业、购买阶段或内容受众。",
-      "x-component": "Textarea",
-      "x-rows": 3
-    },
-    "goal": {
-      "type": "string",
-      "title": "优化目标",
-      "description": "说明要提升的关键词、搜索意图、可见性、引用机会或转化目标。",
-      "x-component": "Textarea",
-      "x-rows": 3
-    },
-    "brandRequirements": {
-      "type": "string",
-      "title": "搜索与发布边界",
-      "description": "补充目标地区、语言、品牌限制、不可改动事实、合规要求或人工复核重点。",
-      "x-component": "Textarea",
-      "x-rows": 3
-    }
-  },
   "x-layout": {
     "mode": "contextComposer",
-    "primaryField": "materialText",
+    "rows": 5,
+    "placeholder": "粘贴页面内容、关键词、站点结构或搜索目标",
     "primaryTabs": [
       {
         "id": "paste",
-        "label": "粘贴页面内容",
+        "icon": "FileText",
         "field": "materialText",
-        "icon": "FileText"
+        "label": "粘贴页面内容"
       },
       {
         "id": "upload",
-        "label": "上传 SEO 资料",
+        "icon": "Upload",
         "field": "materialFile",
-        "icon": "Upload"
+        "label": "上传 SEO 资料"
       },
       {
         "id": "link",
-        "label": "填页面链接",
+        "icon": "Link",
         "field": "materialUrl",
-        "icon": "Link"
+        "label": "填页面链接"
       }
     ],
+    "primaryField": "materialText",
+    "advancedLabel": "补充搜索范围",
     "primaryControlFields": [],
     "advancedControlFields": [
       "audience",
       "goal",
       "brandRequirements"
-    ],
-    "advancedLabel": "补充搜索范围",
-    "rows": 5,
-    "placeholder": "粘贴页面内容、关键词、站点结构或搜索目标"
+    ]
   },
+  "properties": {
+    "goal": {
+      "type": "string",
+      "title": "优化目标",
+      "x-rows": 3,
+      "description": "说明要提升的关键词、搜索意图、可见性、引用机会或转化目标。",
+      "x-component": "Textarea"
+    },
+    "audience": {
+      "type": "string",
+      "title": "目标受众",
+      "x-rows": 3,
+      "description": "说明搜索用户、目标市场、行业、购买阶段或内容受众。",
+      "x-component": "Textarea"
+    },
+    "materialUrl": {
+      "type": "string",
+      "title": "页面或站点链接",
+      "format": "uri",
+      "description": "填写公开可访问的页面、站点、SERP、竞品或参考链接。"
+    },
+    "materialFile": {
+      "type": "string",
+      "title": "SEO 资料文件",
+      "format": "binary",
+      "x-accept": ".xlsx,.xls,.csv,.tsv,.pdf,.docx,.txt",
+      "x-max-size": 20971520,
+      "description": "上传内容稿、关键词表、站点结构、审计报告或 SEO 规划资料。",
+      "x-component": "FileUpload"
+    },
+    "materialText": {
+      "type": "string",
+      "title": "页面、关键词或内容资料",
+      "x-rows": 8,
+      "description": "粘贴页面内容、关键词、站点结构、搜索目标、竞品摘要或优化问题。",
+      "x-component": "Textarea"
+    },
+    "brandRequirements": {
+      "type": "string",
+      "title": "搜索与发布边界",
+      "x-rows": 3,
+      "description": "补充目标地区、语言、品牌限制、不可改动事实、合规要求或人工复核重点。",
+      "x-component": "Textarea"
+    }
+  },
+  "x-profile-context": true,
   "x-required-any-of": [
     {
       "fields": [
@@ -88,7 +89,5 @@
       ],
       "message": "请填写页面/关键词资料、上传 SEO 文件或提供页面链接"
     }
-  ],
-  "x-profile-context": true,
-  "x-submit-label": "诊断经营机会"
+  ]
 }

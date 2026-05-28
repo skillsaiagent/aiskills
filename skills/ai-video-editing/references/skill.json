@@ -10,7 +10,6 @@
   ],
   "profession": [
     "marketing",
-    "content-creator",
     "operation"
   ],
   "industry": [
@@ -27,16 +26,38 @@
   "comingSoon": false,
   "providerType": "llm",
   "providerConfig": {
-    "asyncProvider": "skills2api-scheduler",
-    "resultContract": "ResultEnvelope",
+    "trend": {
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。",
+      "sourceIds": [
+        "https://skillsmp.com/skills/affaan-m-everything-claude-code-agents-skills-video-editing-skill-md"
+      ],
+      "sourceNotes": "recent_hot_search_signal: affaan-m/everything-claude-code/video-editing"
+    },
+    "catalog": {
+      "icon": "Clapperboard"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "medium",
+    "bulkSupply": {
+      "wave": "skillsmp-market-2026-05-17",
+      "batchId": "skillsmp-market-2026-05-17",
+      "candidateId": "video-editing",
+      "sourceShard": "external-open-source",
+      "coverageNotes": "SkillsMP market signal (181389 stars): AI-assisted video editing workflows for cutting, structuring, and augmenting real footage. Covers the full pipeline from raw capture through FFmpeg, Remotion, ElevenLabs, fal.ai, a",
+      "primaryIndustry": "software",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "marketing",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1"
+    },
     "compliance": {
       "riskTier": "R1",
+      "launchGate": "sample_required",
       "riskDomains": [
         "content_marketing"
       ],
-      "riskRationale": "SkillsMP market signal (181389 stars): AI-assisted video editing workflows for cutting, structuring, and augmenting real footage. Covers the full pipeline from raw capture through FFmpeg, Remotion, ElevenLabs, fal.ai, a",
       "reviewStatus": "auto_screened",
-      "humanReviewRequired": false,
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "riskRationale": "SkillsMP market signal (181389 stars): AI-assisted video editing workflows for cutting, structuring, and augmenting real footage. Covers the full pipeline from raw capture through FFmpeg, Remotion, ElevenLabs, fal.ai, a",
       "allowedOutputs": [
         "剪辑结构诊断",
         "片段取舍和时间点建议",
@@ -46,42 +67,60 @@
         "不得输出未经核验的确定性专业结论",
         "不得代替用户执行第三方平台操作"
       ],
-      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
-      "launchGate": "sample_required"
+      "humanReviewRequired": false
     },
-    "trend": {
-      "sourceIds": [
-        "https://skillsmp.com/skills/affaan-m-everything-claude-code-agents-skills-video-editing-skill-md"
-      ],
-      "sourceNotes": "recent_hot_search_signal: affaan-m/everything-claude-code/video-editing",
-      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
-    },
-    "bulkSupply": {
-      "candidateId": "video-editing",
-      "sourceShard": "external-open-source",
-      "wave": "skillsmp-market-2026-05-17",
-      "batchId": "skillsmp-market-2026-05-17",
-      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
-      "generatorVersion": "manual-curated-2026-05-17",
-      "primaryProfession": "marketing",
-      "primaryIndustry": "software",
-      "coverageNotes": "SkillsMP market signal (181389 stars): AI-assisted video editing workflows for cutting, structuring, and augmenting real footage. Covers the full pipeline from raw capture through FFmpeg, Remotion, ElevenLabs, fal.ai, a"
-    },
+    "safetySha256": "3e6716e76a3c4fc49988f9ddf8348965b4943c63ca95a297549ba8eda18846f1",
+    "safetyStatus": "review_required",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "ai-video-editing",
+    "resultContract": "ResultEnvelope",
     "externalOpenSource": {
       "batchId": "skillsmp-market-2026-05-17",
-      "candidateId": "video-editing",
-      "originalSkillId": "video-editing",
+      "license": "unknown_pending_verification",
+      "category": "content_marketing",
       "sourceRef": "affaan-m/everything-claude-code",
       "sourceUrl": "https://skillsmp.com/skills/affaan-m-everything-claude-code-agents-skills-video-editing-skill-md",
+      "importedAt": "2026-05-17T14:59:27.386Z",
+      "candidateId": "video-editing",
       "sourceSignal": "recent_hot_search_signal",
-      "category": "content_marketing",
-      "license": "unknown_pending_verification",
-      "importedAt": "2026-05-17T14:59:27.386Z"
+      "originalSkillId": "video-editing"
+    },
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "ai-video-editing",
+      "originalSlug": "ai-video-editing",
+      "agentId": "ai-video-editing",
+      "idStrategy": "openclaw-hermes"
     }
   },
-  "painPoints": [],
-  "withSkill": [],
-  "youCan": [],
+  "coreValue": "先找节奏，再压缩成片",
+  "scenario": "适用于已经准备好raw footage、录屏或转写稿、目标平台、成片时长和受众、剪辑风格与不可删内容等材料的用户。",
+  "usage": "素材诊断 / 剪辑决策表 / 字幕配音建议 / 平台重构清单",
+  "painPoints": [
+    "长素材里有效片段分散，剪辑前难以判断保留和删除顺序",
+    "字幕、旁白、B-roll、转场和平台比例需要一起规划",
+    "多人协作时需要清楚的时间点、剪辑意图和交付清单"
+  ],
+  "withSkill": [
+    "读取素材说明、转写文本、时间点或视频文件",
+    "识别强片段、死区、重排结构和平台适配问题",
+    "输出剪辑决策表、FFmpeg/Remotion 操作建议和最终精修清单"
+  ],
+  "youCan": [
+    "提交raw footage、录屏或转写稿",
+    "获得剪辑结构、片段取舍和字幕配音建议",
+    "下载或复制结果，用于后续人工复核和执行"
+  ],
+  "downloadCount": 1200,
+  "collectionCount": 10299,
+  "shareCount": 1446,
+  "reviewCount": 8,
   "invocationMode": "execute",
   "invocation": {
     "type": "execute",
@@ -90,84 +129,85 @@
   "formSchema": {
     "type": "object",
     "required": [],
-    "properties": {
-      "materialText": {
-        "type": "string",
-        "title": "剪辑需求或素材说明",
-        "description": "粘贴本次要交给「AI 视频剪辑诊断助手」处理的素材说明、转写稿、时间点、剪辑目标或当前成片问题。",
-        "x-component": "Textarea",
-        "x-rows": 8
-      },
-      "materialFile": {
-        "type": "string",
-        "title": "原始视频或转写文件",
-        "description": "上传 raw footage、录屏、访谈、直播片段、转写稿或脚本文件，便于生成剪辑决策表。",
-        "format": "binary",
-        "x-component": "FileUpload",
-        "x-max-size": 20971520,
-        "x-accept": ".mp4,.mov,.webm,.mp3,.wav,.m4a,.pdf,.docx,.txt"
-      },
-      "materialUrl": {
-        "type": "string",
-        "title": "素材或参考链接",
-        "description": "填写公开可访问的视频、素材或参考成片链接；如果链接需要登录、权限或 Cookie，请改为上传文件或粘贴内容。",
-        "format": "uri"
-      },
-      "audience": {
-        "type": "string",
-        "title": "目标平台与受众",
-        "description": "说明「AI 视频剪辑诊断助手」输出要服务的平台、观看人群、角色、市场或使用场景。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "goal": {
-        "type": "string",
-        "title": "成片目标与时长",
-        "description": "说明本次希望解决的剪辑问题、目标时长、成片用途或需要产出的版本。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "brandRequirements": {
-        "type": "string",
-        "title": "剪辑风格与不可删内容",
-        "description": "补充品牌语气、平台规格、剪辑风格、必须保留内容、不可改动事实、合规限制或人工复核重点。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      }
-    },
     "x-layout": {
       "mode": "contextComposer",
-      "primaryField": "materialText",
+      "rows": 5,
+      "placeholder": "说明已有视频素材、转写稿、目标平台、成片时长、想保留/删除的片段和剪辑风格",
       "primaryTabs": [
         {
           "id": "paste",
-          "label": "写剪辑需求",
+          "icon": "FileText",
           "field": "materialText",
-          "icon": "FileText"
+          "label": "写剪辑需求"
         },
         {
           "id": "upload",
-          "label": "上传视频素材",
+          "icon": "Upload",
           "field": "materialFile",
-          "icon": "Upload"
+          "label": "上传视频素材"
         },
         {
           "id": "link",
-          "label": "填素材链接",
+          "icon": "Link",
           "field": "materialUrl",
-          "icon": "Link"
+          "label": "填素材链接"
         }
       ],
+      "primaryField": "materialText",
+      "advancedLabel": "补充剪辑范围",
       "primaryControlFields": [],
       "advancedControlFields": [
         "audience",
         "goal",
         "brandRequirements"
-      ],
-      "advancedLabel": "补充剪辑范围",
-      "rows": 5,
-      "placeholder": "说明已有视频素材、转写稿、目标平台、成片时长、想保留/删除的片段和剪辑风格"
+      ]
     },
+    "properties": {
+      "goal": {
+        "type": "string",
+        "title": "成片目标与时长",
+        "x-rows": 3,
+        "description": "说明本次希望解决的剪辑问题、目标时长、成片用途或需要产出的版本。",
+        "x-component": "Textarea"
+      },
+      "audience": {
+        "type": "string",
+        "title": "目标平台与受众",
+        "x-rows": 3,
+        "description": "说明「AI 视频剪辑诊断助手」输出要服务的平台、观看人群、角色、市场或使用场景。",
+        "x-component": "Textarea"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "素材或参考链接",
+        "format": "uri",
+        "description": "填写公开可访问的视频、素材或参考成片链接；如果链接需要登录、权限或 Cookie，请改为上传文件或粘贴内容。"
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "原始视频或转写文件",
+        "format": "binary",
+        "x-accept": ".mp4,.mov,.webm,.mp3,.wav,.m4a,.pdf,.docx,.txt",
+        "x-max-size": 20971520,
+        "description": "上传 raw footage、录屏、访谈、直播片段、转写稿或脚本文件，便于生成剪辑决策表。",
+        "x-component": "FileUpload"
+      },
+      "materialText": {
+        "type": "string",
+        "title": "剪辑需求或素材说明",
+        "x-rows": 8,
+        "description": "粘贴本次要交给「AI 视频剪辑诊断助手」处理的素材说明、转写稿、时间点、剪辑目标或当前成片问题。",
+        "x-component": "Textarea"
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "剪辑风格与不可删内容",
+        "x-rows": 3,
+        "description": "补充品牌语气、平台规格、剪辑风格、必须保留内容、不可改动事实、合规限制或人工复核重点。",
+        "x-component": "Textarea"
+      }
+    },
+    "x-profile-context": true,
     "x-required-any-of": [
       {
         "fields": [
@@ -177,8 +217,6 @@
         ],
         "message": "请填写剪辑需求、上传视频素材或提供素材链接"
       }
-    ],
-    "x-profile-context": true,
-    "x-submit-label": "生成视觉方案"
+    ]
   }
 }

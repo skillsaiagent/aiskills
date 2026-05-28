@@ -15,7 +15,6 @@
   ],
   "industry": [
     "software",
-    "business-services",
     "ecommerce"
   ],
   "hidden": false,
@@ -27,16 +26,38 @@
   "comingSoon": false,
   "providerType": "llm",
   "providerConfig": {
-    "asyncProvider": "skills2api-scheduler",
-    "resultContract": "ResultEnvelope",
+    "trend": {
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。",
+      "sourceIds": [
+        "https://skillsmp.com/skills/evolution-foundation-evo-nexus-claude-skills-hr-performance-review-skill-md"
+      ],
+      "sourceNotes": "recent_hot_search_signal: evolution-foundation/evo-nexus/hr-performance-review"
+    },
+    "catalog": {
+      "icon": "Sparkles"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "none",
+    "bulkSupply": {
+      "wave": "skillsmp-market-2026-05-17",
+      "batchId": "skillsmp-market-2026-05-17",
+      "candidateId": "hr-performance-review",
+      "sourceShard": "external-open-source",
+      "coverageNotes": "SkillsMP market signal (410 stars): Estrutura uma avaliação de desempenho com auto-avaliação, template de gestor e prep para calibração. Use quando a temporada de reviews começa, ao escrever a avaliação de um liderad",
+      "primaryIndustry": "ecommerce",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "operation",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1"
+    },
     "compliance": {
       "riskTier": "R1",
+      "launchGate": "sample_required",
       "riskDomains": [
         "ecommerce"
       ],
-      "riskRationale": "SkillsMP market signal (410 stars): Estrutura uma avaliação de desempenho com auto-avaliação, template de gestor e prep para calibração. Use quando a temporada de reviews começa, ao escrever a avaliação de um liderad",
       "reviewStatus": "auto_screened",
-      "humanReviewRequired": false,
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "riskRationale": "SkillsMP market signal (410 stars): Estrutura uma avaliação de desempenho com auto-avaliação, template de gestor e prep para calibração. Use quando a temporada de reviews começa, ao escrever a avaliação de um liderad",
       "allowedOutputs": [
         "运营诊断",
         "商品/流量优化建议",
@@ -46,42 +67,60 @@
         "不得输出未经核验的确定性专业结论",
         "不得代替用户执行第三方平台操作"
       ],
-      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
-      "launchGate": "sample_required"
+      "humanReviewRequired": false
     },
-    "trend": {
-      "sourceIds": [
-        "https://skillsmp.com/skills/evolution-foundation-evo-nexus-claude-skills-hr-performance-review-skill-md"
-      ],
-      "sourceNotes": "recent_hot_search_signal: evolution-foundation/evo-nexus/hr-performance-review",
-      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
-    },
-    "bulkSupply": {
-      "candidateId": "hr-performance-review",
-      "sourceShard": "external-open-source",
-      "wave": "skillsmp-market-2026-05-17",
-      "batchId": "skillsmp-market-2026-05-17",
-      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
-      "generatorVersion": "manual-curated-2026-05-17",
-      "primaryProfession": "operation",
-      "primaryIndustry": "ecommerce",
-      "coverageNotes": "SkillsMP market signal (410 stars): Estrutura uma avaliação de desempenho com auto-avaliação, template de gestor e prep para calibração. Use quando a temporada de reviews começa, ao escrever a avaliação de um liderad"
-    },
+    "safetySha256": "a7f5052fa976aee6b6200fa3bec454ba6c0d3c8c9aec3a15abff8103075639cf",
+    "safetyStatus": "allowed",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "ai-hr-performance-review",
+    "resultContract": "ResultEnvelope",
     "externalOpenSource": {
       "batchId": "skillsmp-market-2026-05-17",
-      "candidateId": "hr-performance-review",
-      "originalSkillId": "hr-performance-review",
+      "license": "unknown_pending_verification",
+      "category": "ecommerce",
       "sourceRef": "evolution-foundation/evo-nexus",
       "sourceUrl": "https://skillsmp.com/skills/evolution-foundation-evo-nexus-claude-skills-hr-performance-review-skill-md",
+      "importedAt": "2026-05-17T14:17:45.310Z",
+      "candidateId": "hr-performance-review",
       "sourceSignal": "recent_hot_search_signal",
-      "category": "ecommerce",
-      "license": "unknown_pending_verification",
-      "importedAt": "2026-05-17T14:17:45.310Z"
+      "originalSkillId": "hr-performance-review"
+    },
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "ai-hr-performance-review",
+      "originalSlug": "ai-hr-performance-review",
+      "agentId": "ai-hr-performance-review",
+      "idStrategy": "openclaw-hermes"
     }
   },
-  "painPoints": [],
-  "withSkill": [],
-  "youCan": [],
+  "coreValue": "反馈要具体，也要可行动",
+  "scenario": "适用于已经准备好商品信息、店铺/平台数据、竞品或评论材料等材料的用户。",
+  "usage": "资料整理 / 结构摘要 / 缺口提醒 / 行动项",
+  "painPoints": [
+    "文档、表格或沟通记录信息量大，重点和责任人容易散落",
+    "数据或资料整理需要区分事实、缺口、重复项和风险",
+    "后续执行前需要明确行动项、负责人、优先级和待确认问题"
+  ],
+  "withSkill": [
+    "读取文档、表格、会议记录或客户资料",
+    "提炼结构摘要、关键缺口、重复冲突和风险点",
+    "输出行动项、整理结果、复核提醒和交接清单"
+  ],
+  "youCan": [
+    "提交商品信息",
+    "获得结构摘要、清理建议、缺口提醒和行动项",
+    "下载或复制结果，用于后续人工复核和执行"
+  ],
+  "downloadCount": 1200,
+  "collectionCount": 5344,
+  "shareCount": 4087,
+  "reviewCount": 8,
   "invocationMode": "execute",
   "invocation": {
     "type": "execute",
@@ -90,84 +129,85 @@
   "formSchema": {
     "type": "object",
     "required": [],
-    "properties": {
-      "materialText": {
-        "type": "string",
-        "title": "岗位、绩效或求职材料",
-        "description": "粘贴岗位描述、简历、绩效素材、人事沟通草稿、评估标准或反馈目标。",
-        "x-component": "Textarea",
-        "x-rows": 8
-      },
-      "materialFile": {
-        "type": "string",
-        "title": "HR 资料文件",
-        "description": "上传简历、岗位说明、绩效记录、人事政策、面试材料或沟通草稿。",
-        "format": "binary",
-        "x-component": "FileUpload",
-        "x-max-size": 20971520,
-        "x-accept": ".xlsx,.xls,.csv,.tsv"
-      },
-      "materialUrl": {
-        "type": "string",
-        "title": "岗位或资料链接",
-        "description": "填写公开可访问的岗位、公司、政策或参考资料链接。",
-        "format": "uri"
-      },
-      "audience": {
-        "type": "string",
-        "title": "相关角色",
-        "description": "说明候选人、员工、管理者、HRBP、面试官或沟通对象。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "goal": {
-        "type": "string",
-        "title": "处理目标",
-        "description": "说明要完成的匹配分析、绩效反馈、表达优化、面试准备或风险检查。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "brandRequirements": {
-        "type": "string",
-        "title": "合规与语气边界",
-        "description": "补充事实依据、敏感信息处理、语气要求、不可承诺内容、法律边界或人工复核重点。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      }
-    },
     "x-layout": {
       "mode": "contextComposer",
-      "primaryField": "materialText",
+      "rows": 5,
+      "placeholder": "粘贴岗位描述、简历、绩效素材或人事沟通草稿",
       "primaryTabs": [
         {
           "id": "paste",
-          "label": "粘贴绩效素材",
+          "icon": "FileText",
           "field": "materialText",
-          "icon": "FileText"
+          "label": "粘贴绩效素材"
         },
         {
           "id": "upload",
-          "label": "上传绩效文件",
+          "icon": "Upload",
           "field": "materialFile",
-          "icon": "Upload"
+          "label": "上传绩效文件"
         },
         {
           "id": "link",
-          "label": "填参考链接",
+          "icon": "Link",
           "field": "materialUrl",
-          "icon": "Link"
+          "label": "填参考链接"
         }
       ],
+      "primaryField": "materialText",
+      "advancedLabel": "补充人事边界",
       "primaryControlFields": [],
       "advancedControlFields": [
         "audience",
         "goal",
         "brandRequirements"
-      ],
-      "advancedLabel": "补充人事边界",
-      "rows": 5,
-      "placeholder": "粘贴岗位描述、简历、绩效素材或人事沟通草稿"
+      ]
     },
+    "properties": {
+      "goal": {
+        "type": "string",
+        "title": "处理目标",
+        "x-rows": 3,
+        "description": "说明要完成的匹配分析、绩效反馈、表达优化、面试准备或风险检查。",
+        "x-component": "Textarea"
+      },
+      "audience": {
+        "type": "string",
+        "title": "相关角色",
+        "x-rows": 3,
+        "description": "说明候选人、员工、管理者、HRBP、面试官或沟通对象。",
+        "x-component": "Textarea"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "岗位或资料链接",
+        "format": "uri",
+        "description": "填写公开可访问的岗位、公司、政策或参考资料链接。"
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "HR 资料文件",
+        "format": "binary",
+        "x-accept": ".xlsx,.xls,.csv,.tsv",
+        "x-max-size": 20971520,
+        "description": "上传简历、岗位说明、绩效记录、人事政策、面试材料或沟通草稿。",
+        "x-component": "FileUpload"
+      },
+      "materialText": {
+        "type": "string",
+        "title": "岗位、绩效或求职材料",
+        "x-rows": 8,
+        "description": "粘贴岗位描述、简历、绩效素材、人事沟通草稿、评估标准或反馈目标。",
+        "x-component": "Textarea"
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "合规与语气边界",
+        "x-rows": 3,
+        "description": "补充事实依据、敏感信息处理、语气要求、不可承诺内容、法律边界或人工复核重点。",
+        "x-component": "Textarea"
+      }
+    },
+    "x-profile-context": true,
     "x-required-any-of": [
       {
         "fields": [
@@ -177,8 +217,6 @@
         ],
         "message": "请填写 HR 资料、上传文件或提供岗位/资料链接"
       }
-    ],
-    "x-profile-context": true,
-    "x-submit-label": "生成评审建议"
+    ]
   }
 }

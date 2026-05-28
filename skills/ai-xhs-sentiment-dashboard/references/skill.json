@@ -1,0 +1,103 @@
+{
+  "id": "ai-xhs-sentiment-dashboard",
+  "slug": "ai-xhs-sentiment-dashboard",
+  "question": "小红书短视频怎么运营?",
+  "skillName": "小红书短视频运营增长助手",
+  "tags": [
+    "舆情监控",
+    "评论洞察",
+    "AI分析",
+    "转化潜力",
+    "用户画像",
+    "运营建议"
+  ],
+  "profession": [
+    "内容创作者",
+    "运营",
+    "品牌方",
+    "电商"
+  ],
+  "industry": [
+    "新媒体",
+    "电商",
+    "娱乐",
+    "美妆",
+    "时尚",
+    "生活",
+    "通用"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "api",
+  "providerConfig": {
+    "catalog": {
+      "icon": "MessagesSquare",
+      "rating": 4.8,
+      "displayOrder": 10,
+      "subProfession": [
+        "content-creator",
+        "analyst"
+      ]
+    },
+    "aiAnalysis": true,
+    "delegateTo": "xhs-video-comments",
+    "release": {
+      "originalId": "xhs-sentiment-dashboard",
+      "originalSlug": "xhs-sentiment-dashboard",
+      "agentId": "ai-xhs-sentiment-dashboard",
+      "idStrategy": "openclaw-hermes"
+    }
+  },
+  "coreValue": "挖掘用户需求，控制舆情风险，助力流量增长",
+  "scenario": "适合专注单平台、希望把评论区价值转化为运营与增长决策的团队。",
+  "usage": "舆情监控 / 转化分析 / 用户画像 / 智能回复",
+  "painPoints": [
+    "不知不觉说错一句话，造成不可挽回的舆情风波",
+    "评论太多，看不过来",
+    "不知道怎么回复会有流量"
+  ],
+  "withSkill": [
+    "及时发现舆情态势风险感知",
+    "总结评论区信息，自动发现潜在价值，挖掘用户需求",
+    "资深运营回复建议，互动，情绪价值拉满"
+  ],
+  "youCan": [
+    "用一条链接，拿到该条内容下的舆情、转化潜力与用户画像完整报告",
+    "在报告里直接看到谁值得重点回复、谁有转化与扩散价值",
+    "按建议的回复策略与运营动作执行，减少遗漏、降低试错",
+    "把单平台评论区变成可持续复用的洞察来源，支撑日常决策"
+  ],
+  "downloadCount": 8194,
+  "collectionCount": 17244,
+  "shareCount": 3400,
+  "reviewCount": 13,
+  "invocationMode": "comment-analysis-task",
+  "invocation": {
+    "type": "comment-analysis-task",
+    "parseLinkPath": "/api/comment-analysis/parse-link",
+    "createTaskPath": "/api/comment-analysis/tasks",
+    "getTaskPath": "/api/comment-analysis/tasks/:id",
+    "fixedPlatform": "xhs"
+  },
+  "formSchema": {
+    "type": "object",
+    "required": [
+      "videoUrl"
+    ],
+    "properties": {
+      "videoUrl": {
+        "type": "string",
+        "title": "视频/笔记链接",
+        "description": "粘贴小红书分享链接",
+        "x-component-props": {
+          "placeholder": "粘贴小红书分享链接..."
+        }
+      }
+    }
+  }
+}

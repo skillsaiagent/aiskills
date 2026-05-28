@@ -15,7 +15,6 @@
   ],
   "industry": [
     "software",
-    "business-services",
     "ecommerce"
   ],
   "hidden": false,
@@ -27,16 +26,38 @@
   "comingSoon": false,
   "providerType": "llm",
   "providerConfig": {
-    "asyncProvider": "skills2api-scheduler",
-    "resultContract": "ResultEnvelope",
+    "trend": {
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。",
+      "sourceIds": [
+        "https://skillsmp.com/skills/owl-listener-designer-skills-designer-toolkit-skills-presentation-deck-skill-md"
+      ],
+      "sourceNotes": "recent_hot_search_signal: Owl-Listener/designer-skills/presentation-deck"
+    },
+    "catalog": {
+      "icon": "Sparkles"
+    },
+    "managedBy": "worker-skill-local-sync",
+    "riskLevel": "none",
+    "bulkSupply": {
+      "wave": "skillsmp-market-2026-05-17",
+      "batchId": "skillsmp-market-2026-05-17",
+      "candidateId": "presentation-deck",
+      "sourceShard": "external-open-source",
+      "coverageNotes": "SkillsMP market signal (1229 stars): Structure compelling design presentations for stakeholders, reviews, and showcases.",
+      "primaryIndustry": "ecommerce",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "operation",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1"
+    },
     "compliance": {
       "riskTier": "R1",
+      "launchGate": "sample_required",
       "riskDomains": [
         "ecommerce"
       ],
-      "riskRationale": "SkillsMP market signal (1229 stars): Structure compelling design presentations for stakeholders, reviews, and showcases.",
       "reviewStatus": "auto_screened",
-      "humanReviewRequired": false,
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "riskRationale": "SkillsMP market signal (1229 stars): Structure compelling design presentations for stakeholders, reviews, and showcases.",
       "allowedOutputs": [
         "运营诊断",
         "商品/流量优化建议",
@@ -46,42 +67,60 @@
         "不得输出未经核验的确定性专业结论",
         "不得代替用户执行第三方平台操作"
       ],
-      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
-      "launchGate": "sample_required"
+      "humanReviewRequired": false
     },
-    "trend": {
-      "sourceIds": [
-        "https://skillsmp.com/skills/owl-listener-designer-skills-designer-toolkit-skills-presentation-deck-skill-md"
-      ],
-      "sourceNotes": "recent_hot_search_signal: Owl-Listener/designer-skills/presentation-deck",
-      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
-    },
-    "bulkSupply": {
-      "candidateId": "presentation-deck",
-      "sourceShard": "external-open-source",
-      "wave": "skillsmp-market-2026-05-17",
-      "batchId": "skillsmp-market-2026-05-17",
-      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
-      "generatorVersion": "manual-curated-2026-05-17",
-      "primaryProfession": "operation",
-      "primaryIndustry": "ecommerce",
-      "coverageNotes": "SkillsMP market signal (1229 stars): Structure compelling design presentations for stakeholders, reviews, and showcases."
-    },
+    "safetySha256": "c210f8e8c747fc76bc484155ac3e2b033c88bafb0f098a5d7e1748ca323216bb",
+    "safetyStatus": "allowed",
+    "asyncProvider": "skills2api-scheduler",
+    "workerSkillId": "ai-presentation-deck",
+    "resultContract": "ResultEnvelope",
     "externalOpenSource": {
       "batchId": "skillsmp-market-2026-05-17",
-      "candidateId": "presentation-deck",
-      "originalSkillId": "presentation-deck",
+      "license": "unknown_pending_verification",
+      "category": "ecommerce",
       "sourceRef": "Owl-Listener/designer-skills",
       "sourceUrl": "https://skillsmp.com/skills/owl-listener-designer-skills-designer-toolkit-skills-presentation-deck-skill-md",
+      "importedAt": "2026-05-17T14:29:04.438Z",
+      "candidateId": "presentation-deck",
       "sourceSignal": "recent_hot_search_signal",
-      "category": "ecommerce",
-      "license": "unknown_pending_verification",
-      "importedAt": "2026-05-17T14:29:04.438Z"
+      "originalSkillId": "presentation-deck"
+    },
+    "resultRequirements": {
+      "mustInclude": [
+        "summary",
+        "items",
+        "artifacts"
+      ]
+    },
+    "release": {
+      "originalId": "ai-presentation-deck",
+      "originalSlug": "ai-presentation-deck",
+      "agentId": "ai-presentation-deck",
+      "idStrategy": "openclaw-hermes"
     }
   },
-  "painPoints": [],
-  "withSkill": [],
-  "youCan": [],
+  "coreValue": "每页都该推动判断",
+  "scenario": "适用于已经准备好商品信息、店铺/平台数据、竞品或评论材料等材料的用户。",
+  "usage": "资料整理 / 结构摘要 / 缺口提醒 / 行动项",
+  "painPoints": [
+    "文档、表格或沟通记录信息量大，重点和责任人容易散落",
+    "数据或资料整理需要区分事实、缺口、重复项和风险",
+    "后续执行前需要明确行动项、负责人、优先级和待确认问题"
+  ],
+  "withSkill": [
+    "读取文档、表格、会议记录或客户资料",
+    "提炼结构摘要、关键缺口、重复冲突和风险点",
+    "输出行动项、整理结果、复核提醒和交接清单"
+  ],
+  "youCan": [
+    "提交商品信息",
+    "获得结构摘要、清理建议、缺口提醒和行动项",
+    "下载或复制结果，用于后续人工复核和执行"
+  ],
+  "downloadCount": 1200,
+  "collectionCount": 12289,
+  "shareCount": 5265,
+  "reviewCount": 8,
   "invocationMode": "execute",
   "invocation": {
     "type": "execute",
@@ -90,84 +129,85 @@
   "formSchema": {
     "type": "object",
     "required": [],
-    "properties": {
-      "materialText": {
-        "type": "string",
-        "title": "视觉 brief 或截图说明",
-        "description": "粘贴视觉 brief、截图说明、品牌规范、页面问题、平台规格或修改目标。",
-        "x-component": "Textarea",
-        "x-rows": 8
-      },
-      "materialFile": {
-        "type": "string",
-        "title": "视觉素材文件",
-        "description": "上传截图、图片、演示稿、品牌规范、产品图或视觉参考文件。",
-        "format": "binary",
-        "x-component": "FileUpload",
-        "x-max-size": 20971520,
-        "x-accept": ".pptx,.ppt,.pdf,.docx,.txt"
-      },
-      "materialUrl": {
-        "type": "string",
-        "title": "页面或素材链接",
-        "description": "填写公开可访问的页面、素材、设计稿预览或参考链接；受限内容请改为上传。",
-        "format": "uri"
-      },
-      "audience": {
-        "type": "string",
-        "title": "使用场景",
-        "description": "说明视觉素材面向的平台、受众、设备、活动或评审场景。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "goal": {
-        "type": "string",
-        "title": "审查目标",
-        "description": "说明要检查的版面、可读性、品牌一致性、转化目标或交付标准。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      },
-      "brandRequirements": {
-        "type": "string",
-        "title": "品牌与规格",
-        "description": "补充品牌规范、尺寸比例、平台限制、不可改动元素、无障碍要求或人工复核重点。",
-        "x-component": "Textarea",
-        "x-rows": 3
-      }
-    },
     "x-layout": {
       "mode": "contextComposer",
-      "primaryField": "materialText",
+      "rows": 5,
+      "placeholder": "粘贴视觉 brief、截图说明、品牌规范或修改目标",
       "primaryTabs": [
         {
           "id": "paste",
-          "label": "写视觉 brief",
+          "icon": "FileText",
           "field": "materialText",
-          "icon": "FileText"
+          "label": "写视觉 brief"
         },
         {
           "id": "upload",
-          "label": "上传素材",
+          "icon": "Upload",
           "field": "materialFile",
-          "icon": "Upload"
+          "label": "上传素材"
         },
         {
           "id": "link",
-          "label": "填页面链接",
+          "icon": "Link",
           "field": "materialUrl",
-          "icon": "Link"
+          "label": "填页面链接"
         }
       ],
+      "primaryField": "materialText",
+      "advancedLabel": "补充视觉约束",
       "primaryControlFields": [],
       "advancedControlFields": [
         "audience",
         "goal",
         "brandRequirements"
-      ],
-      "advancedLabel": "补充视觉约束",
-      "rows": 5,
-      "placeholder": "粘贴视觉 brief、截图说明、品牌规范或修改目标"
+      ]
     },
+    "properties": {
+      "goal": {
+        "type": "string",
+        "title": "审查目标",
+        "x-rows": 3,
+        "description": "说明要检查的版面、可读性、品牌一致性、转化目标或交付标准。",
+        "x-component": "Textarea"
+      },
+      "audience": {
+        "type": "string",
+        "title": "使用场景",
+        "x-rows": 3,
+        "description": "说明视觉素材面向的平台、受众、设备、活动或评审场景。",
+        "x-component": "Textarea"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "页面或素材链接",
+        "format": "uri",
+        "description": "填写公开可访问的页面、素材、设计稿预览或参考链接；受限内容请改为上传。"
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "视觉素材文件",
+        "format": "binary",
+        "x-accept": ".pptx,.ppt,.pdf,.docx,.txt",
+        "x-max-size": 20971520,
+        "description": "上传截图、图片、演示稿、品牌规范、产品图或视觉参考文件。",
+        "x-component": "FileUpload"
+      },
+      "materialText": {
+        "type": "string",
+        "title": "视觉 brief 或截图说明",
+        "x-rows": 8,
+        "description": "粘贴视觉 brief、截图说明、品牌规范、页面问题、平台规格或修改目标。",
+        "x-component": "Textarea"
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "品牌与规格",
+        "x-rows": 3,
+        "description": "补充品牌规范、尺寸比例、平台限制、不可改动元素、无障碍要求或人工复核重点。",
+        "x-component": "Textarea"
+      }
+    },
+    "x-profile-context": true,
     "x-required-any-of": [
       {
         "fields": [
@@ -177,8 +217,6 @@
         ],
         "message": "请填写视觉 brief、上传素材或提供页面/素材链接"
       }
-    ],
-    "x-profile-context": true,
-    "x-submit-label": "生成视觉方案"
+    ]
   }
 }

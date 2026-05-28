@@ -1,0 +1,83 @@
+{
+  "id": "ai-douyin-traffic-dashboard",
+  "slug": "ai-douyin-traffic-dashboard",
+  "question": "抖音平台流量在哪?",
+  "skillName": "抖音流量分配大盘",
+  "tags": [
+    "抖音",
+    "流量分配",
+    "热点",
+    "大盘",
+    "实时"
+  ],
+  "profession": [
+    "内容创作者",
+    "运营",
+    "电商",
+    "营销"
+  ],
+  "industry": [
+    "新媒体",
+    "电商",
+    "娱乐",
+    "通用"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "api",
+  "providerConfig": {
+    "catalog": {
+      "icon": "BarChart3",
+      "rating": 4.9,
+      "displayOrder": 1,
+      "subProfession": [
+        "content-creator",
+        "analyst"
+      ]
+    },
+    "endpoint": "/api/v1/douyin/billboard/fetch_hot_rise_list",
+    "apiSource": "tikhub",
+    "aggregateMode": "traffic-distribution",
+    "release": {
+      "originalId": "douyin-traffic-dashboard",
+      "originalSlug": "douyin-traffic-dashboard",
+      "agentId": "ai-douyin-traffic-dashboard",
+      "idStrategy": "openclaw-hermes"
+    }
+  },
+  "coreValue": "账号定位，选对方向，就已经成功了一半",
+  "scenario": "适用于需要快速了解全平台流量分布、不限定单一方向的运营与创作者。",
+  "usage": "流量大盘 / 方向占比 / 实时分配",
+  "painPoints": [
+    "不知道自己的方向平台是否有流量",
+    "不知道平台的标签有哪些",
+    "不知道怎么定位账号方向"
+  ],
+  "withSkill": [
+    "先看热点再出内容",
+    "每个分类即为平台一二级标签",
+    "有些方向是持续热点易起量"
+  ],
+  "youCan": [
+    "点击按钮获取各方向流量占比",
+    "参考占比再前往「热点选题推荐」做细分查询"
+  ],
+  "downloadCount": 5759,
+  "collectionCount": 11677,
+  "shareCount": 4063,
+  "reviewCount": 14,
+  "invocationMode": "execute",
+  "invocation": {
+    "type": "execute",
+    "executePath": "/api/execute"
+  },
+  "formSchema": {
+    "type": "object",
+    "properties": {}
+  }
+}
