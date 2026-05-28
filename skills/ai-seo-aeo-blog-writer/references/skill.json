@@ -1,0 +1,184 @@
+{
+  "id": "ai-seo-aeo-blog-writer",
+  "slug": "ai-seo-aeo-blog-writer",
+  "question": "这篇该怎么写?",
+  "skillName": "SEO/AEO 博客写作助手",
+  "tags": [
+    "SEO",
+    "内容增长",
+    "搜索优化"
+  ],
+  "profession": [
+    "marketing",
+    "operation",
+    "blogger-individual"
+  ],
+  "industry": [
+    "software",
+    "media",
+    "ecommerce"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "llm",
+  "providerConfig": {
+    "asyncProvider": "skills2api-scheduler",
+    "resultContract": "ResultEnvelope",
+    "compliance": {
+      "riskTier": "R1",
+      "riskDomains": [
+        "content_marketing"
+      ],
+      "riskRationale": "SkillsMP market signal (37471 stars): Writes long-form blog posts with TL;DR block, definition sentence, comparison table, and 5-question FAQ for SEO ranking and AEO citation. Activate when the user wants to write a bl",
+      "reviewStatus": "auto_screened",
+      "humanReviewRequired": false,
+      "allowedOutputs": [
+        "内容诊断",
+        "优化建议",
+        "执行清单"
+      ],
+      "forbiddenOutputs": [
+        "不得输出未经核验的确定性专业结论",
+        "不得代替用户执行第三方平台操作"
+      ],
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "launchGate": "sample_required"
+    },
+    "trend": {
+      "sourceIds": [
+        "https://skillsmp.com/skills/sickn33-antigravity-awesome-skills-plugins-antigravity-awesome-skills-claude-skills-seo-aeo-blog-writer-skill-md"
+      ],
+      "sourceNotes": "recent_hot_search_signal: sickn33/antigravity-awesome-skills/seo-aeo-blog-writer",
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
+    },
+    "bulkSupply": {
+      "candidateId": "seo-aeo-blog-writer",
+      "sourceShard": "external-open-source",
+      "wave": "skillsmp-market-2026-05-17",
+      "batchId": "skillsmp-market-2026-05-17",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "marketing",
+      "primaryIndustry": "software",
+      "coverageNotes": "SkillsMP market signal (37471 stars): Writes long-form blog posts with TL;DR block, definition sentence, comparison table, and 5-question FAQ for SEO ranking and AEO citation. Activate when the user wants to write a bl"
+    },
+    "externalOpenSource": {
+      "batchId": "skillsmp-market-2026-05-17",
+      "candidateId": "seo-aeo-blog-writer",
+      "originalSkillId": "seo-aeo-blog-writer",
+      "sourceRef": "sickn33/antigravity-awesome-skills",
+      "sourceUrl": "https://skillsmp.com/skills/sickn33-antigravity-awesome-skills-plugins-antigravity-awesome-skills-claude-skills-seo-aeo-blog-writer-skill-md",
+      "sourceSignal": "recent_hot_search_signal",
+      "category": "content_marketing",
+      "license": "unknown_pending_verification",
+      "importedAt": "2026-05-17T14:49:41.509Z"
+    }
+  },
+  "painPoints": [],
+  "withSkill": [],
+  "youCan": [],
+  "invocationMode": "execute",
+  "invocation": {
+    "type": "execute",
+    "executePath": "/api/execute"
+  },
+  "formSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "materialText": {
+        "type": "string",
+        "title": "页面、关键词或内容资料",
+        "description": "粘贴页面内容、关键词、站点结构、搜索目标、竞品摘要或优化问题。",
+        "x-component": "Textarea",
+        "x-rows": 8
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "SEO 资料文件",
+        "description": "上传内容稿、关键词表、站点结构、审计报告或 SEO 规划资料。",
+        "format": "binary",
+        "x-component": "FileUpload",
+        "x-max-size": 20971520,
+        "x-accept": ".xlsx,.xls,.csv,.tsv"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "页面或站点链接",
+        "description": "填写公开可访问的页面、站点、SERP、竞品或参考链接。",
+        "format": "uri"
+      },
+      "audience": {
+        "type": "string",
+        "title": "目标受众",
+        "description": "说明搜索用户、目标市场、行业、购买阶段或内容受众。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "goal": {
+        "type": "string",
+        "title": "优化目标",
+        "description": "说明要提升的关键词、搜索意图、可见性、引用机会或转化目标。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "搜索与发布边界",
+        "description": "补充目标地区、语言、品牌限制、不可改动事实、合规要求或人工复核重点。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      }
+    },
+    "x-layout": {
+      "mode": "contextComposer",
+      "primaryField": "materialText",
+      "primaryTabs": [
+        {
+          "id": "paste",
+          "label": "粘贴页面内容",
+          "field": "materialText",
+          "icon": "FileText"
+        },
+        {
+          "id": "upload",
+          "label": "上传 SEO 资料",
+          "field": "materialFile",
+          "icon": "Upload"
+        },
+        {
+          "id": "link",
+          "label": "填页面链接",
+          "field": "materialUrl",
+          "icon": "Link"
+        }
+      ],
+      "primaryControlFields": [],
+      "advancedControlFields": [
+        "audience",
+        "goal",
+        "brandRequirements"
+      ],
+      "advancedLabel": "补充搜索范围",
+      "rows": 5,
+      "placeholder": "粘贴页面内容、关键词、站点结构或搜索目标"
+    },
+    "x-required-any-of": [
+      {
+        "fields": [
+          "materialText",
+          "materialFile",
+          "materialUrl"
+        ],
+        "message": "请填写页面/关键词资料、上传 SEO 文件或提供页面链接"
+      }
+    ],
+    "x-profile-context": true,
+    "x-submit-label": "诊断搜索机会"
+  }
+}

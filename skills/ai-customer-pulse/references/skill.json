@@ -1,0 +1,184 @@
+{
+  "id": "ai-customer-pulse",
+  "slug": "ai-customer-pulse",
+  "question": "客户现在满意吗?",
+  "skillName": "客户脉搏诊断助手",
+  "tags": [
+    "资料整理",
+    "数据清理",
+    "行动项"
+  ],
+  "profession": [
+    "operation",
+    "product",
+    "seller"
+  ],
+  "industry": [
+    "software",
+    "business-services",
+    "ecommerce"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "llm",
+  "providerConfig": {
+    "asyncProvider": "skills2api-scheduler",
+    "resultContract": "ResultEnvelope",
+    "compliance": {
+      "riskTier": "R1",
+      "riskDomains": [
+        "ecommerce"
+      ],
+      "riskRationale": "SkillsMP market signal (12109 stars): Aggregates PayPal disputes, HubSpot feedback and tickets, and email sentiment (plus pasted or exported Google/Yelp reviews) into a themes report with verbatim evidence and a \"do th",
+      "reviewStatus": "auto_screened",
+      "humanReviewRequired": false,
+      "allowedOutputs": [
+        "运营诊断",
+        "商品/流量优化建议",
+        "执行清单"
+      ],
+      "forbiddenOutputs": [
+        "不得输出未经核验的确定性专业结论",
+        "不得代替用户执行第三方平台操作"
+      ],
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "launchGate": "sample_required"
+    },
+    "trend": {
+      "sourceIds": [
+        "https://skillsmp.com/skills/anthropics-knowledge-work-plugins-small-business-skills-customer-pulse-skill-md"
+      ],
+      "sourceNotes": "recent_hot_search_signal: anthropics/knowledge-work-plugins/customer-pulse",
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
+    },
+    "bulkSupply": {
+      "candidateId": "customer-pulse",
+      "sourceShard": "external-open-source",
+      "wave": "skillsmp-market-2026-05-17",
+      "batchId": "skillsmp-market-2026-05-17",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "operation",
+      "primaryIndustry": "ecommerce",
+      "coverageNotes": "SkillsMP market signal (12109 stars): Aggregates PayPal disputes, HubSpot feedback and tickets, and email sentiment (plus pasted or exported Google/Yelp reviews) into a themes report with verbatim evidence and a \"do th"
+    },
+    "externalOpenSource": {
+      "batchId": "skillsmp-market-2026-05-17",
+      "candidateId": "customer-pulse",
+      "originalSkillId": "customer-pulse",
+      "sourceRef": "anthropics/knowledge-work-plugins",
+      "sourceUrl": "https://skillsmp.com/skills/anthropics-knowledge-work-plugins-small-business-skills-customer-pulse-skill-md",
+      "sourceSignal": "recent_hot_search_signal",
+      "category": "ecommerce",
+      "license": "unknown_pending_verification",
+      "importedAt": "2026-05-17T13:47:34.696Z"
+    }
+  },
+  "painPoints": [],
+  "withSkill": [],
+  "youCan": [],
+  "invocationMode": "execute",
+  "invocation": {
+    "type": "execute",
+    "executePath": "/api/execute"
+  },
+  "formSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "materialText": {
+        "type": "string",
+        "title": "文档、表格或记录",
+        "description": "粘贴文档、表格、会议记录、客户反馈、评论文本或待整理资料。",
+        "x-component": "Textarea",
+        "x-rows": 8
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "资料文件",
+        "description": "上传文档、表格、会议纪要、客户资料或评论数据文件。",
+        "format": "binary",
+        "x-component": "FileUpload",
+        "x-max-size": 20971520,
+        "x-accept": ".xlsx,.xls,.csv,.tsv"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "资料链接",
+        "description": "填写公开可访问的文档、表格、页面或资料链接；受限内容请改为上传或粘贴。",
+        "format": "uri"
+      },
+      "audience": {
+        "type": "string",
+        "title": "使用对象",
+        "description": "说明整理结果要服务的人群、团队、角色或业务场景。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "goal": {
+        "type": "string",
+        "title": "整理目标",
+        "description": "说明希望得到的结构摘要、清理规则、行动项、缺口提醒或交付用途。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "口径与边界",
+        "description": "补充字段口径、时间范围、格式要求、不可改动事实、敏感信息处理或人工复核重点。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      }
+    },
+    "x-layout": {
+      "mode": "contextComposer",
+      "primaryField": "materialText",
+      "primaryTabs": [
+        {
+          "id": "paste",
+          "label": "粘贴记录",
+          "field": "materialText",
+          "icon": "FileText"
+        },
+        {
+          "id": "upload",
+          "label": "上传资料",
+          "field": "materialFile",
+          "icon": "Upload"
+        },
+        {
+          "id": "link",
+          "label": "填资料链接",
+          "field": "materialUrl",
+          "icon": "Link"
+        }
+      ],
+      "primaryControlFields": [],
+      "advancedControlFields": [
+        "audience",
+        "goal",
+        "brandRequirements"
+      ],
+      "advancedLabel": "补充整理要求",
+      "rows": 5,
+      "placeholder": "粘贴文档、表格、会议记录或待整理资料"
+    },
+    "x-required-any-of": [
+      {
+        "fields": [
+          "materialText",
+          "materialFile",
+          "materialUrl"
+        ],
+        "message": "请填写记录内容、上传资料文件或提供资料链接"
+      }
+    ],
+    "x-profile-context": true,
+    "x-submit-label": "生成跟进方案"
+  }
+}

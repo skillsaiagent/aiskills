@@ -1,0 +1,184 @@
+{
+  "id": "ai-page-cro",
+  "slug": "ai-page-cro",
+  "question": "页面为什么不转化?",
+  "skillName": "页面转化诊断助手",
+  "tags": [
+    "增长实验",
+    "转化优化",
+    "数据决策"
+  ],
+  "profession": [
+    "marketing",
+    "product",
+    "operation"
+  ],
+  "industry": [
+    "software",
+    "ecommerce",
+    "business-services"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "llm",
+  "providerConfig": {
+    "asyncProvider": "skills2api-scheduler",
+    "resultContract": "ResultEnvelope",
+    "compliance": {
+      "riskTier": "R1",
+      "riskDomains": [
+        "copy_cro"
+      ],
+      "riskRationale": "落地页转化诊断可转为高付费意愿的业务工作包。",
+      "reviewStatus": "auto_screened",
+      "humanReviewRequired": false,
+      "allowedOutputs": [
+        "CRO 优先级",
+        "AB test 假设",
+        "CTA 改稿"
+      ],
+      "forbiddenOutputs": [
+        "不得输出未经核验的确定性专业结论",
+        "不得代替用户执行第三方平台操作"
+      ],
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "launchGate": "sample_required"
+    },
+    "trend": {
+      "sourceIds": [
+        "https://www.skills.sh/coreyhaines31/marketingskills"
+      ],
+      "sourceNotes": "skills_sh_all_time: coreyhaines31/marketingskills/cro",
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
+    },
+    "bulkSupply": {
+      "candidateId": "page-cro",
+      "sourceShard": "external-open-source",
+      "wave": "external-hot-open-source-2026-05-17",
+      "batchId": "external-hot-open-source-2026-05-17",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "marketing",
+      "primaryIndustry": "software",
+      "coverageNotes": "落地页转化诊断可转为高付费意愿的业务工作包。"
+    },
+    "externalOpenSource": {
+      "batchId": "external-hot-open-source-2026-05-17",
+      "candidateId": "page-cro",
+      "originalSkillId": "cro",
+      "sourceRef": "coreyhaines31/marketingskills",
+      "sourceUrl": "https://www.skills.sh/coreyhaines31/marketingskills",
+      "sourceSignal": "skills_sh_all_time",
+      "category": "copy_cro",
+      "license": "unknown_pending_verification",
+      "importedAt": "2026-05-18T06:28:35.074Z"
+    }
+  },
+  "painPoints": [],
+  "withSkill": [],
+  "youCan": [],
+  "invocationMode": "execute",
+  "invocation": {
+    "type": "execute",
+    "executePath": "/api/execute"
+  },
+  "formSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "materialText": {
+        "type": "string",
+        "title": "页面、流程或实验材料",
+        "description": "粘贴页面文案、流程说明、实验想法、转化目标、用户反馈或阻力线索。",
+        "x-component": "Textarea",
+        "x-rows": 8
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "转化资料文件",
+        "description": "上传页面截图、转化数据、用户反馈、实验规划或产品资料。",
+        "format": "binary",
+        "x-component": "FileUpload",
+        "x-max-size": 20971520,
+        "x-accept": ".xlsx,.xls,.csv,.tsv"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "页面或流程链接",
+        "description": "填写公开可访问的落地页、注册页、付费墙、流程或参考链接。",
+        "format": "uri"
+      },
+      "audience": {
+        "type": "string",
+        "title": "目标用户",
+        "description": "说明用户阶段、细分人群、流量来源、设备或使用场景。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "goal": {
+        "type": "string",
+        "title": "转化目标",
+        "description": "说明要优化的注册、激活、升级、留存、付费或实验指标。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "实验与发布边界",
+        "description": "补充样本量、指标口径、品牌限制、技术约束、不可改动项或上线复核重点。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      }
+    },
+    "x-layout": {
+      "mode": "contextComposer",
+      "primaryField": "materialText",
+      "primaryTabs": [
+        {
+          "id": "paste",
+          "label": "粘贴转化材料",
+          "field": "materialText",
+          "icon": "FileText"
+        },
+        {
+          "id": "upload",
+          "label": "上传资料",
+          "field": "materialFile",
+          "icon": "Upload"
+        },
+        {
+          "id": "link",
+          "label": "填页面链接",
+          "field": "materialUrl",
+          "icon": "Link"
+        }
+      ],
+      "primaryControlFields": [],
+      "advancedControlFields": [
+        "audience",
+        "goal",
+        "brandRequirements"
+      ],
+      "advancedLabel": "补充实验范围",
+      "rows": 5,
+      "placeholder": "粘贴页面文案、流程说明、实验想法或转化目标"
+    },
+    "x-required-any-of": [
+      {
+        "fields": [
+          "materialText",
+          "materialFile",
+          "materialUrl"
+        ],
+        "message": "请填写转化材料、上传资料或提供页面链接"
+      }
+    ],
+    "x-profile-context": true,
+    "x-submit-label": "设计增长实验"
+  }
+}

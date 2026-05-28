@@ -1,0 +1,184 @@
+{
+  "id": "ai-minimalist-ui",
+  "slug": "ai-minimalist-ui",
+  "question": "这张图够发布吗?",
+  "skillName": "视觉质量诊断助手",
+  "tags": [
+    "内容生产",
+    "文案优化",
+    "发布准备"
+  ],
+  "profession": [
+    "blogger-individual",
+    "marketing",
+    "operation"
+  ],
+  "industry": [
+    "media",
+    "ecommerce",
+    "education"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "llm",
+  "providerConfig": {
+    "asyncProvider": "skills2api-scheduler",
+    "resultContract": "ResultEnvelope",
+    "compliance": {
+      "riskTier": "R1",
+      "riskDomains": [
+        "media_generation"
+      ],
+      "riskRationale": "skills.sh all-time/trending 信号显示 minimalist-ui 有用户需求；平台展示为 design_media 业务助手目录，输出可复核诊断、建议或生产准备包。",
+      "reviewStatus": "auto_screened",
+      "humanReviewRequired": false,
+      "allowedOutputs": [
+        "视觉/创意诊断",
+        "提示词或分镜方案",
+        "发布规格检查"
+      ],
+      "forbiddenOutputs": [
+        "不得输出未经核验的确定性专业结论",
+        "不得代替用户执行第三方平台操作"
+      ],
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "launchGate": "sample_required"
+    },
+    "trend": {
+      "sourceIds": [
+        "https://www.skills.sh/leonxlnx/taste-skill"
+      ],
+      "sourceNotes": "skills_sh_trending: leonxlnx/taste-skill/minimalist-ui",
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
+    },
+    "bulkSupply": {
+      "candidateId": "minimalist-ui",
+      "sourceShard": "external-open-source",
+      "wave": "external-hot-open-source-2026-05-17",
+      "batchId": "external-hot-open-source-2026-05-17",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "designer",
+      "primaryIndustry": "software",
+      "coverageNotes": "skills.sh all-time/trending 信号显示 minimalist-ui 有用户需求；平台展示为 design_media 业务助手目录，输出可复核诊断、建议或生产准备包。"
+    },
+    "externalOpenSource": {
+      "batchId": "external-hot-open-source-2026-05-17",
+      "candidateId": "minimalist-ui",
+      "originalSkillId": "minimalist-ui",
+      "sourceRef": "leonxlnx/taste-skill",
+      "sourceUrl": "https://www.skills.sh/leonxlnx/taste-skill",
+      "sourceSignal": "skills_sh_trending",
+      "category": "media_generation",
+      "license": "unknown_pending_verification",
+      "importedAt": "2026-05-17T09:35:18.567Z"
+    }
+  },
+  "painPoints": [],
+  "withSkill": [],
+  "youCan": [],
+  "invocationMode": "execute",
+  "invocation": {
+    "type": "execute",
+    "executePath": "/api/execute"
+  },
+  "formSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "materialText": {
+        "type": "string",
+        "title": "视觉 brief 或截图说明",
+        "description": "粘贴视觉 brief、截图说明、品牌规范、页面问题、平台规格或修改目标。",
+        "x-component": "Textarea",
+        "x-rows": 8
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "视觉素材文件",
+        "description": "上传截图、图片、演示稿、品牌规范、产品图或视觉参考文件。",
+        "format": "binary",
+        "x-component": "FileUpload",
+        "x-max-size": 20971520,
+        "x-accept": ".png,.jpg,.jpeg,.webp,.gif,.pdf,.pptx,.docx,.txt"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "页面或素材链接",
+        "description": "填写公开可访问的页面、素材、设计稿预览或参考链接；受限内容请改为上传。",
+        "format": "uri"
+      },
+      "audience": {
+        "type": "string",
+        "title": "使用场景",
+        "description": "说明视觉素材面向的平台、受众、设备、活动或评审场景。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "goal": {
+        "type": "string",
+        "title": "审查目标",
+        "description": "说明要检查的版面、可读性、品牌一致性、转化目标或交付标准。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "品牌与规格",
+        "description": "补充品牌规范、尺寸比例、平台限制、不可改动元素、无障碍要求或人工复核重点。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      }
+    },
+    "x-layout": {
+      "mode": "contextComposer",
+      "primaryField": "materialText",
+      "primaryTabs": [
+        {
+          "id": "paste",
+          "label": "写视觉 brief",
+          "field": "materialText",
+          "icon": "FileText"
+        },
+        {
+          "id": "upload",
+          "label": "上传素材",
+          "field": "materialFile",
+          "icon": "Upload"
+        },
+        {
+          "id": "link",
+          "label": "填页面链接",
+          "field": "materialUrl",
+          "icon": "Link"
+        }
+      ],
+      "primaryControlFields": [],
+      "advancedControlFields": [
+        "audience",
+        "goal",
+        "brandRequirements"
+      ],
+      "advancedLabel": "补充视觉约束",
+      "rows": 5,
+      "placeholder": "粘贴视觉 brief、截图说明、品牌规范或修改目标"
+    },
+    "x-required-any-of": [
+      {
+        "fields": [
+          "materialText",
+          "materialFile",
+          "materialUrl"
+        ],
+        "message": "请填写视觉 brief、上传素材或提供页面/素材链接"
+      }
+    ],
+    "x-profile-context": true,
+    "x-submit-label": "生成视觉方案"
+  }
+}

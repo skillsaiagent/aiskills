@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "required": [],
+  "properties": {
+    "materialText": {
+      "type": "string",
+      "title": "文档、表格或记录",
+      "description": "粘贴文档、表格、会议记录、客户反馈、评论文本或待整理资料。",
+      "x-component": "Textarea",
+      "x-rows": 8
+    },
+    "materialFile": {
+      "type": "string",
+      "title": "资料文件",
+      "description": "上传文档、表格、会议纪要、客户资料或评论数据文件。",
+      "format": "binary",
+      "x-component": "FileUpload",
+      "x-max-size": 20971520,
+      "x-accept": ".xlsx,.xls,.csv,.tsv"
+    },
+    "materialUrl": {
+      "type": "string",
+      "title": "资料链接",
+      "description": "填写公开可访问的文档、表格、页面或资料链接；受限内容请改为上传或粘贴。",
+      "format": "uri"
+    },
+    "audience": {
+      "type": "string",
+      "title": "使用对象",
+      "description": "说明整理结果要服务的人群、团队、角色或业务场景。",
+      "x-component": "Textarea",
+      "x-rows": 3
+    },
+    "goal": {
+      "type": "string",
+      "title": "整理目标",
+      "description": "说明希望得到的结构摘要、清理规则、行动项、缺口提醒或交付用途。",
+      "x-component": "Textarea",
+      "x-rows": 3
+    },
+    "brandRequirements": {
+      "type": "string",
+      "title": "口径与边界",
+      "description": "补充字段口径、时间范围、格式要求、不可改动事实、敏感信息处理或人工复核重点。",
+      "x-component": "Textarea",
+      "x-rows": 3
+    }
+  },
+  "x-layout": {
+    "mode": "contextComposer",
+    "primaryField": "materialText",
+    "primaryTabs": [
+      {
+        "id": "paste",
+        "label": "粘贴记录",
+        "field": "materialText",
+        "icon": "FileText"
+      },
+      {
+        "id": "upload",
+        "label": "上传资料",
+        "field": "materialFile",
+        "icon": "Upload"
+      },
+      {
+        "id": "link",
+        "label": "填资料链接",
+        "field": "materialUrl",
+        "icon": "Link"
+      }
+    ],
+    "primaryControlFields": [],
+    "advancedControlFields": [
+      "audience",
+      "goal",
+      "brandRequirements"
+    ],
+    "advancedLabel": "补充整理要求",
+    "rows": 5,
+    "placeholder": "粘贴文档、表格、会议记录或待整理资料"
+  },
+  "x-required-any-of": [
+    {
+      "fields": [
+        "materialText",
+        "materialFile",
+        "materialUrl"
+      ],
+      "message": "请填写记录内容、上传资料文件或提供资料链接"
+    }
+  ],
+  "x-profile-context": true,
+  "x-submit-label": "整理行动清单"
+}

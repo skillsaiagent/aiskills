@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "required": [],
+  "properties": {
+    "materialText": {
+      "type": "string",
+      "title": "地点需求或候选清单",
+      "description": "粘贴地点需求、候选清单、预算、出行范围、偏好条件或评价摘录。",
+      "x-component": "Textarea",
+      "x-rows": 8
+    },
+    "materialFile": {
+      "type": "string",
+      "title": "地点资料文件",
+      "description": "上传地点清单、评价表、活动需求、预算表或调研资料。",
+      "format": "binary",
+      "x-component": "FileUpload",
+      "x-max-size": 20971520,
+      "x-accept": ".xlsx,.xls,.csv,.tsv"
+    },
+    "materialUrl": {
+      "type": "string",
+      "title": "地点或地图链接",
+      "description": "填写公开可访问的地图、门店、地点、评价或候选页面链接。",
+      "format": "uri"
+    },
+    "audience": {
+      "type": "string",
+      "title": "出行或使用对象",
+      "description": "说明人数、角色、偏好、场景、交通方式或活动类型。",
+      "x-component": "Textarea",
+      "x-rows": 3
+    },
+    "goal": {
+      "type": "string",
+      "title": "筛选目标",
+      "description": "说明要完成的推荐、比较、路线、预算、风险核验或最终决策。",
+      "x-component": "Textarea",
+      "x-rows": 3
+    },
+    "brandRequirements": {
+      "type": "string",
+      "title": "时间与限制",
+      "description": "补充时间范围、预算上限、距离限制、营业要求、避雷条件或人工核验重点。",
+      "x-component": "Textarea",
+      "x-rows": 3
+    }
+  },
+  "x-layout": {
+    "mode": "contextComposer",
+    "primaryField": "materialText",
+    "primaryTabs": [
+      {
+        "id": "paste",
+        "label": "写地点需求",
+        "field": "materialText",
+        "icon": "FileText"
+      },
+      {
+        "id": "upload",
+        "label": "上传清单",
+        "field": "materialFile",
+        "icon": "Upload"
+      },
+      {
+        "id": "link",
+        "label": "填地点链接",
+        "field": "materialUrl",
+        "icon": "Link"
+      }
+    ],
+    "primaryControlFields": [],
+    "advancedControlFields": [
+      "audience",
+      "goal",
+      "brandRequirements"
+    ],
+    "advancedLabel": "补充筛选条件",
+    "rows": 5,
+    "placeholder": "粘贴地点需求、筛选条件、预算和出行范围"
+  },
+  "x-required-any-of": [
+    {
+      "fields": [
+        "materialText",
+        "materialFile",
+        "materialUrl"
+      ],
+      "message": "请填写地点需求、上传地点资料或提供地点链接"
+    }
+  ],
+  "x-profile-context": true,
+  "x-submit-label": "整理行动清单"
+}

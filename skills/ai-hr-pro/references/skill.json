@@ -1,0 +1,184 @@
+{
+  "id": "ai-hr-pro",
+  "slug": "ai-hr-pro",
+  "question": "HR 文档怎么更稳?",
+  "skillName": "HR 专业助手",
+  "tags": [
+    "HR 文档",
+    "绩效反馈",
+    "求职材料"
+  ],
+  "profession": [
+    "hr",
+    "manager",
+    "operation"
+  ],
+  "industry": [
+    "software",
+    "business-services",
+    "education"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "llm",
+  "providerConfig": {
+    "asyncProvider": "skills2api-scheduler",
+    "resultContract": "ResultEnvelope",
+    "compliance": {
+      "riskTier": "R1",
+      "riskDomains": [
+        "copy_cro"
+      ],
+      "riskRationale": "SkillsMP market signal (37471 stars): Professional, ethical HR partner for hiring, onboarding/offboarding, PTO and leave, performance, compliant policies, and employee relations.",
+      "reviewStatus": "auto_screened",
+      "humanReviewRequired": false,
+      "allowedOutputs": [
+        "转化问题诊断",
+        "文案和结构建议",
+        "实验清单"
+      ],
+      "forbiddenOutputs": [
+        "不得输出未经核验的确定性专业结论",
+        "不得代替用户执行第三方平台操作"
+      ],
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "launchGate": "sample_required"
+    },
+    "trend": {
+      "sourceIds": [
+        "https://skillsmp.com/skills/sickn33-antigravity-awesome-skills-plugins-antigravity-awesome-skills-claude-skills-hr-pro-skill-md"
+      ],
+      "sourceNotes": "recent_hot_search_signal: sickn33/antigravity-awesome-skills/hr-pro",
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
+    },
+    "bulkSupply": {
+      "candidateId": "hr-pro",
+      "sourceShard": "external-open-source",
+      "wave": "skillsmp-market-2026-05-17",
+      "batchId": "skillsmp-market-2026-05-17",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "marketing",
+      "primaryIndustry": "software",
+      "coverageNotes": "SkillsMP market signal (37471 stars): Professional, ethical HR partner for hiring, onboarding/offboarding, PTO and leave, performance, compliant policies, and employee relations."
+    },
+    "externalOpenSource": {
+      "batchId": "skillsmp-market-2026-05-17",
+      "candidateId": "hr-pro",
+      "originalSkillId": "hr-pro",
+      "sourceRef": "sickn33/antigravity-awesome-skills",
+      "sourceUrl": "https://skillsmp.com/skills/sickn33-antigravity-awesome-skills-plugins-antigravity-awesome-skills-claude-skills-hr-pro-skill-md",
+      "sourceSignal": "recent_hot_search_signal",
+      "category": "copy_cro",
+      "license": "unknown_pending_verification",
+      "importedAt": "2026-05-17T14:19:09.847Z"
+    }
+  },
+  "painPoints": [],
+  "withSkill": [],
+  "youCan": [],
+  "invocationMode": "execute",
+  "invocation": {
+    "type": "execute",
+    "executePath": "/api/execute"
+  },
+  "formSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "materialText": {
+        "type": "string",
+        "title": "岗位、绩效或求职材料",
+        "description": "粘贴岗位描述、简历、绩效素材、人事沟通草稿、评估标准或反馈目标。",
+        "x-component": "Textarea",
+        "x-rows": 8
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "HR 资料文件",
+        "description": "上传简历、岗位说明、绩效记录、人事政策、面试材料或沟通草稿。",
+        "format": "binary",
+        "x-component": "FileUpload",
+        "x-max-size": 20971520,
+        "x-accept": ".xlsx,.xls,.csv,.tsv"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "岗位或资料链接",
+        "description": "填写公开可访问的岗位、公司、政策或参考资料链接。",
+        "format": "uri"
+      },
+      "audience": {
+        "type": "string",
+        "title": "相关角色",
+        "description": "说明候选人、员工、管理者、HRBP、面试官或沟通对象。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "goal": {
+        "type": "string",
+        "title": "处理目标",
+        "description": "说明要完成的匹配分析、绩效反馈、表达优化、面试准备或风险检查。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "合规与语气边界",
+        "description": "补充事实依据、敏感信息处理、语气要求、不可承诺内容、法律边界或人工复核重点。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      }
+    },
+    "x-layout": {
+      "mode": "contextComposer",
+      "primaryField": "materialText",
+      "primaryTabs": [
+        {
+          "id": "paste",
+          "label": "粘贴 HR 资料",
+          "field": "materialText",
+          "icon": "FileText"
+        },
+        {
+          "id": "upload",
+          "label": "上传 HR 文件",
+          "field": "materialFile",
+          "icon": "Upload"
+        },
+        {
+          "id": "link",
+          "label": "填资料链接",
+          "field": "materialUrl",
+          "icon": "Link"
+        }
+      ],
+      "primaryControlFields": [],
+      "advancedControlFields": [
+        "audience",
+        "goal",
+        "brandRequirements"
+      ],
+      "advancedLabel": "补充人事边界",
+      "rows": 5,
+      "placeholder": "粘贴岗位描述、简历、绩效素材或人事沟通草稿"
+    },
+    "x-required-any-of": [
+      {
+        "fields": [
+          "materialText",
+          "materialFile",
+          "materialUrl"
+        ],
+        "message": "请填写 HR 资料、上传文件或提供岗位/资料链接"
+      }
+    ],
+    "x-profile-context": true,
+    "x-submit-label": "生成评审建议"
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "id": "ai-competitor-profiling",
+  "slug": "ai-competitor-profiling",
+  "question": "对手强在哪里?",
+  "skillName": "竞品画像助手",
+  "tags": [
+    "内容生产",
+    "文案优化",
+    "发布准备"
+  ],
+  "profession": [
+    "blogger-individual",
+    "marketing",
+    "operation"
+  ],
+  "industry": [
+    "media",
+    "ecommerce",
+    "education"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "llm",
+  "providerConfig": {
+    "asyncProvider": "skills2api-scheduler",
+    "resultContract": "ResultEnvelope",
+    "compliance": {
+      "riskTier": "R1",
+      "riskDomains": [
+        "sales_gtm"
+      ],
+      "riskRationale": "skills.sh all-time/trending 信号显示 competitor-profiling 有用户需求；平台展示为 growth_cro_sales 业务助手目录，输出可复核诊断、建议或生产准备包。",
+      "reviewStatus": "auto_screened",
+      "humanReviewRequired": false,
+      "allowedOutputs": [
+        "转化问题优先级",
+        "可复制改稿",
+        "实验或跟进行动清单"
+      ],
+      "forbiddenOutputs": [
+        "不得输出未经核验的确定性专业结论",
+        "不得代替用户执行第三方平台操作"
+      ],
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "launchGate": "sample_required"
+    },
+    "trend": {
+      "sourceIds": [
+        "https://www.skills.sh/coreyhaines31/marketingskills"
+      ],
+      "sourceNotes": "skills_sh_trending: coreyhaines31/marketingskills/competitor-profiling",
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
+    },
+    "bulkSupply": {
+      "candidateId": "competitor-profiling",
+      "sourceShard": "external-open-source",
+      "wave": "external-hot-open-source-2026-05-17",
+      "batchId": "external-hot-open-source-2026-05-17",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "marketing",
+      "primaryIndustry": "software",
+      "coverageNotes": "skills.sh all-time/trending 信号显示 competitor-profiling 有用户需求；平台展示为 growth_cro_sales 业务助手目录，输出可复核诊断、建议或生产准备包。"
+    },
+    "externalOpenSource": {
+      "batchId": "external-hot-open-source-2026-05-17",
+      "candidateId": "competitor-profiling",
+      "originalSkillId": "competitor-profiling",
+      "sourceRef": "coreyhaines31/marketingskills",
+      "sourceUrl": "https://www.skills.sh/coreyhaines31/marketingskills",
+      "sourceSignal": "skills_sh_trending",
+      "category": "sales_gtm",
+      "license": "unknown_pending_verification",
+      "importedAt": "2026-05-17T09:36:59.368Z"
+    }
+  },
+  "painPoints": [],
+  "withSkill": [],
+  "youCan": [],
+  "invocationMode": "execute",
+  "invocation": {
+    "type": "execute",
+    "executePath": "/api/execute"
+  },
+  "formSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "materialText": {
+        "type": "string",
+        "title": "业务材料或问题说明",
+        "description": "粘贴业务背景、问题说明、参考资料、目标、限制或待整理内容。",
+        "x-component": "Textarea",
+        "x-rows": 8
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "业务资料文件",
+        "description": "上传业务文档、资料表、参考材料、截图或说明文件。",
+        "format": "binary",
+        "x-component": "FileUpload",
+        "x-max-size": 20971520,
+        "x-accept": ".xlsx,.xls,.csv,.tsv"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "参考链接",
+        "description": "填写公开可访问的页面、资料、参考案例或背景链接。",
+        "format": "uri"
+      },
+      "audience": {
+        "type": "string",
+        "title": "使用对象",
+        "description": "说明输出要服务的人群、角色、团队或业务场景。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "goal": {
+        "type": "string",
+        "title": "处理目标",
+        "description": "说明本次希望解决的问题、判断目标、输出形式或交付用途。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "边界与复核",
+        "description": "补充格式要求、不可改动事实、限制条件、风险点或人工复核重点。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      }
+    },
+    "x-layout": {
+      "mode": "contextComposer",
+      "primaryField": "materialText",
+      "primaryTabs": [
+        {
+          "id": "paste",
+          "label": "粘贴材料",
+          "field": "materialText",
+          "icon": "FileText"
+        },
+        {
+          "id": "upload",
+          "label": "上传资料",
+          "field": "materialFile",
+          "icon": "Upload"
+        },
+        {
+          "id": "link",
+          "label": "填参考链接",
+          "field": "materialUrl",
+          "icon": "Link"
+        }
+      ],
+      "primaryControlFields": [],
+      "advancedControlFields": [
+        "audience",
+        "goal",
+        "brandRequirements"
+      ],
+      "advancedLabel": "补充背景要求",
+      "rows": 5,
+      "placeholder": "粘贴业务背景、问题说明、参考资料或目标"
+    },
+    "x-required-any-of": [
+      {
+        "fields": [
+          "materialText",
+          "materialFile",
+          "materialUrl"
+        ],
+        "message": "请填写业务材料、上传资料或提供参考链接"
+      }
+    ],
+    "x-profile-context": true,
+    "x-submit-label": "优化内容稿件"
+  }
+}

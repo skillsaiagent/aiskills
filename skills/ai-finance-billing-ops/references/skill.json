@@ -1,0 +1,185 @@
+{
+  "id": "ai-finance-billing-ops",
+  "slug": "ai-finance-billing-ops",
+  "question": "账单哪里不清楚?",
+  "skillName": "账单运营诊断助手",
+  "tags": [
+    "财务运营",
+    "定价分析",
+    "指标诊断"
+  ],
+  "profession": [
+    "finance",
+    "operation",
+    "founder"
+  ],
+  "industry": [
+    "software",
+    "finance",
+    "business-services"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "llm",
+  "providerConfig": {
+    "asyncProvider": "skills2api-scheduler",
+    "resultContract": "ResultEnvelope",
+    "compliance": {
+      "riskTier": "R2",
+      "riskDomains": [
+        "finance"
+      ],
+      "riskRationale": "SkillsMP market signal (181389 stars): 面向ECC的以证据为先的收入、定价、退款、团队计费和计费模型真相工作流。当用户需要销售快照、定价比较、重复收费诊断或基于代码的计费现实而非通用支付建议时使用。",
+      "reviewStatus": "pending",
+      "humanReviewRequired": true,
+      "allowedOutputs": [
+        "信息整理",
+        "风险提示",
+        "待人工复核问题清单"
+      ],
+      "forbiddenOutputs": [
+        "不得提供医疗、法律、金融等确定性专业结论",
+        "不得承诺收益或替代专业审核"
+      ],
+      "disclaimerKey": "professional_review_required",
+      "sourceLimits": "R2 外部开源资料 必须经人工审核、样例烟测和边界文案确认后才能公开 active。",
+      "launchGate": "human_review_required"
+    },
+    "trend": {
+      "sourceIds": [
+        "https://skillsmp.com/skills/affaan-m-everything-claude-code-docs-zh-cn-skills-finance-billing-ops-skill-md"
+      ],
+      "sourceNotes": "recent_hot_search_signal: affaan-m/everything-claude-code/finance-billing-ops",
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
+    },
+    "bulkSupply": {
+      "candidateId": "finance-billing-ops",
+      "sourceShard": "external-open-source",
+      "wave": "skillsmp-market-2026-05-17",
+      "batchId": "skillsmp-market-2026-05-17",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "analyst",
+      "primaryIndustry": "finance",
+      "coverageNotes": "SkillsMP market signal (181389 stars): 面向ECC的以证据为先的收入、定价、退款、团队计费和计费模型真相工作流。当用户需要销售快照、定价比较、重复收费诊断或基于代码的计费现实而非通用支付建议时使用。"
+    },
+    "externalOpenSource": {
+      "batchId": "skillsmp-market-2026-05-17",
+      "candidateId": "finance-billing-ops",
+      "originalSkillId": "finance-billing-ops",
+      "sourceRef": "affaan-m/everything-claude-code",
+      "sourceUrl": "https://skillsmp.com/skills/affaan-m-everything-claude-code-docs-zh-cn-skills-finance-billing-ops-skill-md",
+      "sourceSignal": "recent_hot_search_signal",
+      "category": "finance",
+      "license": "unknown_pending_verification",
+      "importedAt": "2026-05-17T15:04:45.871Z"
+    }
+  },
+  "painPoints": [],
+  "withSkill": [],
+  "youCan": [],
+  "invocationMode": "execute",
+  "invocation": {
+    "type": "execute",
+    "executePath": "/api/execute"
+  },
+  "formSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "materialText": {
+        "type": "string",
+        "title": "财务材料或指标说明",
+        "description": "粘贴财务文档、指标口径、账单信息、定价背景、业务假设或关注问题。",
+        "x-component": "Textarea",
+        "x-rows": 8
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "财务资料文件",
+        "description": "上传财务文档、指标表、账单、价格表、业务测算或参考资料。",
+        "format": "binary",
+        "x-component": "FileUpload",
+        "x-max-size": 20971520,
+        "x-accept": ".xlsx,.xls,.csv,.tsv,.pdf,.docx,.txt"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "财务资料链接",
+        "description": "填写公开可访问的财务资料、价格页、报告或参考链接。",
+        "format": "uri"
+      },
+      "audience": {
+        "type": "string",
+        "title": "使用对象",
+        "description": "说明结果面向财务、运营、创始团队、销售或其他决策角色。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "goal": {
+        "type": "string",
+        "title": "分析目标",
+        "description": "说明要解释的指标、定价问题、账单争议、利润目标或决策用途。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "口径与风险",
+        "description": "补充时间范围、币种、计量口径、假设条件、不可替代专业判断的边界或复核重点。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      }
+    },
+    "x-layout": {
+      "mode": "contextComposer",
+      "primaryField": "materialText",
+      "primaryTabs": [
+        {
+          "id": "paste",
+          "label": "粘贴财务资料",
+          "field": "materialText",
+          "icon": "FileText"
+        },
+        {
+          "id": "upload",
+          "label": "上传财务文件",
+          "field": "materialFile",
+          "icon": "Upload"
+        },
+        {
+          "id": "link",
+          "label": "填资料链接",
+          "field": "materialUrl",
+          "icon": "Link"
+        }
+      ],
+      "primaryControlFields": [],
+      "advancedControlFields": [
+        "audience",
+        "goal",
+        "brandRequirements"
+      ],
+      "advancedLabel": "补充财务口径",
+      "rows": 5,
+      "placeholder": "粘贴财务文档、指标口径、账单信息或定价背景"
+    },
+    "x-required-any-of": [
+      {
+        "fields": [
+          "materialText",
+          "materialFile",
+          "materialUrl"
+        ],
+        "message": "请填写财务材料、上传文件或提供资料链接"
+      }
+    ],
+    "x-profile-context": true,
+    "x-submit-label": "生成定价方案"
+  }
+}

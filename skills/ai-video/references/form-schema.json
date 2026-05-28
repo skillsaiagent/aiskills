@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "required": [],
+  "properties": {
+    "materialText": {
+      "type": "string",
+      "title": "视频创意或生成需求",
+      "description": "粘贴本次要交给「AI 视频生成策划助手」规划的视频创意 brief、产品信息、脚本草稿、镜头想法或生成目标。",
+      "x-component": "Textarea",
+      "x-rows": 8
+    },
+    "materialFile": {
+      "type": "string",
+      "title": "参考素材文件",
+      "description": "上传与「AI 视频生成策划助手」相关的参考图、产品资料、脚本、录屏或音视频素材。",
+      "format": "binary",
+      "x-component": "FileUpload",
+      "x-max-size": 20971520,
+      "x-accept": ".mp4,.mov,.webm,.mp3,.wav,.m4a,.pdf,.docx,.txt"
+    },
+    "materialUrl": {
+      "type": "string",
+      "title": "参考链接",
+      "description": "填写公开可访问的链接；如果链接需要登录、权限或 Cookie，请改为上传文件或粘贴内容。",
+      "format": "uri"
+    },
+    "audience": {
+      "type": "string",
+      "title": "目标观众",
+      "description": "说明「AI 视频生成策划助手」输出要服务的人群、角色、市场或观看场景。",
+      "x-component": "Textarea",
+      "x-rows": 3
+    },
+    "goal": {
+      "type": "string",
+      "title": "视频目标",
+      "description": "说明本次希望解决的具体问题、判断目标或交付用途。",
+      "x-component": "Textarea",
+      "x-rows": 3
+    },
+    "brandRequirements": {
+      "type": "string",
+      "title": "品牌与平台限制",
+      "description": "补充品牌语气、平台规则、格式偏好、不可改动事实、合规限制或人工复核重点。",
+      "x-component": "Textarea",
+      "x-rows": 3
+    }
+  },
+  "x-layout": {
+    "mode": "contextComposer",
+    "primaryField": "materialText",
+    "primaryTabs": [
+      {
+        "id": "paste",
+        "label": "写视频创意",
+        "field": "materialText",
+        "icon": "FileText"
+      },
+      {
+        "id": "upload",
+        "label": "上传参考素材",
+        "field": "materialFile",
+        "icon": "Upload"
+      },
+      {
+        "id": "link",
+        "label": "填参考链接",
+        "field": "materialUrl",
+        "icon": "Link"
+      }
+    ],
+    "primaryControlFields": [],
+    "advancedControlFields": [
+      "audience",
+      "goal",
+      "brandRequirements"
+    ],
+    "advancedLabel": "补充视频范围",
+    "rows": 5,
+    "placeholder": "粘贴视频创意 brief、产品信息、目标平台、时长、风格、参考素材和希望生成的镜头效果"
+  },
+  "x-required-any-of": [
+    {
+      "fields": [
+        "materialText",
+        "materialFile",
+        "materialUrl"
+      ],
+      "message": "请填写视频创意或生成需求、上传参考素材或提供参考链接"
+    }
+  ],
+  "x-profile-context": true,
+  "x-submit-label": "生成视觉方案"
+}

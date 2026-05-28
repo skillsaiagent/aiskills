@@ -1,0 +1,7 @@
+interface:
+  display_name: "PHI 合规审查助手"
+  short_description: "PHI 合规审查助手"
+  default_prompt: "Use $ai-healthcare-phi-compliance to help with PHI 合规审查助手"
+
+policy:
+  allow_implicit_invocation: true

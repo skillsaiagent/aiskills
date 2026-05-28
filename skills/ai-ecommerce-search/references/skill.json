@@ -1,0 +1,184 @@
+{
+  "id": "ai-ecommerce-search",
+  "slug": "ai-ecommerce-search",
+  "question": "站内搜索好用吗?",
+  "skillName": "电商搜索诊断助手",
+  "tags": [
+    "资料整理",
+    "数据清理",
+    "行动项"
+  ],
+  "profession": [
+    "operation",
+    "product",
+    "seller"
+  ],
+  "industry": [
+    "software",
+    "business-services",
+    "ecommerce"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "llm",
+  "providerConfig": {
+    "asyncProvider": "skills2api-scheduler",
+    "resultContract": "ResultEnvelope",
+    "compliance": {
+      "riskTier": "R1",
+      "riskDomains": [
+        "ecommerce"
+      ],
+      "riskRationale": "SkillsMP market signal (189 stars): 在京东/淘宝/天猫/抖音商城搜索商品，获取 top-k 结果（名称、价格、链接、销量）",
+      "reviewStatus": "auto_screened",
+      "humanReviewRequired": false,
+      "allowedOutputs": [
+        "运营诊断",
+        "商品/流量优化建议",
+        "执行清单"
+      ],
+      "forbiddenOutputs": [
+        "不得输出未经核验的确定性专业结论",
+        "不得代替用户执行第三方平台操作"
+      ],
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "launchGate": "sample_required"
+    },
+    "trend": {
+      "sourceIds": [
+        "https://skillsmp.com/skills/rsclaw-ai-rsclaw-skills-ecommerce-search-skill-md"
+      ],
+      "sourceNotes": "recent_hot_search_signal: rsclaw-ai/rsclaw/ecommerce-search",
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
+    },
+    "bulkSupply": {
+      "candidateId": "ecommerce-search",
+      "sourceShard": "external-open-source",
+      "wave": "skillsmp-market-2026-05-17",
+      "batchId": "skillsmp-market-2026-05-17",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "operation",
+      "primaryIndustry": "ecommerce",
+      "coverageNotes": "SkillsMP market signal (189 stars): 在京东/淘宝/天猫/抖音商城搜索商品，获取 top-k 结果（名称、价格、链接、销量）"
+    },
+    "externalOpenSource": {
+      "batchId": "skillsmp-market-2026-05-17",
+      "candidateId": "ecommerce-search",
+      "originalSkillId": "ecommerce-search",
+      "sourceRef": "rsclaw-ai/rsclaw",
+      "sourceUrl": "https://skillsmp.com/skills/rsclaw-ai-rsclaw-skills-ecommerce-search-skill-md",
+      "sourceSignal": "recent_hot_search_signal",
+      "category": "ecommerce",
+      "license": "unknown_pending_verification",
+      "importedAt": "2026-05-17T14:13:20.074Z"
+    }
+  },
+  "painPoints": [],
+  "withSkill": [],
+  "youCan": [],
+  "invocationMode": "execute",
+  "invocation": {
+    "type": "execute",
+    "executePath": "/api/execute"
+  },
+  "formSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "materialText": {
+        "type": "string",
+        "title": "商品、店铺或运营资料",
+        "description": "粘贴商品信息、店铺页面、评论素材、竞品信息、销售目标或渠道要求。",
+        "x-component": "Textarea",
+        "x-rows": 8
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "电商资料文件",
+        "description": "上传商品资料、评论表、竞品截图、运营数据、店铺规划或素材文件。",
+        "format": "binary",
+        "x-component": "FileUpload",
+        "x-max-size": 20971520,
+        "x-accept": ".xlsx,.xls,.csv,.tsv,.pdf,.docx,.txt"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "商品或店铺链接",
+        "description": "填写公开可访问的商品、店铺、竞品、评价或平台页面链接。",
+        "format": "uri"
+      },
+      "audience": {
+        "type": "string",
+        "title": "目标买家",
+        "description": "说明目标买家、市场、平台、渠道或使用场景。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "goal": {
+        "type": "string",
+        "title": "运营目标",
+        "description": "说明希望优化的点击、转化、复购、库存、利润、评论或活动目标。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "平台与商品边界",
+        "description": "补充平台规则、价格边界、库存约束、品牌限制、不可承诺内容或人工复核重点。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      }
+    },
+    "x-layout": {
+      "mode": "contextComposer",
+      "primaryField": "materialText",
+      "primaryTabs": [
+        {
+          "id": "paste",
+          "label": "粘贴商品资料",
+          "field": "materialText",
+          "icon": "FileText"
+        },
+        {
+          "id": "upload",
+          "label": "上传电商资料",
+          "field": "materialFile",
+          "icon": "Upload"
+        },
+        {
+          "id": "link",
+          "label": "填商品链接",
+          "field": "materialUrl",
+          "icon": "Link"
+        }
+      ],
+      "primaryControlFields": [],
+      "advancedControlFields": [
+        "audience",
+        "goal",
+        "brandRequirements"
+      ],
+      "advancedLabel": "补充运营约束",
+      "rows": 5,
+      "placeholder": "粘贴商品信息、店铺页面、评论素材或销售目标"
+    },
+    "x-required-any-of": [
+      {
+        "fields": [
+          "materialText",
+          "materialFile",
+          "materialUrl"
+        ],
+        "message": "请填写商品/店铺资料、上传电商文件或提供商品链接"
+      }
+    ],
+    "x-profile-context": true,
+    "x-submit-label": "诊断经营机会"
+  }
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "法律回复草拟助手"
+  short_description: "法律回复草拟助手"
+  default_prompt: "Use $ai-legal-response to help with 法律回复草拟助手"
+
+policy:
+  allow_implicit_invocation: true

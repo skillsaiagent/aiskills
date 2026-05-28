@@ -1,0 +1,7 @@
+interface:
+  display_name: "账单运营诊断助手"
+  short_description: "账单运营诊断助手"
+  default_prompt: "Use $ai-finance-billing-ops to help with 账单运营诊断助手"
+
+policy:
+  allow_implicit_invocation: true

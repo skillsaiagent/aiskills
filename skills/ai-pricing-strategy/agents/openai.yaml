@@ -1,0 +1,7 @@
+interface:
+  display_name: "定价策略助手"
+  short_description: "定价策略助手"
+  default_prompt: "Use $ai-pricing-strategy to help with 定价策略助手"
+
+policy:
+  allow_implicit_invocation: true

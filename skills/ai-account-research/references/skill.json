@@ -1,0 +1,184 @@
+{
+  "id": "ai-account-research",
+  "slug": "ai-account-research",
+  "question": "这个客户怎么切入?",
+  "skillName": "客户研究助手",
+  "tags": [
+    "研究分析",
+    "来源核验",
+    "证据摘要"
+  ],
+  "profession": [
+    "researcher",
+    "marketing",
+    "operation"
+  ],
+  "industry": [
+    "software",
+    "education",
+    "business-services"
+  ],
+  "hidden": false,
+  "auth": {
+    "type": "api-key",
+    "header": "X-API-Key",
+    "tenantHeader": "X-Tenant-Id"
+  },
+  "comingSoon": false,
+  "providerType": "llm",
+  "providerConfig": {
+    "asyncProvider": "skills2api-scheduler",
+    "resultContract": "ResultEnvelope",
+    "compliance": {
+      "riskTier": "R1",
+      "riskDomains": [
+        "sales_gtm"
+      ],
+      "riskRationale": "SkillsMP market signal (12109 stars): Research a company or person and get actionable sales intel. Works standalone with web search, supercharged when you connect enrichment tools or your CRM. Trigger with \"research [c",
+      "reviewStatus": "auto_screened",
+      "humanReviewRequired": false,
+      "allowedOutputs": [
+        "销售策略",
+        "沟通素材",
+        "跟进计划"
+      ],
+      "forbiddenOutputs": [
+        "不得输出未经核验的确定性专业结论",
+        "不得代替用户执行第三方平台操作"
+      ],
+      "sourceLimits": "外部开源资料 只作为能力来源，平台输出必须以用户提交材料和公开可见信息为依据。",
+      "launchGate": "sample_required"
+    },
+    "trend": {
+      "sourceIds": [
+        "https://skillsmp.com/skills/anthropics-knowledge-work-plugins-sales-skills-account-research-skill-md"
+      ],
+      "sourceNotes": "recent_hot_search_signal: anthropics/knowledge-work-plugins/account-research",
+      "sourceGap": "外部开源资料 需先安装到 技能目录 目录，再由平台 manifest/sync 归一化。"
+    },
+    "bulkSupply": {
+      "candidateId": "account-research",
+      "sourceShard": "external-open-source",
+      "wave": "skillsmp-market-2026-05-17",
+      "batchId": "skillsmp-market-2026-05-17",
+      "taxonomySourceVersion": "external-open-source-skill-intake-v1",
+      "generatorVersion": "manual-curated-2026-05-17",
+      "primaryProfession": "sales",
+      "primaryIndustry": "software",
+      "coverageNotes": "SkillsMP market signal (12109 stars): Research a company or person and get actionable sales intel. Works standalone with web search, supercharged when you connect enrichment tools or your CRM. Trigger with \"research [c"
+    },
+    "externalOpenSource": {
+      "batchId": "skillsmp-market-2026-05-17",
+      "candidateId": "account-research",
+      "originalSkillId": "account-research",
+      "sourceRef": "anthropics/knowledge-work-plugins",
+      "sourceUrl": "https://skillsmp.com/skills/anthropics-knowledge-work-plugins-sales-skills-account-research-skill-md",
+      "sourceSignal": "recent_hot_search_signal",
+      "category": "sales_gtm",
+      "license": "unknown_pending_verification",
+      "importedAt": "2026-05-17T13:37:03.831Z"
+    }
+  },
+  "painPoints": [],
+  "withSkill": [],
+  "youCan": [],
+  "invocationMode": "execute",
+  "invocation": {
+    "type": "execute",
+    "executePath": "/api/execute"
+  },
+  "formSchema": {
+    "type": "object",
+    "required": [],
+    "properties": {
+      "materialText": {
+        "type": "string",
+        "title": "研究问题或资料摘录",
+        "description": "粘贴要核验的问题、候选来源、网页摘录、文献线索或比较观点。",
+        "x-component": "Textarea",
+        "x-rows": 8
+      },
+      "materialFile": {
+        "type": "string",
+        "title": "研究资料文件",
+        "description": "上传研究资料、网页摘录、文献笔记、表格或报告，适合资料较长或需要保留原文时使用。",
+        "format": "binary",
+        "x-component": "FileUpload",
+        "x-max-size": 20971520,
+        "x-accept": ".xlsx,.xls,.csv,.tsv"
+      },
+      "materialUrl": {
+        "type": "string",
+        "title": "公开网页链接",
+        "description": "填写公开可访问的网页、报告或资料链接；受限内容请改为上传文件或粘贴摘录。",
+        "format": "uri"
+      },
+      "audience": {
+        "type": "string",
+        "title": "研究受众",
+        "description": "说明研究结论要服务的读者、角色、市场、课程或使用场景。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "goal": {
+        "type": "string",
+        "title": "研究目标",
+        "description": "说明本次要回答的问题、比较维度、判断标准或交付用途。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      },
+      "brandRequirements": {
+        "type": "string",
+        "title": "来源与边界",
+        "description": "补充来源范围、时间范围、可信度要求、不可使用来源、结论风险或人工复核重点。",
+        "x-component": "Textarea",
+        "x-rows": 3
+      }
+    },
+    "x-layout": {
+      "mode": "contextComposer",
+      "primaryField": "materialText",
+      "primaryTabs": [
+        {
+          "id": "paste",
+          "label": "提研究问题",
+          "field": "materialText",
+          "icon": "FileText"
+        },
+        {
+          "id": "upload",
+          "label": "上传资料",
+          "field": "materialFile",
+          "icon": "Upload"
+        },
+        {
+          "id": "link",
+          "label": "填网页链接",
+          "field": "materialUrl",
+          "icon": "Link"
+        }
+      ],
+      "primaryControlFields": [],
+      "advancedControlFields": [
+        "audience",
+        "goal",
+        "brandRequirements"
+      ],
+      "advancedLabel": "补充研究范围",
+      "rows": 5,
+      "placeholder": "粘贴要核验的问题、候选来源、网页摘录或比较观点"
+    },
+    "x-required-any-of": [
+      {
+        "fields": [
+          "materialText",
+          "materialFile",
+          "materialUrl"
+        ],
+        "message": "请填写研究问题、上传研究资料或提供公开网页链接"
+      }
+    ],
+    "x-profile-context": true,
+    "x-submit-label": "生成客户作战卡"
+  }
+}

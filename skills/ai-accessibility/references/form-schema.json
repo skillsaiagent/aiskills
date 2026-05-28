@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "required": [],
+  "properties": {
+    "materialText": {
+      "type": "string",
+      "title": "视觉 brief 或截图说明",
+      "description": "粘贴视觉 brief、截图说明、品牌规范、页面问题、平台规格或修改目标。",
+      "x-component": "Textarea",
+      "x-rows": 8
+    },
+    "materialFile": {
+      "type": "string",
+      "title": "视觉素材文件",
+      "description": "上传截图、图片、演示稿、品牌规范、产品图或视觉参考文件。",
+      "format": "binary",
+      "x-component": "FileUpload",
+      "x-max-size": 20971520,
+      "x-accept": ".png,.jpg,.jpeg,.webp,.gif,.pdf,.pptx,.docx,.txt"
+    },
+    "materialUrl": {
+      "type": "string",
+      "title": "页面或素材链接",
+      "description": "填写公开可访问的页面、素材、设计稿预览或参考链接；受限内容请改为上传。",
+      "format": "uri"
+    },
+    "audience": {
+      "type": "string",
+      "title": "使用场景",
+      "description": "说明视觉素材面向的平台、受众、设备、活动或评审场景。",
+      "x-component": "Textarea",
+      "x-rows": 3
+    },
+    "goal": {
+      "type": "string",
+      "title": "审查目标",
+      "description": "说明要检查的版面、可读性、品牌一致性、转化目标或交付标准。",
+      "x-component": "Textarea",
+      "x-rows": 3
+    },
+    "brandRequirements": {
+      "type": "string",
+      "title": "品牌与规格",
+      "description": "补充品牌规范、尺寸比例、平台限制、不可改动元素、无障碍要求或人工复核重点。",
+      "x-component": "Textarea",
+      "x-rows": 3
+    }
+  },
+  "x-layout": {
+    "mode": "contextComposer",
+    "primaryField": "materialText",
+    "primaryTabs": [
+      {
+        "id": "paste",
+        "label": "写视觉 brief",
+        "field": "materialText",
+        "icon": "FileText"
+      },
+      {
+        "id": "upload",
+        "label": "上传素材",
+        "field": "materialFile",
+        "icon": "Upload"
+      },
+      {
+        "id": "link",
+        "label": "填页面链接",
+        "field": "materialUrl",
+        "icon": "Link"
+      }
+    ],
+    "primaryControlFields": [],
+    "advancedControlFields": [
+      "audience",
+      "goal",
+      "brandRequirements"
+    ],
+    "advancedLabel": "补充视觉约束",
+    "rows": 5,
+    "placeholder": "粘贴视觉 brief、截图说明、品牌规范或修改目标"
+  },
+  "x-required-any-of": [
+    {
+      "fields": [
+        "materialText",
+        "materialFile",
+        "materialUrl"
+      ],
+      "message": "请填写视觉 brief、上传素材或提供页面/素材链接"
+    }
+  ],
+  "x-profile-context": true,
+  "x-submit-label": "优化内容稿件"
+}

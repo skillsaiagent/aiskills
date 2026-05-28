@@ -1,0 +1,94 @@
+{
+  "type": "object",
+  "required": [],
+  "properties": {
+    "materialText": {
+      "type": "string",
+      "title": "商品、店铺或运营资料",
+      "description": "粘贴商品信息、店铺页面、评论素材、竞品信息、销售目标或渠道要求。",
+      "x-component": "Textarea",
+      "x-rows": 8
+    },
+    "materialFile": {
+      "type": "string",
+      "title": "电商资料文件",
+      "description": "上传商品资料、评论表、竞品截图、运营数据、店铺规划或素材文件。",
+      "format": "binary",
+      "x-component": "FileUpload",
+      "x-max-size": 20971520,
+      "x-accept": ".xlsx,.xls,.csv,.tsv,.pdf,.docx,.txt"
+    },
+    "materialUrl": {
+      "type": "string",
+      "title": "商品或店铺链接",
+      "description": "填写公开可访问的商品、店铺、竞品、评价或平台页面链接。",
+      "format": "uri"
+    },
+    "audience": {
+      "type": "string",
+      "title": "目标买家",
+      "description": "说明目标买家、市场、平台、渠道或使用场景。",
+      "x-component": "Textarea",
+      "x-rows": 3
+    },
+    "goal": {
+      "type": "string",
+      "title": "运营目标",
+      "description": "说明希望优化的点击、转化、复购、库存、利润、评论或活动目标。",
+      "x-component": "Textarea",
+      "x-rows": 3
+    },
+    "brandRequirements": {
+      "type": "string",
+      "title": "平台与商品边界",
+      "description": "补充平台规则、价格边界、库存约束、品牌限制、不可承诺内容或人工复核重点。",
+      "x-component": "Textarea",
+      "x-rows": 3
+    }
+  },
+  "x-layout": {
+    "mode": "contextComposer",
+    "primaryField": "materialText",
+    "primaryTabs": [
+      {
+        "id": "paste",
+        "label": "粘贴商品资料",
+        "field": "materialText",
+        "icon": "FileText"
+      },
+      {
+        "id": "upload",
+        "label": "上传电商资料",
+        "field": "materialFile",
+        "icon": "Upload"
+      },
+      {
+        "id": "link",
+        "label": "填商品链接",
+        "field": "materialUrl",
+        "icon": "Link"
+      }
+    ],
+    "primaryControlFields": [],
+    "advancedControlFields": [
+      "audience",
+      "goal",
+      "brandRequirements"
+    ],
+    "advancedLabel": "补充运营约束",
+    "rows": 5,
+    "placeholder": "粘贴商品信息、店铺页面、评论素材或销售目标"
+  },
+  "x-required-any-of": [
+    {
+      "fields": [
+        "materialText",
+        "materialFile",
+        "materialUrl"
+      ],
+      "message": "请填写商品/店铺资料、上传电商文件或提供商品链接"
+    }
+  ],
+  "x-profile-context": true,
+  "x-submit-label": "诊断转化问题"
+}
